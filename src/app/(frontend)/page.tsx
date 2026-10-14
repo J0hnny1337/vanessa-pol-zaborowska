@@ -14,8 +14,8 @@ export default async function HomePage() {
       {home.blocks.map((block, i) => {
         switch (block.type) {
           case "hero": {
-            const painting = paintings.find((p) => p.id === block.paintingId);
-            return painting ? <Hero key={i} site={site} painting={painting} quote={block.quote} /> : null;
+            const painting = block.paintingId ? paintings.find((p) => p.id === block.paintingId) : undefined;
+            return <Hero key={i} site={site} painting={painting} quote={block.quote} />;
           }
           case "series": {
             const s = series.find((x) => x.id === block.seriesId);

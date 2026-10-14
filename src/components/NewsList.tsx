@@ -13,7 +13,7 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
       {items.map((n) => (
         <article className="news-card" key={n.slug}>
           <Link href={`/aktualnosci/${n.slug}`} className="news-cover" aria-label={n.title}>
-            <Art image={n.cover?.image} placeholder={n.cover?.placeholder ?? "#d9d6d1"} ratio="4 / 3" sizes="(min-width: 900px) 33vw, 100vw" />
+            <Art image={n.cover?.image} placeholder={n.cover?.placeholder ?? "#d9d6d1"} ratio="4 / 3" label="Zdjęcie do uzupełnienia" sizes="(min-width: 900px) 33vw, 100vw" />
           </Link>
           <div className="news-body">
             <p className="eyebrow">{formatDate(n.date)}{n.place && ` · ${n.place}`}</p>

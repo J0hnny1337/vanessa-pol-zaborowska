@@ -57,7 +57,7 @@ export type NavItem = { label: L10n; href: string; children?: { label: L10n; hre
 
 /** Strona główna jako lista bloków: edytorka włącza, wyłącza i zmienia kolejność. */
 export type HomeBlock =
-  | { type: "hero"; paintingId: string; quote: L10n }
+  | { type: "hero"; paintingId?: string; quote: L10n }
   | { type: "series"; seriesId: string }
   | { type: "bio" }
   | { type: "cta" };

@@ -48,6 +48,9 @@ export type SiteSettings = {
   cta: { title: L10n; buttonLabel: L10n; href: string };
 };
 
+/** Sekcja jednostronicowego Portfolio; pozycje podmenu przewijają do sekcji o tym id. */
+export type PortfolioSection = { id: string; title: L10n; kind: "paintings" | "photos" | "text"; placeholder?: L10n };
+
 /** Nagłówek podstrony (zakładki): ten sam układ na każdej podstronie. */
 export type PageHeader = { eyebrow: L10n; title: L10n; subtitle: L10n };
 
@@ -56,7 +59,7 @@ export type NavItem = { label: L10n; href: string; children?: { label: L10n; hre
 
 /** Strona główna: lista sekcji pokazywanych po kolei. */
 export type HomeBlock =
-  | { type: "hero"; paintingId: string; quote: L10n }
+  | { type: "hero"; paintingId?: string; quote: L10n } // bez obrazu: pole z napisem "do uzupełnienia"
   | { type: "series"; seriesId: string }
   | { type: "news" }
   | { type: "bio" }

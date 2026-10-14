@@ -109,18 +109,17 @@ export const paintings: Painting[] = [
     ["w-porcie", "W porcie", "ListopadwPorcie.jpg", 2098, 1520],
     ["w-porcie-2", "W porcie II", "wPorcieListopad.jpg", 1975, 1420],
     ["baltyk", "Bałtyk", "baltykSierpien.jpg", 2510, 1718],
-    ["baltyk-2", "Bałtyk II", "baltykSierpien1.jpg", 2480, 1672],
     ["szkocja", "Szkocja", "wrzesienSzkocja.jpg", 1307, 911],
     ["port", "Port", "PORTlipiec.jpg", 800, 591],
     ["marynistyka", "Marynistyka", "marzecMarynistyka.jpg", 800, 578],
-    ["mar-fb", "Bez tytułu", "FB_IMG_1750537274076.jpg", 2048, 1314],
-    ["mar-2026", "Bez tytułu", "20260616_143004.jpg", 3060, 4080],
+    ["mar-fb", "", "FB_IMG_1750537274076.jpg", 2048, 1314],
+    ["mar-2026", "", "20260616_143004.jpg", 3060, 4080],
   ]),
   ...inSeries("morze-i-plaza", "Morze i plaża", [
     ["impresja", "Impresja", "impresjaStyczen.jpg", 11843, 8757],
     ["impresja-2", "Impresja II", "kwiecienImpresja.jpg", 800, 1136],
     ["impresja-3", "Impresja III", "majImpresja2.jpg", 3426, 2865],
-    ["morze-fb", "Bez tytułu", "FB_IMG_1751661735241.jpg", 1536, 2048],
+    ["morze-fb", "", "FB_IMG_1751661735241.jpg", 1536, 2048],
   ]),
   ...inSeries("pejzaze-i-miasta", "Pejzaże i miasta", [
     ["italia", "Italia", "ItaliaCzerwiec.jpg", 15950, 11080],
@@ -129,7 +128,7 @@ export const paintings: Painting[] = [
     ["paryz-2", "Paryż II", "lipiecParyz.jpg", 1772, 1772],
     ["paryz-3", "Paryż III", "sierpienParyz.jpg", 1772, 1772],
     ["paryz-4", "Paryż IV", "paryzPazdziernik.jpg", 1772, 1772],
-    ["pejzaz-fb", "Bez tytułu", "FB_IMG_1750009376851.jpg", 960, 1280],
+    ["pejzaz-fb", "", "FB_IMG_1750009376851.jpg", 960, 1280],
   ]),
   ...inSeries("portrety-i-postacie", "Portrety i postacie", [
     ["chopin", "Chopin", "ChopinGrudzien.jpg", 13206, 9716],
@@ -137,33 +136,30 @@ export const paintings: Painting[] = [
     ["drzewo-zycia", "Drzewo życia", "pazdziernikDzrzewoZycia.jpg", 2331, 3152],
     ["muzycy", "Muzycy", "muzycyWrzesien.jpg", 2480, 1754],
     ["akt", "Akt", "aktKwiecien.JPG", 2126, 1535],
-    ["postac-fb", "Bez tytułu", "FB_IMG_1751129963038.jpg", 1504, 2015],
-    ["postac-wa19", "Bez tytułu", "IMG-20250713-WA0019.jpg", 1200, 1600],
-    ["postac-wa25", "Bez tytułu", "IMG-20250713-WA0025.jpg", 1200, 1600],
+    ["postac-fb", "", "FB_IMG_1751129963038.jpg", 1504, 2015],
+    ["postac-wa19", "", "IMG-20250713-WA0019.jpg", 1200, 1600],
+    ["postac-wa25", "", "IMG-20250713-WA0025.jpg", 1200, 1600],
   ]),
   ...inSeries("kwiaty", "Kwiaty", [
     ["lilie-wodne", "Lilie wodne", "lilieWodneMaj.jpg", 8903, 8111],
-    ["kwiaty-fb", "Bez tytułu", "FB_IMG_1744314435555.jpg", 720, 960],
+    ["kwiaty-fb", "", "FB_IMG_1744314435555.jpg", 720, 960],
   ]),
   ...inSeries("konie-i-zwierzeta", "Konie i zwierzęta", [
-    ["konie-1", "Bez tytułu", "20260616_142640.jpg", 3060, 4080],
-    ["konie-2", "Bez tytułu", "20260616_203536.jpg", 3060, 4080],
-    ["konie-fb", "Bez tytułu", "FB_IMG_1739215377929.jpg", 1080, 1440],
+    ["konie-1", "", "20260616_142640.jpg", 3060, 4080],
+    ["konie-2", "", "20260616_203536.jpg", 3060, 4080],
+    ["konie-fb", "", "FB_IMG_1739215377929.jpg", 1080, 1440],
   ]),
   ...inSeries("golf", "Golf", [
-    ["golf-1", "Bez tytułu", "20250507_065947.jpg", 3000, 4000],
-    ["golf-2", "Bez tytułu", "20250507_070019.jpg", 3000, 4000],
-    ["golf-3", "Bez tytułu", "20250521_192353.jpg", 3000, 4000],
-    ["golf-4", "Bez tytułu", "20250522_173328.jpg", 4000, 3000],
-    ["golf-5", "Bez tytułu", "20250522_173534.jpg", 3000, 4000],
-    ["golf-6", "Bez tytułu", "20250604_140222.jpg", 3000, 4000],
-    ["golf-7", "Bez tytułu", "20250604_142946.jpg", 3000, 4000],
-    ["golf-8", "Bez tytułu", "Resized_IMG-20250507-WA0008.jpeg", 810, 1080],
+    ["golf-1", "", "20250507_065947.jpg", 3000, 4000],
+    ["golf-4", "", "20250522_173328.jpg", 4000, 3000],
+    ["golf-5", "", "20250522_173534.jpg", 3000, 4000],
+    ["golf-6", "", "20250604_140222.jpg", 3000, 4000],
+    ["golf-7", "", "20250604_142946.jpg", 3000, 4000],
+    ["golf-8", "", "Resized_IMG-20250507-WA0008.jpeg", 810, 1080],
   ]),
   ...inSeries("abstrakcje", "Abstrakcje", [
     ["euforia", "Euforia", "EuforiaMarzec.jpg", 5871, 7346],
-    ["euforia-2", "Euforia II", "grudzienEuforia.jpg", 3456, 4608],
-    ["abstrakcja-fb", "Bez tytułu", "FB_IMG_1748365051309.jpg", 640, 1316],
+    ["abstrakcja-fb", "", "FB_IMG_1748365051309.jpg", 640, 1316],
   ]),
 ];
 
@@ -180,6 +176,7 @@ export const photos: Photo[] = [
   photo("sesja-6", "Sesja portretowa/FB_IMG_1739215733952.jpg", 1080, 1535, 5),
   photo("sesja-7", "Sesja portretowa/FB_IMG_1739215744260.jpg", 1080, 1618, 6),
   photo("sesja-8", "Sesja portretowa/FB_IMG_1751310886861.jpg", 1080, 834, 0),
+  photo("edukacja-1", "Edukacja/edukacja-plener.jpg", 509, 678, 1),
   ...[
     ["FB_IMG_1750537266390.jpg", 1366, 2048], ["FB_IMG_1753471457652.jpg", 1440, 960], ["FB_IMG_1753471490826.jpg", 1440, 960],
     ["FB_IMG_1758523641417.jpg", 1080, 1080], ["FB_IMG_1761856127797.jpg", 2000, 1133], ["FB_IMG_1761856137990.jpg", 2000, 1834],
@@ -191,7 +188,7 @@ export const photos: Photo[] = [
 
 export const home: HomePage = {
   blocks: [
-    { type: "hero", paintingId: "zagle", quote: t("Sztuka jest dla mnie istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.", "To me, art matters when it changes the way we think, both the artist's and the viewer's.") },
+    { type: "hero", quote: t("Sztuka jest dla mnie istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.", "To me, art matters when it changes the way we think, both the artist's and the viewer's.") },
     { type: "cta" },
   ],
 };
@@ -209,7 +206,7 @@ const eyebrow = t("Vanessa Pol-Zaborowska · Malarstwo", "Vanessa Pol-Zaborowska
 
 // Nagłówki prostych podstron (klucz = slug w adresie).
 export const pageHeaders: Record<string, PageHeader> = {
-  portfolio: { eyebrow, title: t("Portfolio", "Portfolio"), subtitle: t("Wszystkie serie", "All series") },
+  portfolio: { eyebrow, title: t("Portfolio", "Portfolio"), subtitle: t("Obrazy · Fotografie · Wiersze · Poezja", "Paintings · Photography · Poems · Poetry") },
   "o-autorce": { eyebrow, title: t("O Autorce", "About the artist"), subtitle: t("Bio · Wystawy · Kolekcje", "Bio · Exhibitions · Collections") },
   aktualnosci: { eyebrow, title: t("Aktualności", "News"), subtitle: t("Wystawy · Wydarzenia · Nowe prace", "Exhibitions · Events · New work") },
   "spotkania-autorskie": { eyebrow, title: t("Spotkania autorskie", "Artist talks"), subtitle: t("Zaproszenia · Terminy", "Invitations · Dates") },
@@ -229,7 +226,7 @@ export const contentPages: Record<string, ContentPage> = {
         "I organise art competitions and coordinate the Strefa Aktywności (Activity Zone) project."),
     ],
     invite: t("Chcesz zapisać się na zajęcia? Napisz lub zadzwoń.", "Would you like to join a class? Write or call me."),
-    photoId: "sesja-2",
+    photoId: "edukacja-1",
   },
   "spotkania-autorskie": {
     body: [
@@ -243,7 +240,7 @@ export const contentPages: Record<string, ContentPage> = {
     ],
     invite: t("Chętnie przyjadę na spotkanie do galerii, biblioteki, szkoły lub klubu. Napisz lub zadzwoń, a ustalimy szczegóły.",
       "I'm happy to come for a talk at a gallery, library, school or club. Write or call me and we'll arrange the details."),
-    photoId: "sesja-7",
+    photoId: "wydarzenie-8",
   },
   aktualnosci: {
     body: [],

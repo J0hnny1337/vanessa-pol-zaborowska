@@ -2,7 +2,8 @@ import type { L10n, Painting, SiteSettings } from "@/lib/types";
 import Art from "./Art";
 import { paintingMeta } from "@/lib/painting";
 
-export default function Hero({ site, painting, quote }: { site: SiteSettings; painting: Painting; quote: L10n }) {
+/** Obraz na górze strony głównej. Bez obrazu pokazuje pole z napisem do uzupełnienia. */
+export default function Hero({ site, painting, quote }: { site: SiteSettings; painting?: Painting; quote: L10n }) {
   return (
     <section className="home-hero">
       <div className="home-hero-in">
@@ -12,10 +13,12 @@ export default function Hero({ site, painting, quote }: { site: SiteSettings; pa
           <blockquote>{quote.pl}</blockquote>
         </div>
         <figure className="home-hero-art">
-          <Art image={painting.image} placeholder={painting.placeholder} ratio={painting.ratio} priority sizes="(min-width: 900px) 50vw, 100vw" />
-          <figcaption className="muted">
-            <strong>{painting.title}</strong>{paintingMeta(painting) && `, ${paintingMeta(painting)}`}
-          </figcaption>
+          <Art image={painting?.image} placeholder={painting?.placeholder ?? "#d9d6d1"} ratio={painting?.ratio ?? "4 / 3"} label="Zdjęcie do uzupełnienia" priority sizes="(min-width: 900px) 50vw, 100vw" />
+          {painting && (
+            <figcaption className="muted">
+              {painting.title && <strong>{painting.title}</strong>}{paintingMeta(painting) && `${painting.title ? ", " : ""}${paintingMeta(painting)}`}
+            </figcaption>
+          )}
         </figure>
       </div>
     </section>

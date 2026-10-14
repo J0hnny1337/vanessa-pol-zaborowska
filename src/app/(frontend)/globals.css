@@ -55,9 +55,8 @@
 :root[data-theme="dark"] .art-ph { filter: invert(1) hue-rotate(180deg) brightness(.9); }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+html { scroll-padding-top: 5rem; } /* skok do sekcji jest natychmiastowy: płynne przewijanie na 7000 px było wolne i się zacinało */
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); font-size: 14.5px; font-weight: 300; line-height: 1.9; -webkit-font-smoothing: antialiased; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 a { color: inherit; text-underline-offset: 3px; }
 img { max-width: 100%; display: block; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
@@ -302,3 +301,24 @@ blockquote { margin: 0; padding-left: 1.4rem; border-left: 1px solid var(--ink);
 .news-preview-card p.muted { font-size: 13.5px; line-height: 1.7; }
 .news-preview-more { margin: 2.5rem 0 0; }
 @media (max-width: 899px) { .news-preview-grid { grid-template-columns: 1fr; } }
+
+/* Portfolio: jedna strona z sekcjami */
+.portfolio-section { padding-top: 4rem; border-top: 1px solid var(--line); }
+.portfolio-section:first-of-type { border-top: 0; padding-top: 0; }
+.portfolio-title { margin-bottom: 0; }
+.portfolio-section .series { border-top: 0; padding: 2rem 0 1rem; }
+.portfolio-section .series h3.display { font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 300; margin: 0; }
+.portfolio-empty { margin: 1.5rem 0 4rem; }
+.portfolio-section > .wide > .grid { margin-top: 2rem; }
+
+/* Siatka z przyciskiem "Pokaż wszystkie" */
+.grid-item[hidden] { display: none; }
+.grid-item.reveal { animation: reveal .4s ease both; }
+@keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .grid-item.reveal { animation: none; } }
+.more-wrap { margin: 2.2rem 0 0; }
+.more-btn { background: none; border: 1px solid var(--ink); color: var(--ink); font: inherit; font-size: 11px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; padding: .95rem 1.7rem; line-height: 1; cursor: pointer; }
+.more-btn:hover { background: var(--ink); color: var(--on-ink); }
+
+/* Napis w pustym polu na zdjęcie */
+.ph-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem; text-align: center; font-size: 12px; font-weight: 400; letter-spacing: .22em; text-transform: uppercase; color: var(--ink); opacity: .6; }
