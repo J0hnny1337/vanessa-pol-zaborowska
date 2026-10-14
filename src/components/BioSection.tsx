@@ -1,8 +1,7 @@
-import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { Exhibition, SiteSettings } from "@/lib/types";
 import Art from "./Art";
 import Carousel from "./Carousel";
-import Rich, { hasText } from "./Rich";
+import Rich from "./Rich";
 
 // Ile wystaw widać od razu; reszta chowa się pod "Pokaż wszystkie".
 const VISIBLE_EXHIBITIONS = 10;
@@ -20,7 +19,7 @@ export default function BioSection({ site, hideTitle }: { site: SiteSettings; hi
             </>
           )}
           <Rich data={site.bio} />
-          {hasText(site.statement) && <RichText className="statement" data={site.statement!} />}
+          <Rich data={site.statement} as="blockquote" className="statement" />
           {site.portfolioPdfUrl && <p><a className="btn-dark" href={site.portfolioPdfUrl}>Pobierz portfolio (PDF)</a></p>}
         </div>
         <div>

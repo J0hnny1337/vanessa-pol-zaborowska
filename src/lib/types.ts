@@ -1,10 +1,8 @@
-// Kształt danych, który dostają komponenty strony. Dane przychodzą z Payload (src/content/data.ts).
-import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
+// Kształt danych, który dostają komponenty strony (src/content/data.ts).
+/** Tekst jako lista akapitów. */
+export type Rich = string[];
 
-/** Tekst z edytora (akapity, pogrubienie, linki). */
-export type Rich = DefaultTypedEditorState;
-
-/** Pole z dwiema wersjami językowymi. Panel jest na razie tylko po polsku, więc pl i en są takie same. */
+/** Pole z dwiema wersjami językowymi (strona pokazuje na razie tylko PL). */
 export type L10n = { pl: string; en: string };
 
 export type Img = { src: string; alt: L10n };
@@ -56,7 +54,7 @@ export type PageHeader = { eyebrow: L10n; title: L10n; subtitle: L10n };
 /** Pozycja menu. Każda zakładka = osobna podstrona (własny adres URL). */
 export type NavItem = { label: L10n; href: string; children?: { label: L10n; href: string; note?: string }[] };
 
-/** Strona główna: stały układ, artystka włącza i wyłącza sekcje w panelu. */
+/** Strona główna: lista sekcji pokazywanych po kolei. */
 export type HomeBlock =
   | { type: "hero"; paintingId: string; quote: L10n }
   | { type: "series"; seriesId: string }

@@ -4,7 +4,6 @@ import "./globals.css";
 import { getNavigation, getSite } from "@/content/data";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LivePreviewListener from "@/components/LivePreviewListener";
 
 // Ustawia zapisany motyw przed pierwszym malowaniem, żeby uniknąć błysku.
 const THEME_INIT = `try{if(localStorage.getItem("theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
@@ -27,7 +26,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <a className="skip" href="#content">Przejdź do treści</a>
-        <LivePreviewListener />
         <Header site={site} nav={nav} />
         <main id="content">{children}</main>
         <Footer site={site} nav={nav} />

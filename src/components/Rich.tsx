@@ -1,17 +1,12 @@
-import { RichText } from "@payloadcms/richtext-lexical/react";
 import type { Rich as RichData } from "@/lib/types";
 
-/** Tekst z edytora w panelu: akapity, pogrubienie, linki. */
-export default function Rich({ data, className = "prose" }: { data?: RichData; className?: string }) {
+/** Tekst jako akapity. `as="blockquote"` daje cytat (credo). */
+export default function Rich({ data, className = "prose", as: Tag = "div" }: { data?: RichData; className?: string; as?: "div" | "blockquote" }) {
   if (!hasText(data)) return null;
-  return <RichText data={data!} className={className} />;
+  return <Tag className={className}>{data!.map((p, i) => <p key={i}>{p}</p>)}</Tag>;
 }
 
-/** Czy edytor zawiera jakikolwiek tekst (pusty edytor to jeden pusty akapit). */
+/** Czy tekst zawiera cokolwiek poza pustymi akapitami. */
 export function hasText(data?: RichData): boolean {
-  const walk = (n: unknown): boolean => {
-    const node = n as { text?: string; children?: unknown[] };
-    return !!node.text?.trim() || !!node.children?.some(walk);
-  };
-  return !!data && walk(data.root);
+  return !!data?.some((p) => p.trim());
 }
