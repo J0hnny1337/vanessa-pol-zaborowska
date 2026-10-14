@@ -1,0 +1,10 @@
+.env
+payload.db*
+media/
+.next/
+node_modules/
+.env.vercel
+.vercel/
+.env*.local
+.DS_Store
+*.tsbuildinfo

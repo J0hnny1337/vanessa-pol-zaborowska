@@ -1,0 +1,18 @@
+/* Własne style panelu: pulpit startowy i ekran logowania. */
+.pulpit { margin-bottom: 2.5rem; }
+.pulpit h2 { margin: 0 0 .4rem; }
+.pulpit-lead { margin: 0 0 1.5rem; max-width: 60ch; color: var(--theme-elevation-600); }
+.pulpit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.pulpit-card {
+  display: flex; flex-direction: column; gap: .4rem; padding: 1.2rem 1.3rem; text-decoration: none;
+  color: var(--theme-text); background: var(--theme-elevation-50); border: 1px solid var(--theme-elevation-150); border-radius: 4px;
+}
+.pulpit-card strong { font-size: 1.1rem; }
+.pulpit-card span { font-size: .9rem; color: var(--theme-elevation-600); }
+.pulpit-card:hover { border-color: var(--theme-text); }
+.pulpit-view { background: var(--theme-text); color: var(--theme-bg); }
+.pulpit-view span { color: inherit; opacity: .8; }
+.pulpit-help { margin: 1.5rem 0 0; padding-left: 1.2rem; color: var(--theme-elevation-600); line-height: 1.7; }
+
+.login-hint { margin: 1rem 0 0; color: var(--theme-elevation-600); font-size: .9rem; }
+.login__form a[href$="/admin/forgot"], .login a[href$="/forgot"] { display: none; }
