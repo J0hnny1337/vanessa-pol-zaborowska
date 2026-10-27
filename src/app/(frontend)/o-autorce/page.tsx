@@ -5,6 +5,7 @@ import { getPageHeader, getPaintings, getSite } from "@/content/data";
 import PageIntro from "@/components/PageIntro";
 import YearList from "@/components/YearList";
 import ContactBand from "@/components/ContactBand";
+import Quotes from "@/components/Quotes";
 import Art from "@/components/Art";
 
 export const metadata: Metadata = { title: "O Autorce" };
@@ -47,7 +48,7 @@ export default async function AboutPage() {
           <h2 id="facts-h" className="h2">W skrócie</h2>
           <dl className="facts-list">
             <div><dt>30+ lat</dt><dd>malowania i wystawiania prac</dd></div>
-            <div><dt>{site.exhibitions.length} wystaw</dt><dd>i wydarzeń, indywidualnych i zbiorowych, od {firstYear} roku</dd></div>
+            <div><dt>Ponad 60</dt><dd>wystaw indywidualnych i zbiorowych</dd></div>
             <div><dt>II nagroda</dt><dd>w międzynarodowym konkursie Galerii Eclusier w Londynie</dd></div>
             <div><dt>Who is Who</dt><dd>sylwetka w XII i XIII wydaniu encyklopedii</dd></div>
           </dl>
@@ -59,6 +60,14 @@ export default async function AboutPage() {
           <div className="prose" data-reveal>
             <h2 className="h2">Wykształcenie i praca</h2>
             <p>{education}</p>
+            {site.work && site.work.length > 0 && (
+              <>
+                <p className="work-intro">Czym się zajmuję:</p>
+                <ul className="work-list">
+                  {site.work.map((w, i) => <li key={i}>{w}</li>)}
+                </ul>
+              </>
+            )}
             <h2 className="h2">Jak maluję</h2>
             <p>{painting}</p>
             <h2 className="h2">Co mnie inspiruje</h2>
@@ -88,18 +97,18 @@ export default async function AboutPage() {
         </section>
       )}
 
-      <section className="quote" aria-label="Credo">
-        <div className="wide" data-reveal>
-          <blockquote>
-            <p>Sztuka jest istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.</p>
-          </blockquote>
-        </div>
-      </section>
+      {site.quotes && site.quotes.length > 0 && (
+        <section className="quote" aria-label="Cytaty">
+          <div className="wide" data-reveal>
+            <Quotes items={site.quotes} />
+          </div>
+        </section>
+      )}
 
       <section className="exh" aria-labelledby="exh-h">
         <div className="wide exh-in">
           <div data-reveal>
-            <h2 id="exh-h" className="h2">Wystawy</h2>
+            <h2 id="exh-h" className="h2">Wybrane wystawy</h2>
             <p className="section-lead">Wystawy indywidualne i zbiorowe w całej Polsce. Obrazy są w kolekcjach prywatnych w Polsce i za granicą.</p>
             <YearList items={recent} />
             {older.length > 0 && (

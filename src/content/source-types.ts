@@ -41,6 +41,8 @@ export type SiteSettings = {
   social: { label: string; url: string }[];
   portfolioPdfUrl?: string;
   bio: L10n[];
+  work?: L10n[]; // czym się zajmuje, jako lista
+  quotes?: L10n[]; // cytaty artystki (O Autorce)
   statement?: L10n[]; // credo artystki, pokazywane pod bio jako cytat
   exhibitions: Exhibition[];
   collections: string[];
@@ -91,6 +93,7 @@ export type ContentPage = {
   listTitle?: L10n;
   items?: DatedItem[];
   topics?: { title: L10n; text: L10n }[]; // tematy z nagłówkami (Edukacja)
+  lessons?: { title: L10n; items: L10n[] }; // czego uczy na zajęciach (Edukacja)
   contact?: ContactPrompt;
   photoId?: string; // zdjęcie obok tytułu
   gallery?: { title: L10n; photoIds: string[] };

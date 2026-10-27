@@ -16,14 +16,31 @@ export const site: SiteSettings = {
   ],
   portfolioPdfUrl: undefined,
   bio: [
-    t("Ukończyłam Wydział Pedagogiki Artystycznej UAM w Poznaniu. Jestem rzeczoznawcą malarstwa. Maluję akwarelą ilustracje do ćwiczeń i podręczników szkolnych, przygotowałam też zarys podręcznika „Podstawy historii sztuki”. Organizuję konkursy plastyczne, koordynuję projekt Strefa Aktywności, a jako kuratorka przygotowuję wystawy w całej Polsce.",
-      "I graduated from the Faculty of Art Education at Adam Mickiewicz University in Poznań and I am a certified painting appraiser. I paint watercolour illustrations for school workbooks and textbooks, and I drafted the outline of a textbook, \"Foundations of Art History\". I organise art competitions, coordinate the Strefa Aktywności (Activity Zone) project, and curate exhibitions across Poland."),
-    t("Maluję od ponad 30 lat. Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję, czyli zapis chwilowego wrażenia, z realizmem. Nie lubię stać w miejscu: wciąż szukam, odkrywam i zaczynam od nowa.",
-      "I have been painting for over 30 years. People call me a colourist with a fine line. In my paintings I bring together impression, the record of a fleeting sensation, and realism. I don't like standing still: I keep searching, discovering and starting anew."),
+    t("Ukończyłam Wydział Pedagogiki Artystycznej UAM w Poznaniu, gdzie studiowałam malarstwo, rzeźbę, grafikę, architekturę i rysunek. Jestem rzeczoznawcą malarstwa.",
+      "I graduated from the Faculty of Art Education at Adam Mickiewicz University in Poznań, where I studied painting, sculpture, printmaking, architecture and drawing. I am a certified painting appraiser."),
+    t("Maluję od ponad 30 lat. Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję, czyli zapis chwilowego wrażenia, z realizmem. Maluję akwarelą, piórem i tuszem, akrylem oraz w technikach mieszanych. Nie lubię stać w miejscu: wciąż szukam, odkrywam i zaczynam od nowa.",
+      "I have been painting for over 30 years. People call me a colourist with a fine line. In my paintings I bring together impression, the record of a fleeting sensation, and realism. I work in watercolour, pen and ink, acrylic and mixed media. I don't like standing still: I keep searching, discovering and starting anew."),
     t("Inspirują mnie podróże, spotkania z ciekawymi ludźmi, architektura i muzyka. Szkicuję i fotografuję. Słucham muzyki klasycznej, jazzu i bluesa. Piszę też liryki, scenariusze i poezję. Obraz, jak każdy proces twórczy, potrzebuje czasu, refleksji i spokoju. Zanim powstanie, zbieram wrażenia i układam z nich projekt, który dopiero potem przenoszę na płótno.",
       "I am inspired by travel, by meeting interesting people, by architecture and by music. I sketch and take photographs. I listen to classical music, jazz and blues, and I also write lyrics, screenplays and poetry. Like any creative process, a painting needs time, reflection and calm. Before it exists, I gather impressions and shape them into an idea, which only later goes onto the canvas."),
     t("Biorę udział w plenerach i wystawach zbiorowych w całej Polsce, m.in. w Poznaniu, Pile, Koszalinie, Warszawie i Kołobrzegu, i pokazuję swoje prace na wystawach indywidualnych. Za portret Fryderyka Chopina otrzymałam drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie. Moje obrazy trafiły do zbiorów prywatnych w Polsce i za granicą. Moją sylwetkę zamieszczono w XII i XIII wydaniu encyklopedii „Who is Who”.",
       "I take part in plein-air workshops and group exhibitions across Poland, including Poznań, Piła, Koszalin, Warsaw and Kołobrzeg, and I show my work in solo exhibitions. My portrait of Fryderyk Chopin won second prize in an international competition held by the Eclusier Gallery in London. My paintings are in private collections in Poland and abroad. My profile appears in the 12th and 13th editions of the \"Who is Who\" encyclopaedia."),
+  ],
+  // Cytaty artystki, zmieniają się po kolei na stronie O Autorce.
+  quotes: [
+    t("Sztuka dla mnie jest istotna wtedy, kiedy zmienia myślenie zarówno twórcy, jak i odbiorcy. Obraz musi być widzialny. Obrazy są otwarte, bo budują wyobraźnię.",
+      "To me, art matters when it changes the way both the artist and the viewer think. A painting must be seen. Paintings are open, because they build imagination."),
+    t("Kiedy rysuję, wszystko wydaje się bardzo proste. Rysunek to jednocześnie niedoceniona forma wypowiedzi.",
+      "When I draw, everything seems very simple. Drawing is also an underrated form of expression."),
+    t("Eksploruję swoje pomysły w sztukę.", "I explore my ideas through art."),
+    t("Sztuka nie jest tylko luksusem. Oddziałuje na odbiorcę, buduje wyobraźnię, a to rozwija poczucie szczęścia.",
+      "Art is not just a luxury. It affects the viewer and builds imagination, and that nurtures a sense of happiness."),
+  ],
+  // Czym się zajmuje: lista pod akapitem o wykształceniu (strona O Autorce).
+  work: [
+    t("Organizuję wystawy w całej Polsce i jestem ich kuratorką.", "I organise and curate exhibitions across Poland."),
+    t("Ilustruję książki, ćwiczenia i podręczniki szkolne, projektuję okładki płyt i inne grafiki.", "I illustrate books, workbooks and school textbooks, and design album covers and other graphics."),
+    t("Przygotowałam zarys podręcznika „Podstawy historii sztuki”.", "I drafted the outline of a textbook, \"Foundations of Art History\"."),
+    t("Organizuję konkursy plastyczne i koordynuję projekt Strefa Aktywności.", "I organise art competitions and coordinate the Strefa Aktywności project."),
   ],
   statement: [
     t("Dziś atakują nas bodźce: hałas, polityka, wydarzenia na świecie. Sztuka skłania do refleksji i otwiera nowe horyzonty. Jest istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.",
@@ -188,8 +205,8 @@ export const photos: Photo[] = [
 ];
 
 export const home: HomePage = {
-  lead: t("Maluję od ponad 30 lat, najchętniej akwarelą. Zapisuję chwilowe wrażenia: morze, żagle, światło miast i twarze ludzi.",
-    "I have been painting for over 30 years, most often in watercolour. I record fleeting impressions: the sea, sails, the light of cities and people's faces."),
+  lead: t("Pedagog i rzeczoznawca malarstwa. Maluję od ponad 30 lat, najchętniej akwarelą. Zapisuję chwilowe wrażenia: morze, żagle, światło miast i twarze ludzi.",
+    "Art teacher and certified painting appraiser. I have been painting for over 30 years, most often in watercolour. I record fleeting impressions: the sea, sails, the light of cities and people's faces."),
   stagePaintingIds: ["zagle", "italia", "chopin", "lilie-wodne"],
   letter: [
     t("Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję z realizmem.",
@@ -224,7 +241,7 @@ export const pageHeaders: Record<string, PageHeader> = {
   portfolio: { title: t("Portfolio", "Portfolio"),
     lead: t("Obrazy z ośmiu serii: od żaglowców i morza po portrety, kwiaty i abstrakcje. Kliknij obraz, żeby go powiększyć.", "Paintings from eight series. Click a painting to enlarge it.") },
   "o-autorce": { title: t("O Autorce", "About the artist"),
-    lead: t("Malarka i akwarelistka. Od ponad 30 lat maluję morze i żaglowce, miasta, portrety i kwiaty.", "Painter and watercolourist for over 30 years.") },
+    lead: t("Pedagog i rzeczoznawca malarstwa. Od ponad 30 lat maluję morze i żaglowce, miasta, portrety i kwiaty.", "Art teacher and certified painting appraiser. For over 30 years I have painted the sea and tall ships, cities, portraits and flowers.") },
   aktualnosci: { title: t("Aktualności", "News"),
     lead: t("Gdzie teraz można zobaczyć moje obrazy i co nowego w pracowni.", "Where to see my paintings now and what's new in the studio.") },
   "spotkania-autorskie": { title: t("Spotkania autorskie", "Artist talks"),
@@ -254,6 +271,14 @@ export const contentPages: Record<string, ContentPage> = {
       { title: t("Konkursy i Strefa Aktywności", "Competitions and Strefa Aktywności"),
         text: t("Organizuję konkursy plastyczne i koordynuję projekt Strefa Aktywności.", "I organise art competitions and coordinate the Strefa Aktywności project.") },
     ],
+    lessons: {
+      title: t("Czego nauczę Cię na zajęciach indywidualnych", "What you will learn in individual lessons"),
+      items: [
+        t("Historii sztuki", "Art history"),
+        t("Teorii i działania praktycznego", "Theory and hands-on practice"),
+        t("Zastosowania wszystkich technik plastycznych", "Using every art technique"),
+      ],
+    },
     contact: { sentence: t("Zajęcia prowadzę indywidualnie i w grupach, w pracowni i w plenerze.", "Classes for individuals and groups, in the studio and outdoors."),
       question: t("Chcesz umówić lekcje?", "Would you like to book lessons?"), subject: "Zajęcia z rysunku i malarstwa" },
     photoId: "edukacja-2",

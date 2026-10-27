@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getHome, getSeries, getSite } from "@/content/data";
+import { getHome, getPaintings, getSeries, getSite } from "@/content/data";
 import type { Painting, Series } from "@/lib/types";
 import Stage, { type StageItem } from "@/components/Stage";
 import ContactBand from "@/components/ContactBand";
@@ -13,7 +13,13 @@ const toStage = (p: Painting, series: Series[]): StageItem => ({
 });
 
 export default async function HomePage() {
-  const [site, home, series] = await Promise.all([getSite(), getHome(), getSeries()]);
+  const [site, home, series, paintings] = await Promise.all([getSite(), getHome(), getSeries(), getPaintings()]);
+
+  // Każda seria z jej pierwszym obrazem.
+  const seriesCovers = series.flatMap((s) => {
+    const first = paintings.filter((p) => p.seriesId === s.id).sort((a, b) => a.order - b.order)[0];
+    return first ? [{ series: s, cover: first }] : [];
+  });
 
   // Gdzie zobaczyć obrazy: najnowsze pozycje z listy wystaw.
   const where = site.exhibitions.slice(0, 5);
@@ -43,6 +49,24 @@ export default async function HomePage() {
           </section>
         }
       />
+
+      <section className="series-band" aria-labelledby="series-h">
+        <div className="wide">
+          <h2 id="series-h" className="h2" data-reveal>Serie obrazów</h2>
+          <ul className="series-grid" data-reveal>
+            {seriesCovers.map(({ series: s, cover }) => (
+              <li key={s.id}>
+                <Link href={`/portfolio#${s.id}`}>
+                  <span className="series-pic">
+                    <Art image={cover.image} placeholder={cover.placeholder} ratio="1 / 1" sizes="(min-width: 900px) 25vw, 50vw" />
+                  </span>
+                  <span className="series-name">{s.name.pl}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       <section className="where" aria-labelledby="where-h">
         <div className="wide where-in">

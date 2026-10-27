@@ -31,6 +31,17 @@ export default async function EducationPage() {
         </p>
       </PageIntro>
 
+      {page.lessons && (
+        <section className="lessons" aria-labelledby="lessons-h">
+          <div className="wide">
+            <h2 id="lessons-h" className="h2" data-reveal>{page.lessons.title.pl}</h2>
+            <ul className="lessons-list" data-reveal>
+              {page.lessons.items.map((it, i) => <li key={i}>{it.pl}</li>)}
+            </ul>
+          </div>
+        </section>
+      )}
+
       {page.topics && (
         <section className="topics" aria-labelledby="topics-h">
           <div className="wide">

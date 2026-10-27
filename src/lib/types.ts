@@ -38,6 +38,8 @@ export type SiteSettings = {
   social: { label: string; url: string }[];
   portfolioPdfUrl?: string;
   bio: Rich;
+  work?: Rich; // czym się zajmuje, jako lista
+  quotes?: Rich; // cytaty artystki (O Autorce)
   statement?: Rich; // credo artystki, pokazywane pod bio jako cytat
   portrait?: Photo; // zdjęcie artystki w sekcji bio
   exhibitionPhotos: Photo[]; // karuzela obok listy wystaw
@@ -92,6 +94,7 @@ export type ContentPage = {
   listTitle?: L10n;
   items?: DatedItem[];
   topics?: { title: L10n; text: L10n }[]; // tematy z nagłówkami (Edukacja)
+  lessons?: { title: L10n; items: L10n[] }; // czego uczy na zajęciach (Edukacja)
   contact?: ContactPrompt;
   photo?: Photo; // zdjęcie obok tytułu
   gallery?: { title: L10n; photos: Photo[] };

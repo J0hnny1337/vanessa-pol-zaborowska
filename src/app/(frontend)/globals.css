@@ -130,9 +130,20 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 
 
 .letter { margin-top: var(--section); }
-.letter p { max-width: 60ch; }
+.letter p { max-width: 60ch; font-style: italic; }
+.letter p.soft { font-style: normal; }
 .letter-sign { width: 220px; height: auto; margin: 2rem 0 .4rem; }
 .letter .soft { font-size: var(--t-small); margin-bottom: 2rem; }
+
+/* Serie obrazów: obraz i nazwa, kliknięcie prowadzi do serii w Portfolio */
+.series-band { padding: 0 0 var(--section); }
+.series-grid { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 1.5rem; }
+.series-grid a { display: block; text-decoration: none; color: var(--ink); }
+.series-pic { display: block; overflow: hidden; }
+.series-pic .art img { transition: transform .6s var(--ease); }
+.series-grid a:hover .series-pic .art img, .series-grid a:focus-visible .series-pic .art img { transform: scale(1.05); }
+.series-name { display: inline-block; margin-top: .9rem; font-size: 19px; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 1px; text-underline-offset: 5px; transition: text-decoration-color .2s; }
+.series-grid a:hover .series-name { text-decoration-color: currentColor; }
 
 /* Gdzie zobaczyć obrazy */
 .where { padding: var(--section) 0; background: var(--band); }
@@ -169,6 +180,10 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .bio { padding: var(--section) 0; }
 .bio-in, .exh-in, .talks-in, .pt-about-in { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
 .prose p { margin-bottom: 1.4rem; }
+.work-intro { color: var(--ink); font-weight: 400; margin-bottom: .6rem !important; }
+.work-list { margin: 0 0 1.4rem; padding-left: 1.2rem; max-width: 60ch; }
+.work-list li + li { margin-top: .5rem; }
+.work-list li::marker { color: var(--soft); }
 .side-art, .exh-photos { position: sticky; top: 7rem; }
 .prize { background: var(--dark); color: var(--on-dark); padding: var(--section) 0; }
 .prize .h2, .prize .text-link { color: #fff; }
@@ -176,7 +191,16 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .prize-in { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
 .quote { padding: var(--section) 0 3rem; }
 .quote blockquote { margin: 0; }
-.quote p { font-size: var(--t-h2); line-height: 1.3; font-weight: 200; color: var(--ink); max-width: 34ch; margin: 0 auto; text-align: center; }
+.quote p { font-size: var(--t-h2); line-height: 1.3; font-weight: 200; font-style: italic; color: var(--ink); max-width: 44ch; margin: 0 auto; text-align: center; }
+/* Cytaty leżą jeden na drugim, więc wysokość nie skacze przy zmianie */
+.quotes-stack { display: grid; }
+.quotes-stack blockquote { grid-area: 1 / 1; align-self: center; opacity: 0; visibility: hidden; transition: opacity 1.2s ease, visibility 1.2s; }
+.quotes-stack blockquote.on { opacity: 1; visibility: visible; }
+.quotes-dots { display: flex; justify-content: center; gap: .3rem; margin-top: 2rem; }
+.quotes-dots button { width: 32px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; position: relative; }
+.quotes-dots button::after { content: ""; position: absolute; inset: 0; margin: auto; width: 9px; height: 9px; border-radius: 50%; background: var(--soft); opacity: .45; transition: opacity .2s, transform .2s; }
+.quotes-dots button.on::after { opacity: 1; background: var(--ink); transform: scale(1.15); }
+.quotes-dots button:hover::after { opacity: 1; }
 .exh { padding: 4.5rem 0 var(--section); }
 .exh-photos { display: grid; gap: 1.2rem; }
 .exh-photos .soft { font-size: var(--t-small); margin: 0; }
@@ -243,6 +267,9 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .topic-list p { margin: 0; max-width: 50ch; }
 .topic-list.with-pics li { grid-template-columns: 110px 1fr 1.3fr auto; align-items: center; }
 .topic-thumb { width: 110px; }
+.lessons { background: var(--band); padding: var(--section) 0; margin-bottom: var(--section); }
+.lessons-list { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; }
+.lessons-list li { font-size: var(--t-lead); line-height: 1.3; font-weight: 200; color: var(--ink); max-width: 18ch; }
 .contact-big { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; }
 .contact-big span { display: block; font-size: var(--t-small); }
 .contact-big a { font-size: var(--t-lead); color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 6px; }
@@ -335,10 +362,13 @@ figcaption strong { color: var(--ink); font-weight: 400; }
   .stage-intro { order: 1; padding-top: 2.5rem; }
   .stage-pic { order: 2; position: relative; top: 0; height: 62svh; margin: 3rem calc(var(--gutter) * -1) 0; }
   .letter { order: 3; margin-bottom: var(--section); }
+  .series-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
+  .series-name { font-size: 17px; }
   .stage-intro { min-height: 0; }
   .offer-list li, .topic-list li { grid-template-columns: 1fr; gap: .6rem; }
   .pgrid { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
-  .steps-list { grid-template-columns: 1fr; gap: 2rem; }
+  .steps-list, .lessons-list { grid-template-columns: 1fr; gap: 1.5rem; }
+  .lessons-list li { max-width: none; }
   .steps-list p { max-width: none; }
   .news-sec .wide { grid-template-columns: 1fr; }
   .topic-list.with-pics li { grid-template-columns: 80px 1fr; }

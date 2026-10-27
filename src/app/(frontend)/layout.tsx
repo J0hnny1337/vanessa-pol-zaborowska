@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@fontsource-variable/jost";
+import "@fontsource-variable/jost/wght-italic.css";
 import "./globals.css";
 import { getNavigation, getSite } from "@/content/data";
 import Header from "@/components/Header";
