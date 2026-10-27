@@ -51,32 +51,29 @@ export type SiteSettings = {
 /** Sekcja jednostronicowego Portfolio; pozycje podmenu przewijają do sekcji o tym id. */
 export type PortfolioSection = { id: string; title: L10n; kind: "paintings" | "photos" | "text"; placeholder?: L10n };
 
-/** Nagłówek podstrony (zakładki): ten sam układ na każdej podstronie. */
-export type PageHeader = { eyebrow: L10n; title: L10n; subtitle: L10n };
+/** Nagłówek podstrony: tytuł i jedno zdanie, co tu jest. */
+export type PageHeader = { title: L10n; lead: L10n };
 
 /** Pozycja menu. Każda zakładka = osobna podstrona (własny adres URL). */
 export type NavItem = { label: L10n; href: string; children?: { label: L10n; href: string; note?: string }[] };
 
-/** Strona główna: lista sekcji pokazywanych po kolei. */
-export type HomeBlock =
-  | { type: "hero"; paintingId?: string; quote: L10n } // bez obrazu: pole z napisem "do uzupełnienia"
-  | { type: "series"; seriesId: string }
-  | { type: "news" }
-  | { type: "bio" }
-  | { type: "cta" };
+/** Jedna z rzeczy, które można u artystki zamówić lub z nią zrobić. */
+export type Offer = { title: L10n; text: L10n; href: string; linkLabel: L10n };
 
-export type HomePage = { blocks: HomeBlock[] };
+/** Strona główna: zdanie pod imieniem, obrazy na „sztaludze”, list od artystki, oferta. */
+export type HomePage = { lead: L10n; stagePaintings: Painting[]; letter: Rich; offers: Offer[] };
 
-/** Podstrona z opisem usługi (np. "Portrety na zamówienie"). */
+/** Zaproszenie do kontaktu na końcu podstrony; temat trafia do wiadomości e-mail. */
+export type ContactPrompt = { sentence: L10n; question: L10n; subject: string };
+
+/** Podstrona z opisem usługi (Portrety na zamówienie). */
 export type ServicePage = {
   slug: string;
-  eyebrow: L10n;
   title: L10n;
-  subtitle: L10n;
   lead: L10n;
-  heading: L10n;
-  photo?: Photo;
+  painting?: Painting;
   body: Rich;
+  steps: { title: L10n; text: L10n }[];
   needs: { title: L10n; items: L10n[] };
   galleryTitle: L10n;
   galleryPaintingIds: string[];
@@ -94,7 +91,8 @@ export type ContentPage = {
   body?: Rich;
   listTitle?: L10n;
   items?: DatedItem[];
-  invite?: L10n; // zaproszenie do kontaktu na końcu tekstu
-  photo?: Photo; // zdjęcie obok tekstu
+  topics?: { title: L10n; text: L10n }[]; // tematy z nagłówkami (Edukacja)
+  contact?: ContactPrompt;
+  photo?: Photo; // zdjęcie obok tytułu
   gallery?: { title: L10n; photos: Photo[] };
 };

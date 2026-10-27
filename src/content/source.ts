@@ -188,31 +188,51 @@ export const photos: Photo[] = [
 ];
 
 export const home: HomePage = {
-  blocks: [
-    { type: "hero", quote: t("Sztuka jest dla mnie istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.", "To me, art matters when it changes the way we think, both the artist's and the viewer's.") },
-    { type: "cta" },
+  lead: t("Malarka i akwarelistka. Maluję morze i żaglowce, miasta, portrety i kwiaty. Obrazy można kupić, a portret zamówić.",
+    "Painter and watercolourist. I paint the sea and tall ships, cities, portraits and flowers. Paintings are for sale and portraits can be commissioned."),
+  stagePaintingIds: ["zagle", "italia", "chopin", "lilie-wodne"],
+  letter: [
+    t("Maluję od ponad 30 lat. Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję, czyli zapis chwilowego wrażenia, z realizmem.",
+      "I have been painting for over 30 years. People call me a colourist with a fine line. In my paintings I bring together impression and realism."),
+    t("Inspirują mnie podróże, ludzie, architektura i muzyka. Zanim obraz powstanie, zbieram wrażenia i układam z nich projekt, który dopiero potem przenoszę na płótno.",
+      "I am inspired by travel, people, architecture and music. Before a painting exists, I gather impressions and shape them into an idea, which only later goes onto the canvas."),
+    t("Sztuka jest dla mnie istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.",
+      "To me, art matters when it changes the way we think, both the artist's and the viewer's."),
+  ],
+  offers: [
+    { title: t("Portret na zamówienie", "Commissioned portrait"), href: "/portrety-energetyczne", linkLabel: t("Jak zamówić portret", "How to commission"),
+      text: t("Namaluję portret bliskiej osoby na podstawie zdjęć i rozmowy o niej.", "I paint a portrait of someone close to you from photographs and a conversation about them.") },
+    { title: t("Zajęcia z rysunku i malarstwa", "Drawing and painting classes"), href: "/edukacja", linkLabel: t("O zajęciach", "About the classes"),
+      text: t("Uczę rysunku, kompozycji i koloru. Przygotowuję do egzaminów do szkół artystycznych.", "I teach drawing, composition and colour, and prepare students for art school exams.") },
+    { title: t("Spotkanie autorskie", "Artist talk"), href: "/spotkania-autorskie", linkLabel: t("O spotkaniach", "About the talks"),
+      text: t("Przyjadę do galerii, biblioteki, szkoły lub klubu z obrazami i poezją.", "I come to galleries, libraries, schools and clubs with paintings and poetry.") },
   ],
 };
 
 // Menu główne. Nowa zakładka = nowy wpis tutaj + folder w src/app/<slug>/page.tsx.
 export const navigation: NavItem[] = [
   { label: t("Portfolio", "Portfolio"), href: "/portfolio" },
+  { label: t("Portrety", "Portraits"), href: "/portrety-energetyczne" },
   { label: t("O Autorce", "About the artist"), href: "/o-autorce" },
   { label: t("Aktualności", "News"), href: "/aktualnosci" },
   { label: t("Spotkania autorskie", "Artist talks"), href: "/spotkania-autorskie" },
   { label: t("Edukacja", "Education"), href: "/edukacja" },
 ];
 
-const eyebrow = t("Vanessa Pol-Zaborowska · Malarstwo", "Vanessa Pol-Zaborowska · Painting");
-
-// Nagłówki prostych podstron (klucz = slug w adresie).
+// Nagłówki podstron (klucz = slug w adresie): tytuł i jedno zdanie, co tu jest.
 export const pageHeaders: Record<string, PageHeader> = {
-  portfolio: { eyebrow, title: t("Portfolio", "Portfolio"), subtitle: t("Obrazy · Fotografie · Wiersze · Poezja", "Paintings · Photography · Poems · Poetry") },
-  "o-autorce": { eyebrow, title: t("O Autorce", "About the artist"), subtitle: t("Bio · Wystawy · Kolekcje", "Bio · Exhibitions · Collections") },
-  aktualnosci: { eyebrow, title: t("Aktualności", "News"), subtitle: t("Wystawy · Wydarzenia · Nowe prace", "Exhibitions · Events · New work") },
-  "spotkania-autorskie": { eyebrow, title: t("Spotkania autorskie", "Artist talks"), subtitle: t("Zaproszenia · Terminy", "Invitations · Dates") },
-  edukacja: { eyebrow, title: t("Edukacja", "Education"), subtitle: t("Zajęcia · Przygotowanie do egzaminów · Konkursy", "Classes · Exam preparation · Competitions") },
-  kontakt: { eyebrow, title: t("Kontakt", "Contact"), subtitle: t("Napisz lub zadzwoń", "Write or call") },
+  portfolio: { title: t("Portfolio", "Portfolio"),
+    lead: t("Obrazy z ośmiu serii: od żaglowców i morza po portrety, kwiaty i abstrakcje. Kliknij obraz, żeby go powiększyć.", "Paintings from eight series. Click a painting to enlarge it.") },
+  "o-autorce": { title: t("O Autorce", "About the artist"),
+    lead: t("Malarka i akwarelistka. Od ponad 30 lat maluję morze i żaglowce, miasta, portrety i kwiaty.", "Painter and watercolourist for over 30 years.") },
+  aktualnosci: { title: t("Aktualności", "News"),
+    lead: t("Gdzie teraz można zobaczyć moje obrazy i co nowego w pracowni.", "Where to see my paintings now and what's new in the studio.") },
+  "spotkania-autorskie": { title: t("Spotkania autorskie", "Artist talks"),
+    lead: t("Spotkania literacko-malarskie: pokazuję obrazy i czytam swoją poezję.", "Literary and painting events: I show my paintings and read my poetry.") },
+  edukacja: { title: t("Edukacja", "Education"),
+    lead: t("Zajęcia z rysunku i malarstwa oraz przygotowanie do egzaminów do szkół artystycznych.", "Drawing and painting classes and art school exam preparation.") },
+  kontakt: { title: t("Kontakt", "Contact"),
+    lead: t("Zapraszam do kontaktu w sprawie obrazów, portretów, spotkań autorskich i zajęć. Odpowiadam na każdą wiadomość.", "Get in touch about paintings, portraits, artist talks or classes. I answer every message.") },
 };
 
 // Treść prostych podstron (klucz = slug w adresie).
@@ -226,7 +246,17 @@ export const contentPages: Record<string, ContentPage> = {
       t("Organizuję konkursy plastyczne i koordynuję projekt Strefa Aktywności.",
         "I organise art competitions and coordinate the Strefa Aktywności (Activity Zone) project."),
     ],
-    invite: t("Chcesz zapisać się na zajęcia? Napisz lub zadzwoń.", "Would you like to join a class? Write or call me."),
+    topics: [
+      { title: t("Przygotowanie do egzaminów", "Exam preparation"),
+        text: t("Przygotowuję młodzież do egzaminów do szkół artystycznych: uczę rysunku, kompozycji i pracy z kolorem.", "I prepare young people for art school entrance exams.") },
+      { title: t("Ilustracje i podręczniki", "Illustrations and textbooks"),
+        text: t("Tworzę akwarelowe ilustracje do ćwiczeń i podręczników szkolnych. Przygotowałam też zarys podręcznika „Podstawy historii sztuki”.", "I create watercolour illustrations for school textbooks.") },
+      { title: t("Konkursy i Strefa Aktywności", "Competitions and Strefa Aktywności"),
+        text: t("Organizuję konkursy plastyczne i koordynuję projekt Strefa Aktywności.", "I organise art competitions and coordinate the Strefa Aktywności project.") },
+    ],
+    contact: { sentence: t("Zajęcia prowadzę indywidualnie i w grupach, w pracowni i w plenerze.", "Classes for individuals and groups, in the studio and outdoors."),
+      question: t("Chcesz umówić lekcje?", "Would you like to book lessons?"), subject: "Zajęcia z rysunku i malarstwa" },
+    photoId: "edukacja-2",
     gallery: { title: t("Z zajęć", "From the classes"), photoIds: ["edukacja-2", "edukacja-1"] },
   },
   "spotkania-autorskie": {
@@ -239,8 +269,8 @@ export const contentPages: Record<string, ContentPage> = {
       { year: 2024, title: t("Spotkanie autorskie literacko-malarskie", "Literary and painting event"), place: "Galeria Sztuki Rosen ART, Sopot" },
       { year: 2023, title: t("Spotkanie autorskie literacko-malarskie", "Literary and painting event"), place: "Super Yachts Club, Gdynia" },
     ],
-    invite: t("Chętnie przyjadę na spotkanie do galerii, biblioteki, szkoły lub klubu. Napisz lub zadzwoń, a ustalimy szczegóły.",
-      "I'm happy to come for a talk at a gallery, library, school or club. Write or call me and we'll arrange the details."),
+    contact: { sentence: t("Chętnie przyjadę na spotkanie do galerii, biblioteki, szkoły lub klubu.", "I'm happy to come for a talk at a gallery, library, school or club."),
+      question: t("Chcesz zaprosić mnie na spotkanie?", "Would you like to invite me?"), subject: "Spotkanie autorskie" },
     photoId: "wydarzenie-8",
   },
   aktualnosci: {
@@ -254,39 +284,41 @@ export const contentPages: Record<string, ContentPage> = {
     gallery: { title: t("Z wystaw i wydarzeń", "From exhibitions and events"), photoIds: Array.from({ length: 13 }, (_, i) => `wydarzenie-${i + 1}`) },
   },
   kontakt: {
-    body: [
-      t("Zapraszam do kontaktu w sprawie obrazów, wystaw, spotkań autorskich i zajęć. Odpowiadam na każdą wiadomość.",
-        "Get in touch about paintings, exhibitions, artist talks or classes. I answer every message."),
-    ],
+    body: [],
     photoId: "sesja-3",
   },
 };
 
+// TEKST PRZYKŁADOWY (do potwierdzenia przez autorkę): opis, kroki i czas realizacji.
 export const portraitsPage: ServicePage = {
   slug: "portrety-energetyczne",
-  eyebrow: t("Vanessa Pol-Zaborowska · Malarstwo", "Vanessa Pol-Zaborowska · Painting"),
   title: t("Portrety na zamówienie", "Commissioned portraits"),
-  subtitle: t("Malarstwo · Portrety na zamówienie", "Painting · Commissioned portraits"),
-  lead: t(
-    "Jedno zdanie, które w skrócie mówi, czym są portrety i dla kogo.",
-    "One sentence that says in short what the portraits are and who they are for.",
-  ),
-  heading: t("Portrety", "Portraits"),
-  photoId: "sesja-8",
+  lead: t("Namaluję portret bliskiej osoby na podstawie zdjęć i rozmowy o niej. To dobry pomysł na prezent i pamiątkę na lata.",
+    "I paint a portrait of someone close to you from photographs and a conversation about them."),
+  paintingId: "drzewo-zycia",
   body: [
-    t("Pierwszy akapit: od jak dawna artystka maluje i skąd wzięła się ta forma portretu.", "First paragraph: how long the artist has painted and where this kind of portrait comes from."),
-    t("Drugi akapit: co jest w centrum uwagi i czym portret różni się od kopiowania fotografii.", "Second paragraph: what the focus is and how the portrait differs from copying a photograph."),
-    t("Trzeci akapit: jak wygląda proces i czego potrzeba do realizacji.", "Third paragraph: how the process works and what is needed to start."),
+    t("Portrety maluję od ponad 30 lat. Za portret Fryderyka Chopina otrzymałam drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie.",
+      "I have painted portraits for over 30 years. My portrait of Fryderyk Chopin won second prize at the Eclusier Gallery in London."),
+    t("Portret nie jest kopią fotografii. Szukam w nim charakteru osoby: jej pasji, ulubionych miejsc i kolorów. Dlatego zanim zacznę malować, chcę tę osobę poznać, choćby z Twojej opowieści.",
+      "A portrait is not a copy of a photograph. I look for the person's character: their passions, favourite places and colours."),
+  ],
+  steps: [
+    { title: t("Napisz lub zadzwoń", "Get in touch"),
+      text: t("Opowiedz, kogo chcesz sportretować i na jaką okazję. Ustalimy format i technikę.", "Tell me who the portrait is of and for what occasion. We agree the size and technique.") },
+    { title: t("Prześlij zdjęcia i kilka słów", "Send photos and a few words"),
+      text: t("Kilka zdjęć portretowanej osoby i parę zdań o niej: co lubi, czym się zajmuje.", "A few photographs and a few sentences about the person.") },
+    { title: t("Maluję portret", "I paint the portrait"),
+      text: t("Gotowy obraz sygnuję i opisuję tytułem oraz datą. Umówimy się na odbiór lub wysyłkę.", "The finished painting is signed, titled and dated. We arrange collection or delivery.") },
   ],
   needs: {
-    title: t("Portret na zamówienie: czego potrzebuję?", "Commissioned portrait: what do I need?"),
+    title: t("Czego potrzebuję", "What I need"),
     items: [
       t("Kilka zdjęć portretowanej osoby", "A few photographs of the person"),
       t("Kilka słów o tej osobie", "A few words about the person"),
-      t("Zainteresowania, pasje", "Interests, passions"),
-      t("Ulubione miejsca, kolory", "Favourite places, colours"),
+      t("Jej zainteresowania i pasje", "Interests, passions"),
+      t("Ulubione miejsca i kolory", "Favourite places, colours"),
     ],
   },
   galleryTitle: t("Wybrane portrety", "Selected portraits"),
-  galleryPaintingIds: ["chopin", "chopin-2", "drzewo-zycia", "postac-fb", "postac-wa19", "postac-wa25"],
+  galleryPaintingIds: ["chopin", "chopin-2", "drzewo-zycia", "muzycy", "postac-fb", "postac-wa19", "postac-wa25"],
 };

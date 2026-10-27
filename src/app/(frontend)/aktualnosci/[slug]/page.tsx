@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { getNewsArticle, getNewsList, getSite } from "@/content/data";
 import Art from "@/components/Art";
 import Article from "@/components/Article";
-import CtaBand from "@/components/CtaBand";
+import ContactBand from "@/components/ContactBand";
 import { formatDate } from "@/components/NewsList";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -26,23 +26,20 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <>
-      <section className="page-hero">
-        <div className="narrow">
-          <p className="eyebrow"><Link href="/aktualnosci">← Aktualności</Link></p>
-          <h1 className="display">{article.title}</h1>
-          <p className="eyebrow">{formatDate(article.date)}{article.place && ` · ${article.place}`}</p>
+      <article className="article-page">
+        <div className="wide narrow-col">
+          <p className="back"><Link href="/aktualnosci" className="text-link">← Aktualności</Link></p>
+          <h1 className="intro-title">{article.title}</h1>
+          <p className="intro-lead">{formatDate(article.date)}{article.place && `, ${article.place}`}</p>
+          {article.cover?.image && (
+            <figure className="article-cover">
+              <Art image={article.cover.image} placeholder={article.cover.placeholder} ratio={article.cover.ratio} priority sizes="(min-width: 900px) 760px, 100vw" />
+            </figure>
+          )}
+          <Article data={article.content} />
         </div>
-      </section>
-      <div className="narrow article-wrap">
-        {article.cover?.image && (
-          <figure className="article-cover">
-            <Art image={article.cover.image} placeholder={article.cover.placeholder} ratio={article.cover.ratio} priority sizes="(min-width: 900px) 760px, 100vw" />
-          </figure>
-        )}
-        <Article data={article.content} />
-        <p className="back"><Link href="/aktualnosci" className="caps">← Wszystkie aktualności</Link></p>
-      </div>
-      <CtaBand site={site} />
+      </article>
+      <ContactBand site={site} />
     </>
   );
 }

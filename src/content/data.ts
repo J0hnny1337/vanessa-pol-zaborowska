@@ -30,6 +30,7 @@ const para = (items: L10n[] = []) => items.map((p) => p.pl);
 const site: SiteSettings = {
   artistName: src.site.artistName,
   tagline: src.site.tagline,
+  logo: { src: "/img/podpis.png", alt: t("Vanessa Pol-Zaborowska, podpis") },
   email: src.site.email,
   phone: src.site.phone,
   social: src.site.social,
@@ -50,19 +51,22 @@ export async function getSeries(): Promise<Series[]> {
   return [...src.series].sort((a, b) => a.order - b.order);
 }
 
+const seriesName = (id?: string) => src.series.find((s) => s.id === id)?.name.pl;
+
 const paintings: Painting[] = src.paintings.map((p) => ({
   id: p.id, title: p.title, seriesId: p.seriesId, year: p.year, widthCm: p.widthCm, heightCm: p.heightCm,
   ratio: p.ratio, technique: p.technique, status: p.status, order: p.order, placeholder: p.placeholder,
-  image: imgOf(p.source, p.title || "Obraz"),
+  image: imgOf(p.source, [p.title || "Obraz", seriesName(p.seriesId)?.toLowerCase()].filter(Boolean).join(", z serii ")),
 }));
+const paintingById = (id: string) => paintings.find((p) => p.id === id);
 export async function getPaintings() { return paintings; }
 
 // ---- Portfolio: jedna strona z sekcjami ----
 const portfolioSections: PortfolioSection[] = [
   { id: "obrazy", title: t("Obrazy"), kind: "paintings" },
-  { id: "fotografie", title: t("Fotografie"), kind: "photos", placeholder: t("Tu pojawią się fotografie.") },
-  { id: "wiersze", title: t("Wiersze"), kind: "text", placeholder: t("Tu pojawią się wiersze.") },
-  { id: "poezja", title: t("Poezja"), kind: "text", placeholder: t("Tu pojawi się poezja.") },
+  { id: "fotografie", title: t("Fotografie"), kind: "photos", placeholder: t("Wkrótce pokażę tu swoje fotografie.") },
+  { id: "wiersze", title: t("Wiersze"), kind: "text", placeholder: t("Wkrótce pokażę tu swoje wiersze.") },
+  { id: "poezja", title: t("Poezja"), kind: "text", placeholder: t("Wkrótce: proza poetycka, m.in. z tomiku „Druga Strona Ciszy”.") },
 ];
 export async function getPortfolioSections() { return portfolioSections; }
 
@@ -84,14 +88,8 @@ export async function getNewsArticle(slug: string): Promise<NewsArticle | null> 
 
 // ---- Strona główna ----
 export async function getHome(): Promise<HomePage> {
-  const hero = src.home.blocks.find((b) => b.type === "hero");
-  return {
-    blocks: [
-      ...(hero ? [hero] : []),
-      ...(articles.length ? [{ type: "news" as const }] : []),
-      { type: "cta" as const },
-    ],
-  };
+  const { lead, stagePaintingIds, letter, offers } = src.home;
+  return { lead, letter: para(letter), offers, stagePaintings: stagePaintingIds.map(paintingById).filter((p) => !!p) };
 }
 
 // ---- Nagłówki i treść podstron ----
@@ -104,7 +102,7 @@ export async function getContentPage(slug: string): Promise<ContentPage | null> 
   if (!page) return null;
   const gallery = page.gallery && { title: page.gallery.title, photos: photosOf(page.gallery.photoIds) };
   return {
-    body: para(page.body), listTitle: page.listTitle, invite: page.invite, photo: photo(page.photoId), gallery,
+    body: para(page.body), listTitle: page.listTitle, topics: page.topics, contact: page.contact, photo: photo(page.photoId), gallery,
     // Aktualności pokazują artykuły (karty), nie prostą listę z datami.
     items: slug === "aktualnosci" ? undefined : page.items?.map((i) => ({ year: i.year, title: i.title, place: i.place, text: i.text })),
   };
@@ -113,7 +111,7 @@ export async function getContentPage(slug: string): Promise<ContentPage | null> 
 export async function getServicePage(slug: string): Promise<ServicePage | null> {
   const p = src.portraitsPage;
   if (slug !== p.slug) return null;
-  return { ...p, photo: photo(p.photoId), body: para(p.body) };
+  return { ...p, painting: p.paintingId ? paintingById(p.paintingId) : undefined, body: para(p.body) };
 }
 
 // ---- Menu ----

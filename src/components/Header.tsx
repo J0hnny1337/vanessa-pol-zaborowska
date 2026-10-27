@@ -21,15 +21,10 @@ export default function Header({ site, nav }: { site: SiteSettings; nav: NavItem
         <div className="brand">
           <Link href="/" className="logo" onClick={close}>
             {site.logo ? (
-              <Image src={site.logo.src} alt={site.logo.alt.pl} width={220} height={40} />
+              <Image src={site.logo.src} alt={site.logo.alt.pl} width={1200} height={483} priority />
             ) : (
               site.artistName
             )}
-          </Link>
-          <Link href="/" className="home-btn" aria-label="Strona główna" onClick={close}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-              <path d="M3 11l9-8 9 8M5 10v10h14V10" />
-            </svg>
           </Link>
         </div>
 
