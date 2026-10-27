@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getHome, getPaintings, getSeries, getSite } from "@/content/data";
+import { getHome, getSeries, getSite } from "@/content/data";
 import type { Painting, Series } from "@/lib/types";
 import Stage, { type StageItem } from "@/components/Stage";
 import ContactBand from "@/components/ContactBand";
@@ -13,13 +13,7 @@ const toStage = (p: Painting, series: Series[]): StageItem => ({
 });
 
 export default async function HomePage() {
-  const [site, home, series, paintings] = await Promise.all([getSite(), getHome(), getSeries(), getPaintings()]);
-
-  // Wiersz na serię: jej pierwszy obraz staje na sztaludze po najechaniu.
-  const rows = series.flatMap((s) => {
-    const items = paintings.filter((p) => p.seriesId === s.id).sort((a, b) => a.order - b.order);
-    return items.length ? [{ id: s.id, name: s.name.pl, count: items.length, cover: toStage(items[0], series) }] : [];
-  });
+  const [site, home, series] = await Promise.all([getSite(), getHome(), getSeries()]);
 
   // Gdzie zobaczyć obrazy: najnowsze pozycje z listy wystaw.
   const where = site.exhibitions.slice(0, 5);
@@ -29,7 +23,6 @@ export default async function HomePage() {
     <>
       <Stage
         cycle={home.stagePaintings.map((p) => toStage(p, series))}
-        rows={rows}
         intro={
           <div className="stage-intro">
             <h1 className="hero-name">Vanessa Pol‑Zaborowska</h1>

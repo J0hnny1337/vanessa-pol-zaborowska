@@ -188,12 +188,12 @@ export const photos: Photo[] = [
 ];
 
 export const home: HomePage = {
-  lead: t("Malarka i akwarelistka. Maluję morze i żaglowce, miasta, portrety i kwiaty. Obrazy można kupić, a portret zamówić.",
-    "Painter and watercolourist. I paint the sea and tall ships, cities, portraits and flowers. Paintings are for sale and portraits can be commissioned."),
+  lead: t("Maluję od ponad 30 lat, najchętniej akwarelą. Zapisuję chwilowe wrażenia: morze, żagle, światło miast i twarze ludzi.",
+    "I have been painting for over 30 years, most often in watercolour. I record fleeting impressions: the sea, sails, the light of cities and people's faces."),
   stagePaintingIds: ["zagle", "italia", "chopin", "lilie-wodne"],
   letter: [
-    t("Maluję od ponad 30 lat. Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję, czyli zapis chwilowego wrażenia, z realizmem.",
-      "I have been painting for over 30 years. People call me a colourist with a fine line. In my paintings I bring together impression and realism."),
+    t("Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję z realizmem.",
+      "People call me a colourist with a fine line. In my paintings I bring together impression and realism."),
     t("Inspirują mnie podróże, ludzie, architektura i muzyka. Zanim obraz powstanie, zbieram wrażenia i układam z nich projekt, który dopiero potem przenoszę na płótno.",
       "I am inspired by travel, people, architecture and music. Before a painting exists, I gather impressions and shape them into an idea, which only later goes onto the canvas."),
     t("Sztuka jest dla mnie istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.",
