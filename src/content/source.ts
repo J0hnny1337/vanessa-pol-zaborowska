@@ -177,6 +177,7 @@ export const photos: Photo[] = [
   photo("sesja-7", "Sesja portretowa/FB_IMG_1739215744260.jpg", 1080, 1618, 6),
   photo("sesja-8", "Sesja portretowa/FB_IMG_1751310886861.jpg", 1080, 834, 0),
   photo("edukacja-1", "Edukacja/edukacja-plener.jpg", 509, 678, 1),
+  photo("edukacja-2", "Edukacja/edukacja-zajecia.jpg", 452, 338, 2),
   ...[
     ["FB_IMG_1750537266390.jpg", 1366, 2048], ["FB_IMG_1753471457652.jpg", 1440, 960], ["FB_IMG_1753471490826.jpg", 1440, 960],
     ["FB_IMG_1758523641417.jpg", 1080, 1080], ["FB_IMG_1761856127797.jpg", 2000, 1133], ["FB_IMG_1761856137990.jpg", 2000, 1834],
@@ -226,7 +227,7 @@ export const contentPages: Record<string, ContentPage> = {
         "I organise art competitions and coordinate the Strefa Aktywności (Activity Zone) project."),
     ],
     invite: t("Chcesz zapisać się na zajęcia? Napisz lub zadzwoń.", "Would you like to join a class? Write or call me."),
-    photoId: "edukacja-1",
+    gallery: { title: t("Z zajęć", "From the classes"), photoIds: ["edukacja-2", "edukacja-1"] },
   },
   "spotkania-autorskie": {
     body: [

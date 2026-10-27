@@ -15,6 +15,7 @@ const imgOf = (source: string | undefined, alt: string): Img | undefined => {
 
 const altOf = (id: string) =>
   id.startsWith("wydarzenie") ? "Zdjęcie z wystawy lub wydarzenia"
+    : id === "edukacja-2" ? "Zajęcia w pracowni plastycznej"
     : id.startsWith("edukacja") ? "Zajęcia plenerowe z rysunku nad marinę"
     : src.site.artistName;
 

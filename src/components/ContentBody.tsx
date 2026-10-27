@@ -1,13 +1,25 @@
 import type { ContentPage } from "@/lib/types";
 import Art from "./Art";
+import Carousel from "./Carousel";
 import Rich, { hasText } from "./Rich";
 
 /** Treść prostej podstrony: zdjęcie, tekst, lista wpisów z datą, zaproszenie. */
 export default function ContentBody({ page, children }: { page: ContentPage; children?: React.ReactNode }) {
-  const { photo } = page;
+  const { photo, gallery } = page;
+  const slides = gallery?.photos ?? [];
   return (
     <section className="narrow content">
-      {photo && (
+      {slides.length > 0 ? (
+        <div className="content-photo">
+          <Carousel label={gallery!.title.pl} single>
+            {slides.map((p) => (
+              <figure className="slide-fig" key={p.id}>
+                <Art image={p.image} placeholder={p.placeholder} ratio="4 / 3" sizes="(min-width: 900px) 30vw, 100vw" />
+              </figure>
+            ))}
+          </Carousel>
+        </div>
+      ) : photo && (
         <figure className="content-photo">
           <Art image={photo.image} placeholder={photo.placeholder} ratio={photo.ratio} sizes="(min-width: 900px) 30vw, 100vw" />
         </figure>
