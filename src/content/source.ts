@@ -11,8 +11,8 @@ export const site: SiteSettings = {
   email: "vanessapol.art102@gmail.com",
   phone: "+48 602 489 305",
   social: [
-    { label: "Instagram", url: "https://instagram.com/" },
-    { label: "Facebook", url: "https://facebook.com/" },
+    { label: "Instagram", url: "https://www.instagram.com/vanessapol_art/" },
+    { label: "Facebook", url: "https://www.facebook.com/krystyna.kmieciak" },
   ],
   portfolioPdfUrl: undefined,
   bio: [
@@ -63,8 +63,8 @@ export const site: SiteSettings = {
   ],
   collections: ["Polska i za granicą"], // do uzupełnienia o konkretne kraje
   footerNote: t(
-    "Maluję oryginalne obrazy. Każde płótno sygnuję i opisuję tytułem oraz datą.",
-    "I paint original works. Every canvas is signed, titled and dated.",
+    "Obrazy na zamówienie, zajęcia z rysunku i malarstwa, przygotowanie do egzaminów artystycznych.",
+    "Paintings on commission, drawing and painting classes, art school exam preparation.",
   ),
   legalLinks: [
     { label: t("Regulamin", "Terms"), href: "#" },

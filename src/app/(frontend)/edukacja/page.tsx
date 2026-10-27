@@ -15,7 +15,7 @@ export default async function EducationPage() {
     <>
       <PageHero eyebrow={header.eyebrow} title={header.title} subtitle={header.subtitle} />
       <ContentBody page={page} />
-      <CtaBand site={site} />
+      <CtaBand site={site} title="Umów lekcje" buttonLabel="Umów lekcje" />
     </>
   );
 }
