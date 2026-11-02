@@ -39,7 +39,7 @@ export default async function PortraitsPage() {
       <section className="pt-about">
         <div className="wide pt-about-in">
           <div className="prose" data-reveal>
-            <h2 className="h2">Portret, nie kopia zdjęcia</h2>
+            <h2 className="h2">Portret</h2>
             {page.body.map((t, i) => <p key={i}>{t}</p>)}
           </div>
           <aside className="needs" aria-labelledby="needs-h" data-reveal>

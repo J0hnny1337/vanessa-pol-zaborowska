@@ -93,7 +93,8 @@ export type ContentPage = {
   listTitle?: L10n;
   items?: DatedItem[];
   topics?: { title: L10n; text: L10n }[]; // tematy z nagłówkami (Edukacja)
-  lessons?: { title: L10n; items: L10n[] }; // czego uczy na zajęciach (Edukacja)
+  // czego uczy na zajęciach (Edukacja): temat, zdanie z frazami, których szukają uczniowie, i opcjonalna lista
+  lessons?: { title: L10n; items: { title: L10n; text: L10n; points?: { lead: L10n; items: L10n[] } }[] };
   upcoming?: { title: L10n; items: DatedItem[] }; // zapowiedzi (Aktualności)
   contact?: ContactPrompt;
   photoId?: string; // zdjęcie obok tytułu

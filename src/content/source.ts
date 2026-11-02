@@ -277,9 +277,22 @@ export const contentPages: Record<string, ContentPage> = {
     lessons: {
       title: t("Czego nauczysz się na zajęciach indywidualnych", "What you will learn in individual lessons"),
       items: [
-        t("Historii sztuki", "Art history"),
-        t("Teorii i działania praktycznego", "Theory and hands-on practice"),
-        t("Zastosowania wszystkich technik plastycznych", "Using every art technique"),
+        { title: t("Historii sztuki", "Art history"),
+          text: t("Korepetycje z historii sztuki: epoki, style i kierunki od antyku po sztukę współczesną. Nauczysz się rozpoznawać, opisywać i analizować dzieło.",
+            "Art history tutoring: periods, styles and movements from antiquity to contemporary art. You will learn to recognise, describe and analyse a work.") },
+        { title: t("Teorii i działania praktycznego", "Theory and hands-on practice"),
+          text: t("Lekcje rysunku i malarstwa od podstaw: kompozycja, perspektywa, światłocień i kolor, w pracowni i w plenerze.",
+            "Drawing and painting lessons from the basics: composition, perspective, light and shade, and colour, in the studio and outdoors."),
+          points: {
+            lead: t("Przygotowanie portfolio (teczki) na egzaminy do szkół artystycznych:", "Portfolio preparation for art school entrance exams:"),
+            items: [
+              t("architektura", "architecture"), t("rzeźba", "sculpture"), t("grafika", "printmaking and graphic design"),
+              t("projektowanie wnętrz", "interior design"), t("malarstwo", "painting"), t("rysunek", "drawing"), t("kompozycja", "composition"),
+            ],
+          } },
+        { title: t("Zastosowania wszystkich technik plastycznych", "Using every art technique"),
+          text: t("Nauka akwareli, rysunku piórem i tuszem, malarstwa akrylem oraz technik mieszanych. Każdą technikę poznasz w praktyce, od pierwszych prób po własny styl.",
+            "Watercolour, pen and ink drawing, acrylic painting and mixed media. You learn each technique in practice, from first attempts to your own style.") },
       ],
     },
     contact: { sentence: t("Zajęcia odbywają się indywidualnie i w grupach, w pracowni i w plenerze.", "Classes for individuals and groups, in the studio and outdoors."),

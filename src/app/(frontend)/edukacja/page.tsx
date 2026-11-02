@@ -6,7 +6,10 @@ import PaintingGrid from "@/components/PaintingGrid";
 import ContactBand from "@/components/ContactBand";
 import Art from "@/components/Art";
 
-export const metadata: Metadata = { title: "Edukacja" };
+export const metadata: Metadata = {
+  title: "Edukacja",
+  description: "Lekcje rysunku i malarstwa, korepetycje z historii sztuki i przygotowanie portfolio na egzaminy do szkół artystycznych: architektura, rzeźba, grafika, projektowanie wnętrz.",
+};
 
 export default async function EducationPage() {
   const [header, page, site] = await Promise.all([getPageHeader("edukacja"), getContentPage("edukacja"), getSite()]);
@@ -36,7 +39,20 @@ export default async function EducationPage() {
           <div className="wide">
             <h2 id="lessons-h" className="h2" data-reveal>{page.lessons.title.pl}</h2>
             <ul className="lessons-list" data-reveal>
-              {page.lessons.items.map((it, i) => <li key={i}>{it.pl}</li>)}
+              {page.lessons.items.map((it, i) => (
+                <li key={i}>
+                  <h3>{it.title.pl}</h3>
+                  <p>{it.text.pl}</p>
+                  {it.points && (
+                    <>
+                      <p className="lessons-lead">{it.points.lead.pl}</p>
+                      <ul className="lessons-points">
+                        {it.points.items.map((p, j) => <li key={j}>{p.pl}</li>)}
+                      </ul>
+                    </>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
         </section>

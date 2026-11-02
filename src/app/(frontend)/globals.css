@@ -269,7 +269,12 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .topic-thumb { width: 110px; }
 .lessons { background: var(--band); padding: var(--section) 0; margin-bottom: var(--section); }
 .lessons-list { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; }
-.lessons-list li { font-size: var(--t-lead); line-height: 1.3; font-weight: 200; color: var(--ink); max-width: 18ch; }
+.lessons-list > li { max-width: 38ch; }
+.lessons-list h3 { font-size: var(--t-lead); line-height: 1.3; font-weight: 300; margin-bottom: 1rem; max-width: 18ch; }
+.lessons-list p { margin: 0 0 1rem; color: var(--ink); }
+.lessons-list .lessons-lead { margin: 1.6rem 0 .6rem; font-weight: 400; }
+.lessons-points { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.lessons-points li { background: var(--bg); color: var(--ink); padding: .35rem .8rem; line-height: 1.4; }
 .contact-big { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; }
 .contact-big span { display: block; font-size: var(--t-small); }
 .contact-big a { font-size: var(--t-lead); color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 6px; }
@@ -381,7 +386,7 @@ figcaption strong { color: var(--ink); font-weight: 400; }
   .offer-list li, .topic-list li { grid-template-columns: 1fr; gap: .6rem; }
   .pgrid { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
   .steps-list, .lessons-list { grid-template-columns: 1fr; gap: 1.5rem; }
-  .lessons-list li { max-width: none; }
+  .lessons-list > li { max-width: none; }
   .steps-list p { max-width: none; }
   .news-sec .wide { grid-template-columns: 1fr; }
   .policy-in { grid-template-columns: 1fr; }
