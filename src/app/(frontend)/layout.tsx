@@ -16,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: { default: `${site.artistName} · ${site.tagline.pl}`, template: `%s · ${site.artistName}` },
     description: site.tagline.pl,
+    verification: { google: "-NMThO9H9lcbo_Cjqv_K6sA8BwhHt7L4ar0iA-eFiwE" },
   };
 }
 
