@@ -176,6 +176,7 @@ export const paintings: Painting[] = [
   ...inSeries("abstrakcje", "Abstrakcje", [
     ["euforia", "Euforia", "EuforiaMarzec.jpg", 5871, 7346],
     ["abstrakcja-fb", "", "FB_IMG_1748365051309.jpg", 640, 1316],
+    ["abstrakcja-czerwien", "", "abstrakcja-czerwien.jpg", 1200, 1600],
   ]),
 ];
 
