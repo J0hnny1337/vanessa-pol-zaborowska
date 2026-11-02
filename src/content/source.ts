@@ -155,6 +155,7 @@ export const paintings: Painting[] = [
     ["postac-fb", "", "FB_IMG_1751129963038.jpg", 1504, 2015],
     ["postac-wa19", "", "IMG-20250713-WA0019.jpg", 1200, 1600],
     ["postac-wa25", "", "IMG-20250713-WA0025.jpg", 1200, 1600],
+    ["portret-w-galerii", "", "portret-w-galerii.jpg", 900, 1600],
   ]),
   ...inSeries("martwa-natura", "Kwiaty", [
     ["lilie-wodne", "Lilie wodne", "lilieWodneMaj.jpg", 8903, 8111],
