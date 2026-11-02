@@ -18,6 +18,7 @@ const altOf = (id: string) =>
     : id === "edukacja-2" ? "Zajęcia w pracowni plastycznej"
     : id.startsWith("edukacja") ? "Zajęcia plenerowe z rysunku nad marinę"
     : id === "wywiad" ? "Vanessa Pol-Zaborowska udziela wywiadu na wystawie"
+    : id === "spotkanie-syc" ? "Vanessa Pol-Zaborowska podpisuje tomik na spotkaniu autorskim w Super Yachts Club w Gdyni"
     : src.site.artistName;
 
 const photoById = new Map<string, Photo>(

@@ -197,6 +197,7 @@ export const photos: Photo[] = [
   photo("edukacja-1", "Edukacja/edukacja-plener.jpg", 509, 678, 1),
   photo("edukacja-2", "Edukacja/edukacja-zajecia.jpg", 452, 338, 2),
   photo("wywiad", "Wystawa i wydarzenia/wywiad-na-wystawie.jpg", 1080, 1080, 3),
+  photo("spotkanie-syc", "Wystawa i wydarzenia/spotkanie-super-yachts-club.jpg", 543, 724, 4),
   ...[
     ["FB_IMG_1750537266390.jpg", 1366, 2048], ["FB_IMG_1753471457652.jpg", 1440, 960], ["FB_IMG_1753471490826.jpg", 1440, 960],
     ["FB_IMG_1758523641417.jpg", 1080, 1080], ["FB_IMG_1761856127797.jpg", 2000, 1133], ["FB_IMG_1761856137990.jpg", 2000, 1834],
@@ -312,7 +313,7 @@ export const contentPages: Record<string, ContentPage> = {
     ],
     contact: { sentence: t("Artystka chętnie przyjedzie na spotkanie do Twojej galerii, biblioteki, szkoły lub klubu.", "The artist is happy to come for a talk at your gallery, library, school or club."),
       question: t("Chcesz zaprosić artystkę na spotkanie?", "Would you like to invite the artist?"), subject: "Spotkanie autorskie" },
-    photoId: "wydarzenie-8",
+    photoId: "spotkanie-syc",
   },
   aktualnosci: {
     body: [],
