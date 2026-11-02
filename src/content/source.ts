@@ -399,10 +399,7 @@ export const portraitsPage: ServicePage = {
     "Vanessa paints a portrait of someone close to you from photographs and a conversation about them."),
   paintingId: "drzewo-zycia",
   body: [
-    t("Portrety maluje od ponad 30 lat. Za portret Fryderyka Chopina otrzymała drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie.",
-      "She has painted portraits for over 30 years. Her portrait of Fryderyk Chopin won second prize at the Eclusier Gallery in London."),
-    t("Portret nie jest kopią fotografii. Artystka szuka w nim charakteru osoby: jej pasji, ulubionych miejsc i kolorów. Dlatego zanim zacznie malować, chce tę osobę poznać, choćby z Twojej opowieści.",
-      "A portrait is not a copy of a photograph. The artist looks for the person's character: their passions, favourite places and colours."),
+    t("Maluje portrety w technice akwareli.", "She paints portraits in watercolour."),
   ],
   steps: [
     { title: t("Napisz", "Get in touch"),
