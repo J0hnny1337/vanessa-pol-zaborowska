@@ -250,7 +250,7 @@ export const pageHeaders: Record<string, PageHeader> = {
   "spotkania-autorskie": { title: t("Spotkania autorskie", "Artist talks"),
     lead: t("Spotkania literacko-malarskie: artystka pokazuje obrazy i czyta swoją poezję.", "Literary and painting events: the artist shows her paintings and reads her poetry.") },
   edukacja: { title: t("Edukacja", "Education"),
-    lead: t("Zajęcia z rysunku i malarstwa oraz przygotowanie do egzaminów do szkół artystycznych.", "Drawing and painting classes and art school exam preparation.") },
+    lead: t("Zajęcia z rysunku i malarstwa z zastosowaniem wszystkich technik oraz przygotowanie do egzaminów do szkół artystycznych.", "Drawing and painting classes in every technique and art school exam preparation.") },
   kontakt: { title: t("Kontakt", "Contact"),
     lead: t("Napisz w sprawie obrazów, portretów, spotkań autorskich i zajęć. Na każdą wiadomość dostaniesz odpowiedź.", "Get in touch about paintings, portraits, artist talks or classes. Every message gets an answer.") },
 };
