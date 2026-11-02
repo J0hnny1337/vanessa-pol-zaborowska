@@ -196,6 +196,7 @@ export const photos: Photo[] = [
   photo("sesja-8", "Sesja portretowa/FB_IMG_1751310886861.jpg", 1080, 834, 0),
   photo("edukacja-1", "Edukacja/edukacja-plener.jpg", 509, 678, 1),
   photo("edukacja-2", "Edukacja/edukacja-zajecia.jpg", 452, 338, 2),
+  photo("wywiad", "Wystawa i wydarzenia/wywiad-na-wystawie.jpg", 1080, 1080, 3),
   ...[
     ["FB_IMG_1750537266390.jpg", 1366, 2048], ["FB_IMG_1753471457652.jpg", 1440, 960], ["FB_IMG_1753471490826.jpg", 1440, 960],
     ["FB_IMG_1758523641417.jpg", 1080, 1080], ["FB_IMG_1761856127797.jpg", 2000, 1133], ["FB_IMG_1761856137990.jpg", 2000, 1834],
@@ -244,7 +245,8 @@ export const pageHeaders: Record<string, PageHeader> = {
   "o-autorce": { title: t("O Autorce", "About the artist"),
     lead: t("Pedagog i rzeczoznawca malarstwa. Od ponad 30 lat maluje morze i żaglowce, miasta, portrety i kwiaty.", "Art teacher and certified painting appraiser. For over 30 years she has painted the sea and tall ships, cities, portraits and flowers.") },
   aktualnosci: { title: t("Aktualności", "News"),
-    lead: t("Gdzie teraz możesz zobaczyć obrazy Vanessy i co nowego w pracowni.", "Where to see Vanessa's paintings now and what's new in the studio.") },
+    lead: t("W pracowni powstaje album „Architektura Trójmiasta” w technice akwareli. Vanessa tworzy też ilustracje do „Podstaw historii sztuki”, a w malarstwie rozwija nowy nurt: abstrakcyjny impresjonizm.",
+      "An album, \"Architecture of the Tricity\", is taking shape in the studio in watercolour. Vanessa is also illustrating \"Foundations of Art History\", and in her painting she is developing a new direction: abstract impressionism.") },
   "spotkania-autorskie": { title: t("Spotkania autorskie", "Artist talks"),
     lead: t("Spotkania literacko-malarskie: artystka pokazuje obrazy i czyta swoją poezję.", "Literary and painting events: the artist shows her paintings and reads her poetry.") },
   edukacja: { title: t("Edukacja", "Education"),
@@ -301,6 +303,15 @@ export const contentPages: Record<string, ContentPage> = {
   },
   aktualnosci: {
     body: [],
+    upcoming: {
+      title: t("Najbliższe spotkania", "Upcoming events"),
+      items: [
+        { year: 2026, title: t("Spotkanie autorskie literacko-malarskie", "Literary and painting event"), place: "„Do Brzegu” Yachts Club, Sopot",
+          text: t("Listopad 2026. Dokładny termin pojawi się wkrótce.", "November 2026. The exact date will be announced soon.") },
+        { year: 2026, title: t("Spotkanie autorskie literacko-malarskie", "Literary and painting event"), place: "Forma Collection, al. Zwycięstwa 239 (róg ul. Popiela), Gdynia Orłowo",
+          text: t("Listopad 2026. Dokładny termin pojawi się wkrótce.", "November 2026. The exact date will be announced soon.") },
+      ],
+    },
     items: [
       { year: 2025, title: t("Ekspozycja stała w Club Golfowy", "Permanent display at the Golf Club"), place: "Gdynia",
         text: t("Obrazy Vanessy możesz oglądać na stałej ekspozycji w Club Golfowy w Gdyni.", "Vanessa's paintings are on permanent display at the Golf Club in Gdynia.") },
@@ -311,7 +322,7 @@ export const contentPages: Record<string, ContentPage> = {
   },
   kontakt: {
     body: [],
-    photoId: "sesja-3",
+    photoId: "wywiad",
   },
 };
 

@@ -27,6 +27,26 @@ export default async function NewsPage() {
         )}
       />
 
+      {page.upcoming && page.upcoming.items.length > 0 && (
+        <section className="news-sec" aria-labelledby="upcoming-h">
+          <div className="wide" data-reveal>
+            <h2 id="upcoming-h" className="h2">{page.upcoming.title.pl}</h2>
+            <ol className="news">
+              {page.upcoming.items.map((e, i) => (
+                <li key={i}>
+                  <span className="year">{e.year}</span>
+                  <article>
+                    <h3>{e.title.pl}</h3>
+                    {e.place && <p className="soft">{e.place}</p>}
+                    {e.text && <p>{e.text.pl}</p>}
+                  </article>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
       <section className="news-sec" aria-labelledby="news-h">
         <div className="wide" data-reveal>
           <h2 id="news-h" className="h2">Najnowsze</h2>

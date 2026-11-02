@@ -17,6 +17,7 @@ const altOf = (id: string) =>
   id.startsWith("wydarzenie") ? "Zdjęcie z wystawy lub wydarzenia"
     : id === "edukacja-2" ? "Zajęcia w pracowni plastycznej"
     : id.startsWith("edukacja") ? "Zajęcia plenerowe z rysunku nad marinę"
+    : id === "wywiad" ? "Vanessa Pol-Zaborowska udziela wywiadu na wystawie"
     : src.site.artistName;
 
 const photoById = new Map<string, Photo>(
@@ -104,7 +105,7 @@ export async function getContentPage(slug: string): Promise<ContentPage | null> 
   if (!page) return null;
   const gallery = page.gallery && { title: page.gallery.title, photos: photosOf(page.gallery.photoIds) };
   return {
-    body: para(page.body), listTitle: page.listTitle, topics: page.topics, lessons: page.lessons, contact: page.contact, photo: photo(page.photoId), gallery,
+    body: para(page.body), listTitle: page.listTitle, topics: page.topics, lessons: page.lessons, upcoming: page.upcoming, contact: page.contact, photo: photo(page.photoId), gallery,
     // Aktualności pokazują artykuły (karty), nie prostą listę z datami.
     items: slug === "aktualnosci" ? undefined : page.items?.map((i) => ({ year: i.year, title: i.title, place: i.place, text: i.text })),
   };

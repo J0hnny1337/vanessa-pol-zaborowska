@@ -94,6 +94,7 @@ export type ContentPage = {
   items?: DatedItem[];
   topics?: { title: L10n; text: L10n }[]; // tematy z nagłówkami (Edukacja)
   lessons?: { title: L10n; items: L10n[] }; // czego uczy na zajęciach (Edukacja)
+  upcoming?: { title: L10n; items: DatedItem[] }; // zapowiedzi (Aktualności)
   contact?: ContactPrompt;
   photoId?: string; // zdjęcie obok tytułu
   gallery?: { title: L10n; photoIds: string[] };

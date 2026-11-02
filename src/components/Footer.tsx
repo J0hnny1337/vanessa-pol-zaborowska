@@ -11,7 +11,7 @@ const socialIcons: Record<string, React.ReactNode> = {
 };
 
 // Obraz w stopce: duży, mocno przycięty fragment.
-const FOOTER_PAINTING = "baltyk";
+const FOOTER_PAINTING = "sztorm";
 
 /** Stopka: po lewej fragment obrazu, po prawej podpis, menu dużym pismem i kontakt. */
 export default async function Footer({ site, nav }: { site: SiteSettings; nav: NavItem[] }) {
