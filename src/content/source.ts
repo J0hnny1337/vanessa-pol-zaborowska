@@ -9,7 +9,6 @@ export const site: SiteSettings = {
   portraitPhotoId: "sesja-4",
   exhibitionPhotoIds: Array.from({ length: 13 }, (_, i) => `wydarzenie-${i + 1}`), // do podmiany na zdjęcia z wystaw
   email: "vanessapol.art102@gmail.com",
-  phone: "+48 602 489 305",
   social: [
     { label: "Instagram", url: "https://www.instagram.com/vanessapol_art/" },
     { label: "Facebook", url: "https://www.facebook.com/krystyna.kmieciak" },
@@ -249,7 +248,7 @@ export const pageHeaders: Record<string, PageHeader> = {
   edukacja: { title: t("Edukacja", "Education"),
     lead: t("Zajęcia z rysunku i malarstwa oraz przygotowanie do egzaminów do szkół artystycznych.", "Drawing and painting classes and art school exam preparation.") },
   kontakt: { title: t("Kontakt", "Contact"),
-    lead: t("Napisz lub zadzwoń w sprawie obrazów, portretów, spotkań autorskich i zajęć. Na każdą wiadomość dostaniesz odpowiedź.", "Get in touch about paintings, portraits, artist talks or classes. Every message gets an answer.") },
+    lead: t("Napisz w sprawie obrazów, portretów, spotkań autorskich i zajęć. Na każdą wiadomość dostaniesz odpowiedź.", "Get in touch about paintings, portraits, artist talks or classes. Every message gets an answer.") },
 };
 
 // Treść prostych podstron (klucz = slug w adresie).
@@ -322,10 +321,10 @@ export const privacyPolicy: PrivacyPolicy = {
   sections: [
     { id: "administrator", title: "Kto jest administratorem danych", body: [
       "Administratorem Twoich danych jest Vanessa Pol-Zaborowska.",
-      "Kontakt w sprawie danych: vanessapol.art102@gmail.com, tel. +48 602 489 305.",
+      "Kontakt w sprawie danych: przez e-mail, link „Kontakt mailowy” w stopce i w zakładce Kontakt.",
     ] },
     { id: "dane", title: "Jakie dane i skąd", items: [
-      "Gdy piszesz lub dzwonisz do artystki: Twój adres e-mail lub numer telefonu, imię i nazwisko (jeśli je podasz) oraz treść wiadomości. Przy zamówieniu portretu także zdjęcia i informacje o portretowanej osobie, które przekażesz.",
+      "Gdy piszesz do artystki: Twój adres e-mail, imię i nazwisko (jeśli je podasz) oraz treść wiadomości. Przy zamówieniu portretu także zdjęcia i informacje o portretowanej osobie, które przekażesz.",
       "Gdy oglądasz stronę: serwer hostingu zapisuje techniczne dane o wizycie, takie jak adres IP, typ przeglądarki, czas wejścia i adres podstrony. Artystka z nich nie korzysta. Służą one dostawcy hostingu do działania i ochrony strony.",
     ] },
     { id: "cel", title: "Po co i na jakiej podstawie", items: [
@@ -358,7 +357,7 @@ export const privacyPolicy: PrivacyPolicy = {
       "do przeniesienia danych.",
     ], after: [
       "Wystarczy napisać na adres podany wyżej. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).",
-      "Podanie danych jest dobrowolne, ale bez adresu e-mail lub numeru telefonu artystka nie będzie mogła Ci odpowiedzieć.",
+      "Podanie danych jest dobrowolne, ale bez adresu e-mail artystka nie będzie mogła Ci odpowiedzieć.",
     ] },
     { id: "zmiany", title: "Zmiany", body: [
       "Jeśli coś się zmieni, na przykład dojdzie formularz lub sklep, ta polityka zostanie zaktualizowana.",
@@ -380,7 +379,7 @@ export const portraitsPage: ServicePage = {
       "A portrait is not a copy of a photograph. The artist looks for the person's character: their passions, favourite places and colours."),
   ],
   steps: [
-    { title: t("Napisz lub zadzwoń", "Get in touch"),
+    { title: t("Napisz", "Get in touch"),
       text: t("Opowiedz, kogo chcesz sportretować i na jaką okazję. Razem ustalicie format i technikę.", "Say who the portrait is of and for what occasion. Together you agree the size and technique.") },
     { title: t("Prześlij zdjęcia i kilka słów", "Send photos and a few words"),
       text: t("Kilka zdjęć portretowanej osoby i parę zdań o niej: co lubi, czym się zajmuje.", "A few photographs and a few sentences about the person.") },

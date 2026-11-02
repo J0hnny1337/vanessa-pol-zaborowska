@@ -35,7 +35,7 @@ export default async function ContactPage() {
       >
         <ul className="contact-big">
           {site.phone && <li><span className="soft">Telefon</span><a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a></li>}
-          <li><span className="soft">E-mail</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><span className="soft">E-mail</span><a href={`mailto:${site.email}`}>Kontakt mailowy</a></li>
         </ul>
       </PageIntro>
 

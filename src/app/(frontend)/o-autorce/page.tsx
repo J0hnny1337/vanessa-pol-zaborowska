@@ -131,7 +131,7 @@ export default async function AboutPage() {
 
       <ContactBand site={site} photo={photos[1]} prompt={{
         sentence: { pl: "Obraz z portfolio albo portret na zamówienie? Artystka chętnie opowie o swojej pracy.", en: "" },
-        question: { pl: "Napisz lub zadzwoń", en: "" },
+        question: { pl: "Napisz wiadomość", en: "" },
         subject: "Pytanie o obraz",
       }} />
     </>
