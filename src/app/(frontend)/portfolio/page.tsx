@@ -39,7 +39,7 @@ export default async function PortfolioPage() {
 
       <section id="obrazy" className="pf-index" aria-labelledby="obrazy-h">
         <div className="wide pf-index-in" data-reveal>
-          <h2 id="obrazy-h" className="h2">Obrazy</h2>
+          <h2 id="obrazy-h" className="h2">Cykle malarskie</h2>
           <ul>
             {groups.map((g) => (
               <li key={g.series.id}><a href={`#${g.series.id}`}>{g.series.name.pl}</a> <span className="soft">{g.items.length}</span></li>
