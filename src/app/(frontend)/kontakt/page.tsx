@@ -9,10 +9,10 @@ export const metadata: Metadata = { title: "Kontakt" };
 // Sprawy, w których można napisać; każda otwiera e-mail z gotowym tematem. `pic` = id obrazu albo zdjęcia obok.
 const TOPICS = [
   { title: "Kupno obrazu", text: "Zapytaj o dostępność, wymiary i cenę obrazu z portfolio.", subject: "Kupno obrazu", pic: "italia" },
-  { title: "Portret na zamówienie", text: "Opowiedz, kogo mam namalować i na jaką okazję.", subject: "Portret na zamówienie", pic: "chopin-2" },
-  { title: "Spotkanie autorskie", text: "Zaproś mnie do galerii, biblioteki, szkoły lub klubu.", subject: "Spotkanie autorskie", pic: "wydarzenie-8" },
+  { title: "Portret na zamówienie", text: "Opowiedz, kogo ma przedstawiać portret i na jaką okazję.", subject: "Portret na zamówienie", pic: "chopin-2" },
+  { title: "Spotkanie autorskie", text: "Zaproś artystkę do swojej galerii, biblioteki, szkoły lub klubu.", subject: "Spotkanie autorskie", pic: "wydarzenie-8" },
   { title: "Zajęcia z rysunku i malarstwa", text: "Lekcje indywidualne, grupowe i przygotowanie do egzaminów.", subject: "Zajęcia z rysunku i malarstwa", pic: "edukacja-1" },
-  { title: "Wystawa", text: "Chcesz pokazać moje obrazy w swojej galerii, hotelu lub klubie?", subject: "Wystawa obrazów", pic: "wydarzenie-11" },
+  { title: "Wystawa", text: "Chcesz pokazać obrazy Vanessy w swojej galerii, hotelu lub klubie?", subject: "Wystawa obrazów", pic: "wydarzenie-11" },
 ];
 
 export default async function ContactPage() {

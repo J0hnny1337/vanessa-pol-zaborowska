@@ -39,7 +39,7 @@ export default async function AboutPage() {
       >
         <p className="actions">
           <Link className="btn" href="/portfolio">Zobacz obrazy</Link>
-          <Link className="text-link" href="/kontakt">Napisz do mnie</Link>
+          <Link className="text-link" href="/kontakt">Napisz wiadomość</Link>
         </p>
       </PageIntro>
 
@@ -62,21 +62,21 @@ export default async function AboutPage() {
             <p>{education}</p>
             {site.work && site.work.length > 0 && (
               <>
-                <p className="work-intro">Czym się zajmuję:</p>
+                <p className="work-intro">Czym się zajmuje:</p>
                 <ul className="work-list">
                   {site.work.map((w, i) => <li key={i}>{w}</li>)}
                 </ul>
               </>
             )}
-            <h2 className="h2">Jak maluję</h2>
+            <h2 className="h2">Jak maluje</h2>
             <p>{painting}</p>
-            <h2 className="h2">Co mnie inspiruje</h2>
+            <h2 className="h2">Co ją inspiruje</h2>
             <p>{inspiration}</p>
           </div>
           {sails && (
             <figure className="side-art">
               <Art image={sails.image} placeholder={sails.placeholder} ratio={sails.ratio} sizes="(min-width: 900px) 40vw, 100vw" />
-              <figcaption className="soft"><strong>{sails.title}</strong>, z serii Marynistyka i żaglowce</figcaption>
+              <figcaption className="soft"><strong>{sails.title}</strong>, z serii Marynistyka</figcaption>
             </figure>
           )}
         </div>
@@ -91,7 +91,7 @@ export default async function AboutPage() {
             <div data-reveal>
               <h2 className="h2">Nagrodzony portret Chopina</h2>
               <p>{exhibitionsBio}</p>
-              <Link className="text-link" href="/portfolio#portrety-i-postacie">Zobacz portrety i postacie</Link>
+              <Link className="text-link" href="/portfolio#portret">Zobacz portrety</Link>
             </div>
           </div>
         </section>
@@ -130,7 +130,7 @@ export default async function AboutPage() {
       </section>
 
       <ContactBand site={site} photo={photos[1]} prompt={{
-        sentence: { pl: "Obraz z portfolio albo portret na zamówienie? Chętnie opowiem o swojej pracy.", en: "" },
+        sentence: { pl: "Obraz z portfolio albo portret na zamówienie? Artystka chętnie opowie o swojej pracy.", en: "" },
         question: { pl: "Napisz lub zadzwoń", en: "" },
         subject: "Pytanie o obraz",
       }} />

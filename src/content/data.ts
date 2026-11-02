@@ -66,8 +66,8 @@ export async function getPaintings() { return paintings; }
 // ---- Portfolio: jedna strona z sekcjami ----
 const portfolioSections: PortfolioSection[] = [
   { id: "obrazy", title: t("Obrazy"), kind: "paintings" },
-  { id: "fotografie", title: t("Fotografie"), kind: "photos", placeholder: t("Wkrótce pokażę tu swoje fotografie.") },
-  { id: "wiersze", title: t("Wiersze"), kind: "text", placeholder: t("Wkrótce pokażę tu swoje wiersze.") },
+  { id: "fotografie", title: t("Fotografie"), kind: "photos", placeholder: t("Wkrótce pojawią się tu fotografie artystki.") },
+  { id: "wiersze", title: t("Wiersze"), kind: "text", placeholder: t("Wkrótce pojawią się tu wiersze artystki.") },
   { id: "poezja", title: t("Poezja"), kind: "text", placeholder: t("Wkrótce: proza poetycka, m.in. z tomiku „Druga Strona Ciszy”.") },
 ];
 export async function getPortfolioSections() { return portfolioSections; }
@@ -115,6 +115,9 @@ export async function getServicePage(slug: string): Promise<ServicePage | null> 
   if (slug !== p.slug) return null;
   return { ...p, painting: p.paintingId ? paintingById(p.paintingId) : undefined, body: para(p.body) };
 }
+
+// ---- Polityka prywatności ----
+export async function getPrivacyPolicy() { return src.privacyPolicy; }
 
 // ---- Menu ----
 export async function getNavigation(): Promise<NavItem[]> {

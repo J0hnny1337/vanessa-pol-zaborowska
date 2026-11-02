@@ -1,5 +1,5 @@
 // Treść strony (teksty, serie, obrazy, wystawy). Zmiany robi się tutaj; data.ts układa to dla komponentów.
-import type { ContentPage, HomePage, NavItem, PageHeader, Painting, Photo, Series, ServicePage, SiteSettings } from "./source-types";
+import type { ContentPage, HomePage, NavItem, PageHeader, Painting, Photo, PrivacyPolicy, Series, ServicePage, SiteSettings } from "./source-types";
 
 const t = (pl: string, en: string) => ({ pl, en });
 
@@ -16,16 +16,16 @@ export const site: SiteSettings = {
   ],
   portfolioPdfUrl: undefined,
   bio: [
-    t("Ukończyłam Wydział Pedagogiki Artystycznej UAM w Poznaniu, gdzie studiowałam malarstwo, rzeźbę, grafikę, architekturę i rysunek. Jestem rzeczoznawcą malarstwa.",
-      "I graduated from the Faculty of Art Education at Adam Mickiewicz University in Poznań, where I studied painting, sculpture, printmaking, architecture and drawing. I am a certified painting appraiser."),
-    t("Maluję od ponad 30 lat. Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję, czyli zapis chwilowego wrażenia, z realizmem. Maluję akwarelą, piórem i tuszem, akrylem oraz w technikach mieszanych. Nie lubię stać w miejscu: wciąż szukam, odkrywam i zaczynam od nowa.",
-      "I have been painting for over 30 years. People call me a colourist with a fine line. In my paintings I bring together impression, the record of a fleeting sensation, and realism. I work in watercolour, pen and ink, acrylic and mixed media. I don't like standing still: I keep searching, discovering and starting anew."),
-    t("Inspirują mnie podróże, spotkania z ciekawymi ludźmi, architektura i muzyka. Szkicuję i fotografuję. Słucham muzyki klasycznej, jazzu i bluesa. Piszę też liryki, scenariusze i poezję. Obraz, jak każdy proces twórczy, potrzebuje czasu, refleksji i spokoju. Zanim powstanie, zbieram wrażenia i układam z nich projekt, który dopiero potem przenoszę na płótno.",
-      "I am inspired by travel, by meeting interesting people, by architecture and by music. I sketch and take photographs. I listen to classical music, jazz and blues, and I also write lyrics, screenplays and poetry. Like any creative process, a painting needs time, reflection and calm. Before it exists, I gather impressions and shape them into an idea, which only later goes onto the canvas."),
-    t("Biorę udział w plenerach i wystawach zbiorowych w całej Polsce, m.in. w Poznaniu, Pile, Koszalinie, Warszawie i Kołobrzegu, i pokazuję swoje prace na wystawach indywidualnych. Za portret Fryderyka Chopina otrzymałam drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie. Moje obrazy trafiły do zbiorów prywatnych w Polsce i za granicą. Moją sylwetkę zamieszczono w XII i XIII wydaniu encyklopedii „Who is Who”.",
-      "I take part in plein-air workshops and group exhibitions across Poland, including Poznań, Piła, Koszalin, Warsaw and Kołobrzeg, and I show my work in solo exhibitions. My portrait of Fryderyk Chopin won second prize in an international competition held by the Eclusier Gallery in London. My paintings are in private collections in Poland and abroad. My profile appears in the 12th and 13th editions of the \"Who is Who\" encyclopaedia."),
+    t("Ukończyła Wydział Pedagogiki Artystycznej UAM w Poznaniu, gdzie studiowała malarstwo, rzeźbę, grafikę, architekturę i rysunek. Jest rzeczoznawcą malarstwa.",
+      "She graduated from the Faculty of Art Education at Adam Mickiewicz University in Poznań, where she studied painting, sculpture, printmaking, architecture and drawing. She is a certified painting appraiser."),
+    t("Maluje od ponad 30 lat. Mówią o niej: kolorystka o cienkiej kresce. W obrazach łączy impresję, czyli zapis chwilowego wrażenia, z realizmem. Maluje akwarelą, piórem i tuszem, akrylem oraz w technikach mieszanych. Nie lubi stać w miejscu: wciąż szuka, odkrywa i zaczyna od nowa.",
+      "She has been painting for over 30 years. People call her a colourist with a fine line. In her paintings she brings together impression, the record of a fleeting sensation, and realism. She works in watercolour, pen and ink, acrylic and mixed media. She doesn't like standing still: she keeps searching, discovering and starting anew."),
+    t("Inspirują ją podróże, spotkania z ciekawymi ludźmi, architektura i muzyka. Szkicuje i fotografuje. Słucha muzyki klasycznej, jazzu i bluesa. Pisze też liryki, scenariusze i poezję. Obraz, jak każdy proces twórczy, potrzebuje czasu, refleksji i spokoju. Zanim powstanie, artystka zbiera wrażenia i układa z nich projekt, który dopiero potem przenosi na płótno.",
+      "She is inspired by travel, by meeting interesting people, by architecture and by music. She sketches and takes photographs. She listens to classical music, jazz and blues, and also writes lyrics, screenplays and poetry. Like any creative process, a painting needs time, reflection and calm. Before it exists, she gathers impressions and shapes them into an idea, which only later goes onto the canvas."),
+    t("Bierze udział w plenerach i wystawach zbiorowych w całej Polsce, m.in. w Poznaniu, Pile, Koszalinie, Warszawie i Kołobrzegu, i pokazuje swoje prace na wystawach indywidualnych. Za portret Fryderyka Chopina otrzymała drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie. Jej obrazy trafiły do zbiorów prywatnych w Polsce i za granicą. Jej sylwetkę zamieszczono w XII i XIII wydaniu encyklopedii „Who is Who”.",
+      "She takes part in plein-air workshops and group exhibitions across Poland, including Poznań, Piła, Koszalin, Warsaw and Kołobrzeg, and shows her work in solo exhibitions. Her portrait of Fryderyk Chopin won second prize in an international competition held by the Eclusier Gallery in London. Her paintings are in private collections in Poland and abroad. Her profile appears in the 12th and 13th editions of the \"Who is Who\" encyclopaedia."),
   ],
-  // Cytaty artystki, zmieniają się po kolei na stronie O Autorce.
+  // Cytaty artystki, zmieniają się po kolei na stronie głównej i na stronie O Autorce.
   quotes: [
     t("Sztuka dla mnie jest istotna wtedy, kiedy zmienia myślenie zarówno twórcy, jak i odbiorcy. Obraz musi być widzialny. Obrazy są otwarte, bo budują wyobraźnię.",
       "To me, art matters when it changes the way both the artist and the viewer think. A painting must be seen. Paintings are open, because they build imagination."),
@@ -37,10 +37,10 @@ export const site: SiteSettings = {
   ],
   // Czym się zajmuje: lista pod akapitem o wykształceniu (strona O Autorce).
   work: [
-    t("Organizuję wystawy w całej Polsce i jestem ich kuratorką.", "I organise and curate exhibitions across Poland."),
-    t("Ilustruję książki, ćwiczenia i podręczniki szkolne, projektuję okładki płyt i inne grafiki.", "I illustrate books, workbooks and school textbooks, and design album covers and other graphics."),
-    t("Przygotowałam zarys podręcznika „Podstawy historii sztuki”.", "I drafted the outline of a textbook, \"Foundations of Art History\"."),
-    t("Organizuję konkursy plastyczne i koordynuję projekt Strefa Aktywności.", "I organise art competitions and coordinate the Strefa Aktywności project."),
+    t("Organizuje wystawy w całej Polsce i jest ich kuratorką.", "She organises and curates exhibitions across Poland."),
+    t("Ilustruje książki, ćwiczenia i podręczniki szkolne, projektuje okładki płyt i inne grafiki.", "She illustrates books, workbooks and school textbooks, and designs album covers and other graphics."),
+    t("Przygotowała zarys podręcznika „Podstawy historii sztuki”.", "She drafted the outline of a textbook, \"Foundations of Art History\"."),
+    t("Organizuje konkursy plastyczne i koordynuje projekt Strefa Aktywności.", "She organises art competitions and coordinates the Strefa Aktywności project."),
   ],
   statement: [
     t("Dziś atakują nas bodźce: hałas, polityka, wydarzenia na świecie. Sztuka skłania do refleksji i otwiera nowe horyzonty. Jest istotna wtedy, kiedy zmienia w nas myślenie, zarówno twórcy, jak i odbiorcy.",
@@ -84,8 +84,7 @@ export const site: SiteSettings = {
     "Paintings on commission, drawing and painting classes, art school exam preparation.",
   ),
   legalLinks: [
-    { label: t("Regulamin", "Terms"), href: "#" },
-    { label: t("Polityka prywatności", "Privacy policy"), href: "#" },
+    { label: t("Polityka prywatności", "Privacy policy"), href: "/polityka-prywatnosci" },
   ],
   cta: {
     title: t("Zamów portret", "Commission a portrait"),
@@ -99,24 +98,24 @@ const greys = ["#d9d6d1", "#cfcdc8", "#d6d2cc", "#d4d0c8", "#cdcac4", "#d8d5d0",
 const grey = (i: number) => greys[i % greys.length];
 
 export const series: Series[] = [
-  { id: "marynistyka", name: t("Marynistyka i żaglowce", "Marine art and tall ships"), years: "", order: 1 },
-  { id: "morze-i-plaza", name: t("Morze i plaża", "Sea and beach"), years: "", order: 2 },
-  { id: "pejzaze-i-miasta", name: t("Pejzaże i miasta", "Landscapes and cities"), years: "", order: 3 },
-  { id: "portrety-i-postacie", name: t("Portrety i postacie", "Portraits and figures"), years: "", order: 4 },
-  { id: "kwiaty", name: t("Kwiaty", "Flowers"), years: "", order: 5 },
-  { id: "konie-i-zwierzeta", name: t("Konie i zwierzęta", "Horses and animals"), years: "", order: 6 },
-  { id: "golf", name: t("Golf", "Golf"), years: "", order: 7 },
-  { id: "abstrakcje", name: t("Abstrakcje", "Abstracts"), years: "", order: 8 },
+  { id: "marynistyka", name: t("Marynistyka", "Marine art"), years: "", order: 1 },
+  { id: "pejzaz", name: t("Pejzaż", "Landscape"), years: "", order: 2 },
+  { id: "portret", name: t("Portret", "Portrait"), years: "", order: 3 },
+  { id: "martwa-natura", name: t("Martwa natura", "Still life"), years: "", order: 4 },
+  { id: "zwierzeta", name: t("Zwierzęta", "Animals"), years: "", order: 5 },
+  { id: "akwarele-golfowe", name: t("Akwarele golfowe", "Golf watercolours"), years: "", order: 6 },
+  { id: "abstrakcje", name: t("Abstrakcje", "Abstracts"), years: "", order: 7 },
 ];
 
 // Jeden wpis = jeden plik z folderu "zdjęcia-malarka/Obrazy/<folder>".
 // Tytuły robocze wzięte z nazw plików; rok, wymiary i technikę uzupełnimy później.
 // Proporcje (szer. / wys.) wzięte z wymiarów zdjęć.
+// `after` = ile obrazów tej serii jest już wyżej (gdy seria zbiera obrazy z kilku folderów).
 type Row = [id: string, title: string, file: string, w: number, h: number];
-const inSeries = (seriesId: string, folder: string, rows: Row[]): Painting[] =>
+const inSeries = (seriesId: string, folder: string, rows: Row[], after = 0): Painting[] =>
   rows.map(([id, title, file, w, h], i) => ({
-    id, title, seriesId, ratio: `${w} / ${h}`, status: "available", placeholder: grey(i),
-    source: `Obrazy/${folder}/${file}`, order: i + 1,
+    id, title, seriesId, ratio: `${w} / ${h}`, status: "available", placeholder: grey(after + i),
+    source: `Obrazy/${folder}/${file}`, order: after + i + 1,
   }));
 
 export const paintings: Painting[] = [
@@ -132,13 +131,13 @@ export const paintings: Painting[] = [
     ["mar-fb", "", "FB_IMG_1750537274076.jpg", 2048, 1314],
     ["mar-2026", "", "20260616_143004.jpg", 3060, 4080],
   ]),
-  ...inSeries("morze-i-plaza", "Morze i plaża", [
+  ...inSeries("marynistyka", "Morze i plaża", [
     ["impresja", "Impresja", "impresjaStyczen.jpg", 11843, 8757],
     ["impresja-2", "Impresja II", "kwiecienImpresja.jpg", 800, 1136],
     ["impresja-3", "Impresja III", "majImpresja2.jpg", 3426, 2865],
     ["morze-fb", "", "FB_IMG_1751661735241.jpg", 1536, 2048],
-  ]),
-  ...inSeries("pejzaze-i-miasta", "Pejzaże i miasta", [
+  ], 10),
+  ...inSeries("pejzaz", "Pejzaże i miasta", [
     ["italia", "Italia", "ItaliaCzerwiec.jpg", 15950, 11080],
     ["grecja", "Grecja", "GrecjaMarzec.jpg", 7006, 9945],
     ["paryz", "Paryż", "paryzLuty.jpg", 1772, 1772],
@@ -147,7 +146,7 @@ export const paintings: Painting[] = [
     ["paryz-4", "Paryż IV", "paryzPazdziernik.jpg", 1772, 1772],
     ["pejzaz-fb", "", "FB_IMG_1750009376851.jpg", 960, 1280],
   ]),
-  ...inSeries("portrety-i-postacie", "Portrety i postacie", [
+  ...inSeries("portret", "Portrety i postacie", [
     ["chopin", "Chopin", "ChopinGrudzien.jpg", 13206, 9716],
     ["chopin-2", "Chopin II", "styczenChopin.jpg", 3761, 3001],
     ["drzewo-zycia", "Drzewo życia", "pazdziernikDzrzewoZycia.jpg", 2331, 3152],
@@ -157,16 +156,16 @@ export const paintings: Painting[] = [
     ["postac-wa19", "", "IMG-20250713-WA0019.jpg", 1200, 1600],
     ["postac-wa25", "", "IMG-20250713-WA0025.jpg", 1200, 1600],
   ]),
-  ...inSeries("kwiaty", "Kwiaty", [
+  ...inSeries("martwa-natura", "Kwiaty", [
     ["lilie-wodne", "Lilie wodne", "lilieWodneMaj.jpg", 8903, 8111],
     ["kwiaty-fb", "", "FB_IMG_1744314435555.jpg", 720, 960],
   ]),
-  ...inSeries("konie-i-zwierzeta", "Konie i zwierzęta", [
+  ...inSeries("zwierzeta", "Konie i zwierzęta", [
     ["konie-1", "", "20260616_142640.jpg", 3060, 4080],
     ["konie-2", "", "20260616_203536.jpg", 3060, 4080],
     ["konie-fb", "", "FB_IMG_1739215377929.jpg", 1080, 1440],
   ]),
-  ...inSeries("golf", "Golf", [
+  ...inSeries("akwarele-golfowe", "Golf", [
     ["golf-1", "", "20250507_065947.jpg", 3000, 4000],
     ["golf-4", "", "20250522_173328.jpg", 4000, 3000],
     ["golf-5", "", "20250522_173534.jpg", 3000, 4000],
@@ -205,8 +204,8 @@ export const photos: Photo[] = [
 ];
 
 export const home: HomePage = {
-  lead: t("Pedagog i rzeczoznawca malarstwa. Maluję od ponad 30 lat, najchętniej akwarelą. Zapisuję chwilowe wrażenia: morze, żagle, światło miast i twarze ludzi.",
-    "Art teacher and certified painting appraiser. I have been painting for over 30 years, most often in watercolour. I record fleeting impressions: the sea, sails, the light of cities and people's faces."),
+  lead: t("Pedagog i rzeczoznawca malarstwa. Maluje od ponad 30 lat, najchętniej akwarelą. Zapisuje chwilowe wrażenia: morze, żagle, światło miast i twarze ludzi.",
+    "Art teacher and certified painting appraiser. She has been painting for over 30 years, most often in watercolour. She records fleeting impressions: the sea, sails, the light of cities and people's faces."),
   stagePaintingIds: ["zagle", "italia", "chopin", "lilie-wodne"],
   letter: [
     t("Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję z realizmem.",
@@ -218,11 +217,11 @@ export const home: HomePage = {
   ],
   offers: [
     { title: t("Portret na zamówienie", "Commissioned portrait"), href: "/portrety-energetyczne", linkLabel: t("Jak zamówić portret", "How to commission"),
-      text: t("Namaluję portret bliskiej osoby na podstawie zdjęć i rozmowy o niej.", "I paint a portrait of someone close to you from photographs and a conversation about them.") },
+      text: t("Vanessa namaluje portret bliskiej Ci osoby na podstawie zdjęć i rozmowy o niej.", "Vanessa paints a portrait of someone close to you from photographs and a conversation about them.") },
     { title: t("Zajęcia z rysunku i malarstwa", "Drawing and painting classes"), href: "/edukacja", linkLabel: t("O zajęciach", "About the classes"),
-      text: t("Uczę rysunku, kompozycji i koloru. Przygotowuję do egzaminów do szkół artystycznych.", "I teach drawing, composition and colour, and prepare students for art school exams.") },
+      text: t("Nauczysz się rysunku, kompozycji i pracy z kolorem. Przygotujesz się do egzaminów do szkół artystycznych.", "You will learn drawing, composition and colour, and prepare for art school exams.") },
     { title: t("Spotkanie autorskie", "Artist talk"), href: "/spotkania-autorskie", linkLabel: t("O spotkaniach", "About the talks"),
-      text: t("Przyjadę do galerii, biblioteki, szkoły lub klubu z obrazami i poezją.", "I come to galleries, libraries, schools and clubs with paintings and poetry.") },
+      text: t("Artystka przyjedzie do Twojej galerii, biblioteki, szkoły lub klubu z obrazami i poezją.", "The artist comes to your gallery, library, school or club with paintings and poetry.") },
   ],
 };
 
@@ -239,72 +238,72 @@ export const navigation: NavItem[] = [
 // Nagłówki podstron (klucz = slug w adresie): tytuł i jedno zdanie, co tu jest.
 export const pageHeaders: Record<string, PageHeader> = {
   portfolio: { title: t("Portfolio", "Portfolio"),
-    lead: t("Obrazy z ośmiu serii: od żaglowców i morza po portrety, kwiaty i abstrakcje. Kliknij obraz, żeby go powiększyć.", "Paintings from eight series. Click a painting to enlarge it.") },
+    lead: t("Obrazy z siedmiu serii: od marynistyki i pejzażu po portret, martwą naturę i abstrakcje. Kliknij obraz, żeby go powiększyć.", "Paintings from seven series. Click a painting to enlarge it.") },
   "o-autorce": { title: t("O Autorce", "About the artist"),
-    lead: t("Pedagog i rzeczoznawca malarstwa. Od ponad 30 lat maluję morze i żaglowce, miasta, portrety i kwiaty.", "Art teacher and certified painting appraiser. For over 30 years I have painted the sea and tall ships, cities, portraits and flowers.") },
+    lead: t("Pedagog i rzeczoznawca malarstwa. Od ponad 30 lat maluje morze i żaglowce, miasta, portrety i kwiaty.", "Art teacher and certified painting appraiser. For over 30 years she has painted the sea and tall ships, cities, portraits and flowers.") },
   aktualnosci: { title: t("Aktualności", "News"),
-    lead: t("Gdzie teraz można zobaczyć moje obrazy i co nowego w pracowni.", "Where to see my paintings now and what's new in the studio.") },
+    lead: t("Gdzie teraz możesz zobaczyć obrazy Vanessy i co nowego w pracowni.", "Where to see Vanessa's paintings now and what's new in the studio.") },
   "spotkania-autorskie": { title: t("Spotkania autorskie", "Artist talks"),
-    lead: t("Spotkania literacko-malarskie: pokazuję obrazy i czytam swoją poezję.", "Literary and painting events: I show my paintings and read my poetry.") },
+    lead: t("Spotkania literacko-malarskie: artystka pokazuje obrazy i czyta swoją poezję.", "Literary and painting events: the artist shows her paintings and reads her poetry.") },
   edukacja: { title: t("Edukacja", "Education"),
     lead: t("Zajęcia z rysunku i malarstwa oraz przygotowanie do egzaminów do szkół artystycznych.", "Drawing and painting classes and art school exam preparation.") },
   kontakt: { title: t("Kontakt", "Contact"),
-    lead: t("Zapraszam do kontaktu w sprawie obrazów, portretów, spotkań autorskich i zajęć. Odpowiadam na każdą wiadomość.", "Get in touch about paintings, portraits, artist talks or classes. I answer every message.") },
+    lead: t("Napisz lub zadzwoń w sprawie obrazów, portretów, spotkań autorskich i zajęć. Na każdą wiadomość dostaniesz odpowiedź.", "Get in touch about paintings, portraits, artist talks or classes. Every message gets an answer.") },
 };
 
 // Treść prostych podstron (klucz = slug w adresie).
 export const contentPages: Record<string, ContentPage> = {
   edukacja: {
     body: [
-      t("Jestem pedagogiem z wykształcenia i z zamiłowania. Przygotowuję młodzież do egzaminów do szkół artystycznych: uczę rysunku, kompozycji i pracy z kolorem.",
-        "I am a teacher by training and by passion. I prepare young people for art school entrance exams, teaching drawing, composition and working with colour."),
-      t("Tworzę akwarelowe ilustracje do ćwiczeń i podręczników szkolnych. Przygotowałam też zarys podręcznika „Podstawy historii sztuki”.",
-        "I create watercolour illustrations for school workbooks and textbooks, and I drafted the outline of a textbook, \"Foundations of Art History\"."),
-      t("Organizuję konkursy plastyczne i koordynuję projekt Strefa Aktywności.",
-        "I organise art competitions and coordinate the Strefa Aktywności (Activity Zone) project."),
+      t("Jest pedagogiem z wykształcenia i z zamiłowania. Przygotowuje młodzież do egzaminów do szkół artystycznych: uczy rysunku, kompozycji i pracy z kolorem.",
+        "She is a teacher by training and by passion. She prepares young people for art school entrance exams, teaching drawing, composition and working with colour."),
+      t("Tworzy akwarelowe ilustracje do ćwiczeń i podręczników szkolnych. Przygotowała też zarys podręcznika „Podstawy historii sztuki”.",
+        "She creates watercolour illustrations for school workbooks and textbooks, and drafted the outline of a textbook, \"Foundations of Art History\"."),
+      t("Organizuje konkursy plastyczne i koordynuje projekt Strefa Aktywności.",
+        "She organises art competitions and coordinates the Strefa Aktywności (Activity Zone) project."),
     ],
     topics: [
       { title: t("Przygotowanie do egzaminów", "Exam preparation"),
-        text: t("Przygotowuję młodzież do egzaminów do szkół artystycznych: uczę rysunku, kompozycji i pracy z kolorem.", "I prepare young people for art school entrance exams.") },
+        text: t("Przygotowuje młodzież do egzaminów do szkół artystycznych: uczy rysunku, kompozycji i pracy z kolorem.", "She prepares young people for art school entrance exams.") },
       { title: t("Ilustracje i podręczniki", "Illustrations and textbooks"),
-        text: t("Tworzę akwarelowe ilustracje do ćwiczeń i podręczników szkolnych. Przygotowałam też zarys podręcznika „Podstawy historii sztuki”.", "I create watercolour illustrations for school textbooks.") },
+        text: t("Tworzy akwarelowe ilustracje do ćwiczeń i podręczników szkolnych. Przygotowała też zarys podręcznika „Podstawy historii sztuki”.", "She creates watercolour illustrations for school textbooks.") },
       { title: t("Konkursy i Strefa Aktywności", "Competitions and Strefa Aktywności"),
-        text: t("Organizuję konkursy plastyczne i koordynuję projekt Strefa Aktywności.", "I organise art competitions and coordinate the Strefa Aktywności project.") },
+        text: t("Organizuje konkursy plastyczne i koordynuje projekt Strefa Aktywności.", "She organises art competitions and coordinates the Strefa Aktywności project.") },
     ],
     lessons: {
-      title: t("Czego nauczę Cię na zajęciach indywidualnych", "What you will learn in individual lessons"),
+      title: t("Czego nauczysz się na zajęciach indywidualnych", "What you will learn in individual lessons"),
       items: [
         t("Historii sztuki", "Art history"),
         t("Teorii i działania praktycznego", "Theory and hands-on practice"),
         t("Zastosowania wszystkich technik plastycznych", "Using every art technique"),
       ],
     },
-    contact: { sentence: t("Zajęcia prowadzę indywidualnie i w grupach, w pracowni i w plenerze.", "Classes for individuals and groups, in the studio and outdoors."),
+    contact: { sentence: t("Zajęcia odbywają się indywidualnie i w grupach, w pracowni i w plenerze.", "Classes for individuals and groups, in the studio and outdoors."),
       question: t("Chcesz umówić lekcje?", "Would you like to book lessons?"), subject: "Zajęcia z rysunku i malarstwa" },
     photoId: "edukacja-2",
     gallery: { title: t("Z zajęć", "From the classes"), photoIds: ["edukacja-2", "edukacja-1"] },
   },
   "spotkania-autorskie": {
     body: [
-      t("Maluję i piszę. Na spotkaniach literacko-malarskich pokazuję obrazy i czytam swoją poezję. W 2023 roku, na 30-lecie pracy twórczej, wydałam tomik prozy poetyckiej „Druga Strona Ciszy”.",
-        "I paint and I write. At my literary and painting events I show my paintings and read my poetry. In 2023, to mark 30 years of creative work, I published a collection of poetic prose, \"Druga Strona Ciszy\" (The Other Side of Silence)."),
+      t("Vanessa maluje i pisze. Na spotkaniach literacko-malarskich pokazuje obrazy i czyta swoją poezję. W 2023 roku, na 30-lecie pracy twórczej, wydała tomik prozy poetyckiej „Druga Strona Ciszy”.",
+        "Vanessa paints and writes. At her literary and painting events she shows her paintings and reads her poetry. In 2023, to mark 30 years of creative work, she published a collection of poetic prose, \"Druga Strona Ciszy\" (The Other Side of Silence)."),
     ],
     listTitle: t("Dotychczasowe spotkania", "Past events"),
     items: [
       { year: 2024, title: t("Spotkanie autorskie literacko-malarskie", "Literary and painting event"), place: "Galeria Sztuki Rosen ART, Sopot" },
       { year: 2023, title: t("Spotkanie autorskie literacko-malarskie", "Literary and painting event"), place: "Super Yachts Club, Gdynia" },
     ],
-    contact: { sentence: t("Chętnie przyjadę na spotkanie do galerii, biblioteki, szkoły lub klubu.", "I'm happy to come for a talk at a gallery, library, school or club."),
-      question: t("Chcesz zaprosić mnie na spotkanie?", "Would you like to invite me?"), subject: "Spotkanie autorskie" },
+    contact: { sentence: t("Artystka chętnie przyjedzie na spotkanie do Twojej galerii, biblioteki, szkoły lub klubu.", "The artist is happy to come for a talk at your gallery, library, school or club."),
+      question: t("Chcesz zaprosić artystkę na spotkanie?", "Would you like to invite the artist?"), subject: "Spotkanie autorskie" },
     photoId: "wydarzenie-8",
   },
   aktualnosci: {
     body: [],
     items: [
       { year: 2025, title: t("Ekspozycja stała w Club Golfowy", "Permanent display at the Golf Club"), place: "Gdynia",
-        text: t("Moje obrazy można oglądać na stałej ekspozycji w Club Golfowy w Gdyni. Zapraszam!", "My paintings are on permanent display at the Golf Club in Gdynia. Do come and see them!") },
+        text: t("Obrazy Vanessy możesz oglądać na stałej ekspozycji w Club Golfowy w Gdyni.", "Vanessa's paintings are on permanent display at the Golf Club in Gdynia.") },
       { year: 2024, title: t("Galeria Sztuki Ado-Art", "Ado-Art Gallery"), place: "Gdynia, Warszawa",
-        text: t("Moje obrazy pokazuje Galeria Sztuki Ado-Art w Gdyni i w Warszawie.", "My paintings are on show at the Ado-Art Gallery in Gdynia and Warsaw.") },
+        text: t("Obrazy Vanessy pokazuje Galeria Sztuki Ado-Art w Gdyni i w Warszawie.", "Vanessa's paintings are on show at the Ado-Art Gallery in Gdynia and Warsaw.") },
     ],
     gallery: { title: t("Z wystaw i wydarzeń", "From exhibitions and events"), photoIds: Array.from({ length: 13 }, (_, i) => `wydarzenie-${i + 1}`) },
   },
@@ -314,29 +313,81 @@ export const contentPages: Record<string, ContentPage> = {
   },
 };
 
+// Polityka prywatności (tylko PL). Sekcja = nagłówek, akapity i opcjonalna lista punktów.
+// Dane administratora: jeśli „Vanessa Pol-Zaborowska” to pseudonim, wpisz tu imię i nazwisko lub firmę (z adresem i NIP-em).
+export const privacyPolicy: PrivacyPolicy = {
+  updated: "27 października 2026",
+  intro: "Ta strona to wizytówka artystki. Nie ma formularzy, kont ani sklepu i nie śledzi odwiedzających. Poniżej znajdziesz informację, jakie dane mogą trafić do artystki i co się z nimi dzieje.",
+  sections: [
+    { id: "administrator", title: "Kto jest administratorem danych", body: [
+      "Administratorem Twoich danych jest Vanessa Pol-Zaborowska.",
+      "Kontakt w sprawie danych: vanessapol.art102@gmail.com, tel. +48 602 489 305.",
+    ] },
+    { id: "dane", title: "Jakie dane i skąd", items: [
+      "Gdy piszesz lub dzwonisz do artystki: Twój adres e-mail lub numer telefonu, imię i nazwisko (jeśli je podasz) oraz treść wiadomości. Przy zamówieniu portretu także zdjęcia i informacje o portretowanej osobie, które przekażesz.",
+      "Gdy oglądasz stronę: serwer hostingu zapisuje techniczne dane o wizycie, takie jak adres IP, typ przeglądarki, czas wejścia i adres podstrony. Artystka z nich nie korzysta. Służą one dostawcy hostingu do działania i ochrony strony.",
+    ] },
+    { id: "cel", title: "Po co i na jakiej podstawie", items: [
+      "Odpowiedź na wiadomość i rozmowa o obrazie, portrecie, zajęciach lub spotkaniu: żeby odpowiedzieć na Twoje zapytanie i, jeśli się umówimy, wykonać zamówienie (art. 6 ust. 1 lit. b RODO) albo w uzasadnionym interesie administratora prowadzenia korespondencji (art. 6 ust. 1 lit. f RODO).",
+      "Rozliczenia, jeśli dojdzie do sprzedaży lub zamówienia: ze względu na obowiązki wynikające z przepisów podatkowych i rachunkowych (art. 6 ust. 1 lit. c RODO).",
+      "Logi serwera: w uzasadnionym interesie zapewnienia działania i bezpieczeństwa strony (art. 6 ust. 1 lit. f RODO).",
+    ] },
+    { id: "jak-dlugo", title: "Jak długo", items: [
+      "Korespondencja jest przechowywana do czasu zakończenia sprawy. Jeśli doszło do zamówienia, jest przechowywana do upływu terminów przedawnienia roszczeń i okresów wymaganych przez przepisy podatkowe.",
+      "Zdjęcia przesłane do portretu są usuwane po jego wykonaniu, chyba że umówicie się inaczej.",
+      "Logi serwera są przechowywane przez krótki czas określony przez dostawcę hostingu.",
+    ] },
+    { id: "odbiorcy", title: "Komu dane są przekazywane", items: [
+      "Vercel Inc.: hosting strony (logi serwera).",
+      "Google: dostawca poczty e-mail artystki (Gmail).",
+    ], after: [
+      "Obie firmy mają siedziby w USA. Przekazanie danych odbywa się z zabezpieczeniami wymaganymi przez RODO, np. na podstawie standardowych klauzul umownych lub programu EU-US Data Privacy Framework. Twoje dane nie są sprzedawane ani udostępniane nikomu innemu.",
+    ] },
+    { id: "cookies", title: "Pliki cookies", body: [
+      "Strona nie używa plików cookies ani narzędzi analitycznych. Jedyna informacja zapisywana w Twojej przeglądarce to wybór jasnego lub ciemnego wyglądu strony, jeśli go zmienisz. Zostaje ona tylko na Twoim urządzeniu.",
+    ] },
+    { id: "linki", title: "Linki do innych serwisów", body: [
+      "Na stronie są linki do profili artystki na Instagramie i Facebooku. Po kliknięciu przechodzisz do tych serwisów i obowiązują Cię ich zasady prywatności.",
+    ] },
+    { id: "prawa", title: "Twoje prawa", body: ["Masz prawo:"], items: [
+      "do dostępu do swoich danych i otrzymania ich kopii,",
+      "do ich sprostowania lub usunięcia,",
+      "do ograniczenia przetwarzania,",
+      "do sprzeciwu wobec przetwarzania,",
+      "do przeniesienia danych.",
+    ], after: [
+      "Wystarczy napisać na adres podany wyżej. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).",
+      "Podanie danych jest dobrowolne, ale bez adresu e-mail lub numeru telefonu artystka nie będzie mogła Ci odpowiedzieć.",
+    ] },
+    { id: "zmiany", title: "Zmiany", body: [
+      "Jeśli coś się zmieni, na przykład dojdzie formularz lub sklep, ta polityka zostanie zaktualizowana.",
+    ] },
+  ],
+};
+
 // TEKST PRZYKŁADOWY (do potwierdzenia przez autorkę): opis, kroki i czas realizacji.
 export const portraitsPage: ServicePage = {
   slug: "portrety-energetyczne",
   title: t("Portrety na zamówienie", "Commissioned portraits"),
-  lead: t("Namaluję portret bliskiej osoby na podstawie zdjęć i rozmowy o niej. To dobry pomysł na prezent i pamiątkę na lata.",
-    "I paint a portrait of someone close to you from photographs and a conversation about them."),
+  lead: t("Vanessa namaluje portret bliskiej Ci osoby na podstawie zdjęć i rozmowy o niej. To dobry pomysł na prezent i pamiątkę na lata.",
+    "Vanessa paints a portrait of someone close to you from photographs and a conversation about them."),
   paintingId: "drzewo-zycia",
   body: [
-    t("Portrety maluję od ponad 30 lat. Za portret Fryderyka Chopina otrzymałam drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie.",
-      "I have painted portraits for over 30 years. My portrait of Fryderyk Chopin won second prize at the Eclusier Gallery in London."),
-    t("Portret nie jest kopią fotografii. Szukam w nim charakteru osoby: jej pasji, ulubionych miejsc i kolorów. Dlatego zanim zacznę malować, chcę tę osobę poznać, choćby z Twojej opowieści.",
-      "A portrait is not a copy of a photograph. I look for the person's character: their passions, favourite places and colours."),
+    t("Portrety maluje od ponad 30 lat. Za portret Fryderyka Chopina otrzymała drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie.",
+      "She has painted portraits for over 30 years. Her portrait of Fryderyk Chopin won second prize at the Eclusier Gallery in London."),
+    t("Portret nie jest kopią fotografii. Artystka szuka w nim charakteru osoby: jej pasji, ulubionych miejsc i kolorów. Dlatego zanim zacznie malować, chce tę osobę poznać, choćby z Twojej opowieści.",
+      "A portrait is not a copy of a photograph. The artist looks for the person's character: their passions, favourite places and colours."),
   ],
   steps: [
     { title: t("Napisz lub zadzwoń", "Get in touch"),
-      text: t("Opowiedz, kogo chcesz sportretować i na jaką okazję. Ustalimy format i technikę.", "Tell me who the portrait is of and for what occasion. We agree the size and technique.") },
+      text: t("Opowiedz, kogo chcesz sportretować i na jaką okazję. Razem ustalicie format i technikę.", "Say who the portrait is of and for what occasion. Together you agree the size and technique.") },
     { title: t("Prześlij zdjęcia i kilka słów", "Send photos and a few words"),
       text: t("Kilka zdjęć portretowanej osoby i parę zdań o niej: co lubi, czym się zajmuje.", "A few photographs and a few sentences about the person.") },
-    { title: t("Maluję portret", "I paint the portrait"),
-      text: t("Gotowy obraz sygnuję i opisuję tytułem oraz datą. Umówimy się na odbiór lub wysyłkę.", "The finished painting is signed, titled and dated. We arrange collection or delivery.") },
+    { title: t("Powstaje portret", "The portrait is painted"),
+      text: t("Gotowy obraz artystka sygnuje i opisuje tytułem oraz datą. Umówicie się na odbiór lub wysyłkę.", "The finished painting is signed, titled and dated. You arrange collection or delivery.") },
   ],
   needs: {
-    title: t("Czego potrzebuję", "What I need"),
+    title: t("Co przygotować", "What to prepare"),
     items: [
       t("Kilka zdjęć portretowanej osoby", "A few photographs of the person"),
       t("Kilka słów o tej osobie", "A few words about the person"),

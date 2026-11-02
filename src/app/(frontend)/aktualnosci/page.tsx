@@ -44,8 +44,8 @@ export default async function NewsPage() {
       )}
 
       <ContactBand site={site} photo={photos[1]} prompt={{
-        sentence: { pl: "Organizujesz wystawę albo chcesz pokazać moje obrazy w swojej galerii lub klubie?", en: "" },
-        question: { pl: "Porozmawiajmy", en: "" },
+        sentence: { pl: "Organizujesz wystawę albo chcesz pokazać obrazy Vanessy w swojej galerii lub klubie?", en: "" },
+        question: { pl: "Napisz lub zadzwoń", en: "" },
         subject: "Wystawa obrazów",
       }} />
     </>

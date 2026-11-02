@@ -6,6 +6,7 @@ import Stage, { type StageItem } from "@/components/Stage";
 import ContactBand from "@/components/ContactBand";
 import YearList from "@/components/YearList";
 import Art from "@/components/Art";
+import Quotes from "@/components/Quotes";
 
 const toStage = (p: Painting, series: Series[]): StageItem => ({
   id: p.id, image: p.image, placeholder: p.placeholder, title: p.title,
@@ -45,10 +46,18 @@ export default async function HomePage() {
             {home.letter.map((p, i) => <p key={i}>{p}</p>)}
             {site.logo && <Image className="letter-sign" src={site.logo.src} alt={site.logo.alt.pl} width={1200} height={483} />}
             <p className="soft">Vanessa Pol-Zaborowska, malarka</p>
-            <Link className="text-link" href="/o-autorce">Więcej o mnie</Link>
+            <Link className="text-link" href="/o-autorce">Więcej o autorce</Link>
           </section>
         }
       />
+
+      {site.quotes && site.quotes.length > 0 && (
+        <section className="quote" aria-label="Cytaty">
+          <div className="wide" data-reveal>
+            <Quotes items={site.quotes} />
+          </div>
+        </section>
+      )}
 
       <section className="series-band" aria-labelledby="series-h">
         <div className="wide">
@@ -87,7 +96,7 @@ export default async function HomePage() {
 
       <section className="offers" aria-labelledby="offers-h">
         <div className="wide">
-          <h2 id="offers-h" className="h2" data-reveal>Co mogę dla Ciebie zrobić</h2>
+          <h2 id="offers-h" className="h2" data-reveal>Co możesz zamówić</h2>
           <ul className="offer-list" data-reveal>
             {home.offers.map((o) => (
               <li key={o.href}>

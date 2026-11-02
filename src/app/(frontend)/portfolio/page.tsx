@@ -32,7 +32,7 @@ export default async function PortfolioPage() {
         media={intro && (
           <figure className="intro-figure">
             <Art image={intro.image} placeholder={intro.placeholder} ratio={intro.ratio} priority sizes="(min-width: 900px) 45vw, 100vw" />
-            <figcaption className="soft"><strong>{intro.title}</strong>, z serii Marynistyka i żaglowce</figcaption>
+            <figcaption className="soft"><strong>{intro.title}</strong>, z serii Marynistyka</figcaption>
           </figure>
         )}
       />

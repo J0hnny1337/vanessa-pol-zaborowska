@@ -26,7 +26,7 @@ export default async function PortraitsPage() {
         media={p && (
           <figure className="intro-figure intro-portrait">
             <Art image={p.image} placeholder={p.placeholder} ratio={p.ratio} priority sizes="(min-width: 900px) 40vw, 100vw" />
-            <figcaption className="soft"><strong>{p.title}</strong>, z serii Portrety i postacie</figcaption>
+            <figcaption className="soft"><strong>{p.title}</strong>, z serii Portret</figcaption>
           </figure>
         )}
       >
@@ -76,7 +76,7 @@ export default async function PortraitsPage() {
       </section>
 
       <ContactBand site={site} prompt={{
-        sentence: { pl: "Portret to dobry prezent i pamiątka na lata. Opowiedz mi o osobie, którą mam namalować.", en: "" },
+        sentence: { pl: "Portret to dobry prezent i pamiątka na lata. Opowiedz o osobie, która ma się znaleźć na portrecie.", en: "" },
         question: { pl: "Chcesz zamówić portret?", en: "" },
         subject: SUBJECT,
       }} />

@@ -273,6 +273,19 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .contact-big { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; }
 .contact-big span { display: block; font-size: var(--t-small); }
 .contact-big a { font-size: var(--t-lead); color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 6px; }
+/* Polityka prywatności: spis treści po lewej, tekst po prawej */
+.policy { padding: 0 0 var(--section); }
+.policy-in { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.policy-toc { position: sticky; top: 7rem; background: var(--band); padding: 2rem; }
+.policy-toc h2 { font-size: var(--t-small); font-weight: 400; margin-bottom: 1rem; }
+.policy-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.policy-toc a { color: var(--ink); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; }
+.policy-toc a:hover { text-decoration-color: currentColor; }
+.policy-body section + section { margin-top: 3.5rem; }
+.policy-body p, .policy-body ul { max-width: 62ch; }
+.policy-body ul { margin: 0 0 1.2em; padding-left: 1.2rem; }
+.policy-body li + li { margin-top: .6rem; }
+.policy-body li::marker { color: var(--soft); }
 .article-page { padding: clamp(2.5rem, 6vw, 5rem) 0 var(--section); }
 .article-page .back { margin-bottom: 2rem; }
 .article-cover { margin: 0 0 3rem; }
@@ -371,6 +384,8 @@ figcaption strong { color: var(--ink); font-weight: 400; }
   .lessons-list li { max-width: none; }
   .steps-list p { max-width: none; }
   .news-sec .wide { grid-template-columns: 1fr; }
+  .policy-in { grid-template-columns: 1fr; }
+  .policy-toc { position: static; }
   .topic-list.with-pics li { grid-template-columns: 80px 1fr; }
   .topic-list.with-pics li > :not(.topic-thumb) { grid-column: 2; }
   .topic-thumb { width: 80px; grid-row: span 3; align-self: start; }

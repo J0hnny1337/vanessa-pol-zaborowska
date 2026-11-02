@@ -98,3 +98,10 @@ export type ContentPage = {
   photoId?: string; // zdjęcie obok tytułu
   gallery?: { title: L10n; photoIds: string[] };
 };
+
+/** Polityka prywatności: sekcje z nagłówkiem; `body` przed listą, `after` po liście. */
+export type PrivacyPolicy = {
+  updated: string;
+  intro: string;
+  sections: { id: string; title: string; body?: string[]; items?: string[]; after?: string[] }[];
+};
