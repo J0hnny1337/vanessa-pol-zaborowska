@@ -55,6 +55,48 @@ export default async function AboutPage() {
         </div>
       </section>
 
+      <section className="creation" aria-labelledby="creation-h">
+        <div className="wide" data-reveal>
+          <div className="creation-head">
+            <h2 id="creation-h" className="h2">Twórczość</h2>
+            <p className="creation-lead">
+              Jej obrazy to autentyczne, wewnętrzne przeżycia, w których łączą się realizm i ekspresja.
+              To prawda, naturalność oraz wyobraźnia.
+            </p>
+          </div>
+          <div className="creation-cols">
+            <div>
+              <h3 className="creation-h3">Dorobek</h3>
+              <p>
+                Przez 31 lat stworzyła wiele obrazów, a jej dorobek szacuje się na około 700 prac.
+                Tworzy też ilustracje, projekty okładek książek i płyt w technice akwareli oraz
+                scenografie do przedstawień baletowych i teatralnych.
+              </p>
+            </div>
+            <div>
+              <h3 className="creation-h3">Wyobraźnia</h3>
+              <p>
+                Maluje z wewnętrznej potrzeby, kierując się instynktem i kreatywnością. To tak zwana
+                twórcza wyobraźnia. Ma zdolność do zmiany emocji, a to sprawia, że w jej twórczości
+                pojawia się różnorodna tematyka.
+              </p>
+            </div>
+            <div>
+              <h3 className="creation-h3">Słowo</h3>
+              <p>
+                Pisze i jednocześnie wyraża swoje podejście do przeżywania emocji, fantazji, filozofii
+                i artyzmu. W 2023 roku nakładem Oficyny Wydawniczej STON2 ukazało się pierwsze wydanie
+                tomiku prozy poetyckiej „Druga strona ciszy”.
+              </p>
+              <p className="soft creation-note">
+                Druk i oprawa: <a href="https://www.kompus.net.pl" rel="noopener noreferrer">www.kompus.net.pl</a>.
+                Projekt okładki i grafiki: Vanessa Pol‑Zaborowska.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bio">
         <div className="wide bio-in">
           <div className="prose" data-reveal>

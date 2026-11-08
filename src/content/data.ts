@@ -18,6 +18,8 @@ const altOf = (id: string) =>
     : id === "edukacja-2" ? "Zajęcia w pracowni plastycznej"
     : id.startsWith("edukacja") ? "Zajęcia plenerowe z rysunku nad marinę"
     : id === "wywiad" ? "Vanessa Pol-Zaborowska udziela wywiadu na wystawie"
+    : id === "turniej-ug" ? "Akwarele Vanessy Pol-Zaborowskiej jako nagrody w turnieju UG Golf Club"
+    : id === "wystawa-sand-valley" ? "Obrazy Vanessy Pol-Zaborowskiej wystawione w klubie Sand Valley"
     : id === "spotkanie-syc" ? "Vanessa Pol-Zaborowska podpisuje tomik na spotkaniu autorskim w Super Yachts Club w Gdyni"
     : src.site.artistName;
 
@@ -64,6 +66,7 @@ const paintings: Painting[] = src.paintings.map((p) => ({
 }));
 const paintingById = (id: string) => paintings.find((p) => p.id === id);
 export async function getPaintings() { return paintings; }
+export async function getPhotos(ids: string[]) { return photosOf(ids); }
 
 // ---- Portfolio: jedna strona z sekcjami ----
 const portfolioSections: PortfolioSection[] = [

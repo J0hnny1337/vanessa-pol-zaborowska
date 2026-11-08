@@ -178,6 +178,18 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .facts-list dt { font-size: clamp(2rem, 3vw, 2.6rem); font-weight: 200; line-height: 1.1; color: var(--ink); letter-spacing: -0.02em; margin-bottom: .6rem; }
 .facts-list dd { margin: 0; max-width: 24ch; }
 .bio { padding: var(--section) 0; }
+.creation { padding: var(--section) 0 0; }
+.creation .soft a { color: inherit; }
+.creation-head { display: grid; grid-template-columns: .8fr 2.2fr; gap: clamp(1.5rem, 6vw, 6rem); align-items: baseline; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.creation-lead { font-size: var(--t-lead); line-height: 1.45; color: var(--ink); max-width: 40ch; margin: 0; }
+.creation-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(2rem, 4vw, 3.5rem); }
+.creation-h3 { font-size: var(--t-small); font-weight: 400; color: var(--soft); margin-bottom: .8rem; }
+.creation-cols p { margin-bottom: 1rem; }
+.creation-note { font-size: var(--t-small); }
+@media (max-width: 899px) {
+  .creation-head, .creation-cols { grid-template-columns: 1fr; }
+  .creation-head { gap: .5rem; }
+}
 .bio-in, .exh-in, .talks-in, .pt-about-in { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
 .prose p { margin-bottom: 1.4rem; }
 .work-intro { color: var(--ink); font-weight: 400; margin-bottom: .6rem !important; }
@@ -322,7 +334,8 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .footer-blocks h2 { font-size: var(--t-small); font-weight: 400; margin-bottom: .6rem; }
 .footer-blocks li + li { margin-top: .3rem; }
 .footer-blocks a { color: var(--ink); }
-.social { list-style: none; margin: 0; padding: 0; display: flex; gap: .6rem; }
+.social { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: .6rem; }
+.footer-blocks .social li + li { margin-top: 0; }
 .social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--band); color: var(--ink); transition: background .15s, color .15s; }
 .social a:hover { background: var(--ink); color: var(--bg); }
 .footer-bar { margin-top: auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: var(--t-small); color: var(--soft); }

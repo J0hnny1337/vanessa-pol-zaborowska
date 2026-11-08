@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getContentPage, getPageHeader, getSite } from "@/content/data";
+import { getContentPage, getPageHeader, getPhotos, getSite } from "@/content/data";
 import PageIntro from "@/components/PageIntro";
 import YearList from "@/components/YearList";
 import PaintingGrid from "@/components/PaintingGrid";
@@ -10,10 +10,16 @@ import Art from "@/components/Art";
 export const metadata: Metadata = { title: "Spotkania autorskie" };
 
 export default async function ArtistTalksPage() {
-  const [header, page, site] = await Promise.all([getPageHeader("spotkania-autorskie"), getContentPage("spotkania-autorskie"), getSite()]);
+  const [header, page, site, newPhotos] = await Promise.all([
+    getPageHeader("spotkania-autorskie"), getContentPage("spotkania-autorskie"), getSite(),
+    getPhotos(["turniej-ug", "wystawa-sand-valley"]), // nowsze zdjęcia: na początku galerii, we własnych proporcjach
+  ]);
   if (!header || !page) notFound();
   const photo = page.photo;
-  const more = site.exhibitionPhotos.filter((p) => p.id !== photo?.id).slice(2, 8);
+  const more = [
+    ...newPhotos,
+    ...site.exhibitionPhotos.filter((p) => p.id !== photo?.id).slice(2, 9).map((p) => ({ ...p, ratio: "4 / 3" })),
+  ];
 
   return (
     <>
@@ -46,7 +52,7 @@ export default async function ArtistTalksPage() {
         <section className="photo-sec" aria-labelledby="talk-photos-h">
           <div className="wide">
             <h2 id="talk-photos-h" className="h2" data-reveal>Ze spotkań i wystaw</h2>
-            <PaintingGrid label="Ze spotkań i wystaw" items={more.map((p) => ({ id: p.id, image: p.image, placeholder: p.placeholder, ratio: "4 / 3" }))} />
+            <PaintingGrid label="Ze spotkań i wystaw" items={more.map((p) => ({ id: p.id, image: p.image, placeholder: p.placeholder, ratio: p.ratio }))} />
           </div>
         </section>
       )}

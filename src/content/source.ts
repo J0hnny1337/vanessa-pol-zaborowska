@@ -144,13 +144,16 @@ export const paintings: Painting[] = [
     ["paryz-3", "Paryż III", "sierpienParyz.jpg", 1772, 1772],
     ["paryz-4", "Paryż IV", "paryzPazdziernik.jpg", 1772, 1772],
     ["pejzaz-fb", "", "FB_IMG_1750009376851.jpg", 960, 1280],
-  ]),
+  ]).concat(
+    inSeries("pejzaz", "Pejzaże i miasta", [["szkocja-pejzaz", "Szkocja", "szkocjaPejzaz.jpg", 620, 620]], 7)
+      .map((p) => ({ ...p, order: 2.5, technique: t("Akwarela", "Watercolour") })), // zaraz po „Grecji”, żeby był widoczny bez rozwijania
+  ),
   ...inSeries("portret", "Portrety i postacie", [
     ["chopin", "Chopin", "ChopinGrudzien.jpg", 13206, 9716],
     ["chopin-2", "Chopin II", "styczenChopin.jpg", 3761, 3001],
     ["drzewo-zycia", "Drzewo życia", "pazdziernikDzrzewoZycia.jpg", 2331, 3152],
     ["muzycy", "Muzycy", "muzycyWrzesien.jpg", 2480, 1754],
-    ["akt", "Akt", "aktKwiecien.JPG", 2126, 1535],
+    ["akt", "Akt", "aktKwiecien.JPG", 1535, 2126],
     ["postac-fb", "", "FB_IMG_1751129963038.jpg", 1504, 2015],
     ["postac-wa19", "", "IMG-20250713-WA0019.jpg", 1200, 1600],
     ["postac-wa25", "", "IMG-20250713-WA0025.jpg", 1200, 1600],
@@ -198,6 +201,8 @@ export const photos: Photo[] = [
   photo("edukacja-2", "Edukacja/edukacja-zajecia.jpg", 452, 338, 2),
   photo("wywiad", "Wystawa i wydarzenia/wywiad-na-wystawie.jpg", 1080, 1080, 3),
   photo("spotkanie-syc", "Wystawa i wydarzenia/spotkanie-super-yachts-club.jpg", 543, 724, 4),
+  photo("turniej-ug", "Wystawa i wydarzenia/turniej-ug-golf-club.jpg", 1600, 1200, 5),
+  photo("wystawa-sand-valley", "Wystawa i wydarzenia/wystawa-sand-valley.jpg", 1200, 1600, 6),
   ...[
     ["FB_IMG_1750537266390.jpg", 1366, 2048], ["FB_IMG_1753471457652.jpg", 1440, 960], ["FB_IMG_1753471490826.jpg", 1440, 960],
     ["FB_IMG_1758523641417.jpg", 1080, 1080], ["FB_IMG_1761856127797.jpg", 2000, 1133], ["FB_IMG_1761856137990.jpg", 2000, 1834],
@@ -208,8 +213,8 @@ export const photos: Photo[] = [
 ];
 
 export const home: HomePage = {
-  lead: t("Pedagog i rzeczoznawca malarstwa. Maluje od ponad 30 lat, najchętniej akwarelą. Zapisuje chwilowe wrażenia: morze, żagle, światło miast i twarze ludzi.",
-    "Art teacher and certified painting appraiser. She has been painting for over 30 years, most often in watercolour. She records fleeting impressions: the sea, sails, the light of cities and people's faces."),
+  lead: t("Na przestrzeni lat nadal cechuje ją duża swoboda twórcza i ciekawość, z jaką opowiada, edukując. Kreuje tę ciekawość również na spotkaniach autorskich.",
+    "Over the years she has kept her great creative freedom and the curiosity with which she tells stories while teaching. She sparks that curiosity at author meetings, too."),
   stagePaintingIds: ["zagle", "italia", "chopin", "lilie-wodne"],
   letter: [
     t("Mówią o mnie: kolorystka o cienkiej kresce. W obrazach łączę impresję z realizmem.",
