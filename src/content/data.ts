@@ -35,7 +35,6 @@ const site: SiteSettings = {
   artistName: src.site.artistName,
   tagline: src.site.tagline,
   logo: { src: "/img/podpis.png", alt: t("Vanessa Pol-Zaborowska, podpis") },
-  email: src.site.email,
   phone: src.site.phone,
   social: src.site.social,
   bio: para(src.site.bio),

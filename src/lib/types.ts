@@ -33,7 +33,6 @@ export type SiteSettings = {
   artistName: string;
   tagline: L10n; // np. "Malarstwo · Akwarela · Marynistyka"
   logo?: Img; // logo graficzne (podpis); bez niego pokazuje się nazwa tekstem
-  email: string;
   phone?: string;
   social: { label: string; url: string }[];
   portfolioPdfUrl?: string;
@@ -65,7 +64,7 @@ export type Offer = { title: L10n; text: L10n; href: string; linkLabel: L10n };
 /** Strona główna: zdanie pod imieniem, obrazy na „sztaludze”, list od artystki, oferta. */
 export type HomePage = { lead: L10n; stagePaintings: Painting[]; letter: Rich; offers: Offer[] };
 
-/** Zaproszenie do kontaktu na końcu podstrony; temat trafia do wiadomości e-mail. */
+/** Zaproszenie do kontaktu na końcu podstrony; temat trafia do formularza kontaktowego. */
 export type ContactPrompt = { sentence: L10n; question: L10n; subject: string };
 
 /** Podstrona z opisem usługi (Obrazy na zamówienie). */

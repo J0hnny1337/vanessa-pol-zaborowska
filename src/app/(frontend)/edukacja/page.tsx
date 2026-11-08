@@ -5,6 +5,7 @@ import PageIntro from "@/components/PageIntro";
 import PaintingGrid from "@/components/PaintingGrid";
 import ContactBand from "@/components/ContactBand";
 import Art from "@/components/Art";
+import { inquiryHref } from "@/lib/inquiry";
 
 export const metadata: Metadata = {
   title: "Edukacja",
@@ -29,7 +30,7 @@ export default async function EducationPage() {
         )}
       >
         <p className="actions">
-          <a className="btn" href={`mailto:${site.email}?subject=${encodeURIComponent(page.contact?.subject ?? "Zajęcia")}`}>Umów lekcje</a>
+          <a className="btn" href={inquiryHref(page.contact?.subject ?? "Zajęcia z rysunku i malarstwa")}>Umów lekcje</a>
           {site.phone && <a className="text-link" href={`tel:${site.phone.replace(/\s/g, "")}`}>Zadzwoń: {site.phone}</a>}
         </p>
       </PageIntro>

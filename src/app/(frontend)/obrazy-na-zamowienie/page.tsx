@@ -7,6 +7,7 @@ import PageIntro from "@/components/PageIntro";
 import PaintingGrid from "@/components/PaintingGrid";
 import ContactBand from "@/components/ContactBand";
 import Art from "@/components/Art";
+import { inquiryHref } from "@/lib/inquiry";
 
 export const metadata: Metadata = { title: "Obrazy na zamówienie" };
 
@@ -33,7 +34,7 @@ export default async function CommissionsPage() {
         )}
       >
         <p className="actions">
-          <a className="btn" href={`mailto:${site.email}?subject=${encodeURIComponent(SUBJECT)}`}>Napisz w sprawie obrazu</a>
+          <a className="btn" href={inquiryHref(SUBJECT)}>Napisz w sprawie obrazu</a>
           {site.phone && <a className="text-link" href={`tel:${site.phone.replace(/\s/g, "")}`}>Zadzwoń: {site.phone}</a>}
         </p>
       </PageIntro>

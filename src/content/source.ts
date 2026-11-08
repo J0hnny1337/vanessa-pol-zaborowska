@@ -88,7 +88,7 @@ export const site: SiteSettings = {
   cta: {
     title: t("Zamów obraz", "Commission a painting"),
     buttonLabel: t("Zamów obraz", "Commission a painting"),
-    href: "mailto:vanessapol.art102@gmail.com",
+    href: "/kontakt?temat=Obraz%20na%20zam%C3%B3wienie#formularz",
   },
 };
 
@@ -353,10 +353,10 @@ export const privacyPolicy: PrivacyPolicy = {
   sections: [
     { id: "administrator", title: "Kto jest administratorem danych", body: [
       "Administratorem Twoich danych jest Vanessa Pol-Zaborowska.",
-      "Kontakt w sprawie danych: przez e-mail, link „Kontakt mailowy” w stopce i w zakładce Kontakt.",
+      "Kontakt w sprawie danych: przez formularz w zakładce Kontakt.",
     ] },
     { id: "dane", title: "Jakie dane i skąd", items: [
-      "Gdy piszesz do artystki e-mailem lub przez formularz „Zapytaj o obraz”: Twój adres e-mail, imię i nazwisko oraz treść wiadomości (w formularzu także wybrana sprawa i tytuł obrazu). Przy obrazie na zamówienie także zdjęcia i informacje, które przekażesz, na przykład zdjęcia miejsca, które ma się znaleźć na obrazie.",
+      "Gdy piszesz do artystki przez formularz kontaktowy: Twój adres e-mail, imię i nazwisko oraz treść wiadomości (w formularzu także wybrana sprawa i tytuł obrazu). Przy obrazie na zamówienie także zdjęcia i informacje, które przekażesz, na przykład zdjęcia miejsca, które ma się znaleźć na obrazie.",
       "Gdy oglądasz stronę: serwer hostingu zapisuje techniczne dane o wizycie, takie jak adres IP, typ przeglądarki, czas wejścia i adres podstrony. Artystka z nich nie korzysta. Służą one dostawcy hostingu do działania i ochrony strony.",
     ] },
     { id: "cel", title: "Po co i na jakiej podstawie", items: [
@@ -389,7 +389,7 @@ export const privacyPolicy: PrivacyPolicy = {
       "do sprzeciwu wobec przetwarzania,",
       "do przeniesienia danych.",
     ], after: [
-      "Wystarczy napisać na adres podany wyżej. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).",
+      "Wystarczy napisać przez formularz kontaktowy. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).",
       "Podanie danych jest dobrowolne, ale bez adresu e-mail artystka nie będzie mogła Ci odpowiedzieć.",
     ] },
     { id: "zmiany", title: "Zmiany", body: [

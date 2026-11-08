@@ -1,5 +1,6 @@
 import type { ContactPrompt, Photo, SiteSettings } from "@/lib/types";
 import Art from "./Art";
+import { inquiryHref } from "@/lib/inquiry";
 
 const fallback: ContactPrompt = {
   sentence: { pl: "Chcesz kupić obraz, zamówić obraz według własnego pomysłu albo zaprosić artystkę na spotkanie? Napisz wiadomość.", en: "" },
@@ -7,7 +8,7 @@ const fallback: ContactPrompt = {
   subject: "Pytanie o obraz",
 };
 
-/** Zamknięcie podstrony: jedno zdanie, małe zdjęcie i link do e-maila z gotowym tematem. */
+/** Zamknięcie podstrony: jedno zdanie, małe zdjęcie i link do formularza z gotowym tematem. */
 export default function ContactBand({ site, prompt = fallback, photo }: { site: SiteSettings; prompt?: ContactPrompt; photo?: Photo }) {
   const pic = photo ?? site.portrait;
   return (
@@ -23,7 +24,7 @@ export default function ContactBand({ site, prompt = fallback, photo }: { site: 
           <h2 id="contact-band-h">{prompt.question.pl}</h2>
           <ul>
             {site.phone && <li><a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a></li>}
-            <li><a href={`mailto:${site.email}?subject=${encodeURIComponent(prompt.subject)}`}>Kontakt mailowy</a></li>
+            <li><a href={inquiryHref(prompt.subject)}>Napisz wiadomość</a></li>
           </ul>
           <p className="soft">Na każdą wiadomość dostaniesz odpowiedź.</p>
         </div>

@@ -68,7 +68,7 @@ export type HomePage = {
   offers: Offer[];
 };
 
-/** Zaproszenie do kontaktu na końcu podstrony; temat trafia do wiadomości e-mail. */
+/** Zaproszenie do kontaktu na końcu podstrony; temat trafia do formularza kontaktowego. */
 export type ContactPrompt = { sentence: L10n; question: L10n; subject: string };
 
 /** Podstrona z opisem usługi (Obrazy na zamówienie). */

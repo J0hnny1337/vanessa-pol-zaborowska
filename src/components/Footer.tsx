@@ -45,7 +45,7 @@ export default async function Footer({ site, nav }: { site: SiteSettings; nav: N
             <h2>Kontakt</h2>
             <ul className="plain">
               {site.phone && <li><a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a></li>}
-              <li><a href={`mailto:${site.email}`}>Kontakt mailowy</a></li>
+              <li><a href="/kontakt#formularz">Napisz wiadomość</a></li>
             </ul>
           </div>
           <div>

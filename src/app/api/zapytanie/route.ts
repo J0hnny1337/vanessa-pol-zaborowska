@@ -5,6 +5,11 @@
 //   CONTACT_FROM    – nadawca, np. "Strona <formularz@twoja-domena.pl>" (domena zweryfikowana w Resend);
 //                     bez niej używany jest testowy nadawca Resend (działa tylko na adres konta Resend).
 
+import { site } from "@/content/source";
+
+// Adres podawany w komunikacie tylko wtedy, gdy wysyłka się nie uda (na stronie go nie ma).
+const FALLBACK = site.email;
+
 const LIMITS = { name: 100, email: 200, subject: 200, painting: 200, message: 5000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -36,7 +41,7 @@ export async function POST(request: Request) {
   const to = process.env.CONTACT_TO;
   if (!apiKey || !to) {
     console.error("[zapytanie] Brak RESEND_API_KEY lub CONTACT_TO");
-    return Response.json({ error: "Formularz jest chwilowo niedostępny." }, { status: 500 });
+    return Response.json({ error: "Formularz jest chwilowo niedostępny.", fallback: FALLBACK }, { status: 500 });
   }
 
   const rows: [string, string][] = [["Imię", name], ["E-mail", email], ["Sprawa", subject]];
@@ -46,7 +51,9 @@ export async function POST(request: Request) {
 <p style="white-space:pre-wrap">${escapeHtml(message)}</p>
 <p style="color:#888;font-size:12px">Wiadomość z formularza na stronie. Odpowiedz na tego maila, żeby napisać bezpośrednio do nadawcy.</p>`;
 
-  const res = await fetch("https://api.resend.com/emails", {
+  let res: Response;
+  try {
+    res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -57,11 +64,15 @@ export async function POST(request: Request) {
       text,
       html,
     }),
-  });
+    });
+  } catch (err) {
+    console.error("[zapytanie] Resend niedostępny:", err);
+    return Response.json({ error: "Nie udało się wysłać wiadomości.", fallback: FALLBACK }, { status: 502 });
+  }
 
   if (!res.ok) {
     console.error("[zapytanie] Resend:", res.status, await res.text());
-    return Response.json({ error: "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz e-mailem." }, { status: 502 });
+    return Response.json({ error: "Nie udało się wysłać wiadomości.", fallback: FALLBACK }, { status: 502 });
   }
   return Response.json({ ok: true });
 }

@@ -4,6 +4,7 @@ import { getContentPage, getPageHeader, getPaintings, getSite } from "@/content/
 import PageIntro from "@/components/PageIntro";
 import Art from "@/components/Art";
 import InquiryForm from "@/components/InquiryForm";
+import { inquiryHref } from "@/lib/inquiry";
 
 export const metadata: Metadata = { title: "Kontakt" };
 
@@ -36,8 +37,7 @@ export default async function ContactPage() {
       >
         <ul className="contact-big">
           {site.phone && <li><span className="soft">Telefon</span><a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a></li>}
-          <li><span className="soft">E-mail</span><a href={`mailto:${site.email}`}>Kontakt mailowy</a></li>
-          <li><span className="soft">Formularz</span><a href="#formularz">Zapytaj o obraz</a></li>
+          <li><span className="soft">Wiadomość</span><a href="#formularz">Napisz przez formularz</a></li>
         </ul>
       </PageIntro>
 
@@ -52,7 +52,7 @@ export default async function ContactPage() {
                 ); })()}
                 <h3>{t.title}</h3>
                 <p>{t.text}</p>
-                <a className="text-link" href={`?temat=${encodeURIComponent(t.subject)}#formularz`}>Napisz w tej sprawie</a>
+                <a className="text-link" href={inquiryHref(t.subject)}>Napisz w tej sprawie</a>
               </li>
             ))}
           </ul>
@@ -65,7 +65,7 @@ export default async function ContactPage() {
             <h2 id="ct-form-h" className="h2" data-reveal>Zapytaj o obraz</h2>
             <p className="soft">Napisz, o który obraz chodzi albo opisz swój pomysł. Wiadomość trafi prosto do artystki.</p>
           </div>
-          <InquiryForm subjects={TOPICS.map((t) => t.subject)} email={site.email} />
+          <InquiryForm subjects={TOPICS.map((t) => t.subject)} />
         </div>
       </section>
     </>

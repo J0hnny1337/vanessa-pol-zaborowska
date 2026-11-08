@@ -8,9 +8,12 @@ type Status = "idle" | "sending" | "sent" | "error";
  * Formularz „Zapytaj o obraz”. Wysyła wiadomość do /api/zapytanie, a ta mailem do artystki.
  * Adres strony może podpowiedzieć sprawę i obraz: /kontakt?temat=Kupno%20obrazu&obraz=Lilie%20wodne#formularz
  */
-export default function InquiryForm({ subjects, email }: { subjects: string[]; email: string }) {
+export default function InquiryForm({ subjects: baseSubjects }: { subjects: string[] }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [fallback, setFallback] = useState(""); // adres e-mail podawany tylko, gdy wysyłka się nie uda
+  const [extra, setExtra] = useState("");
+  const subjects = extra && !baseSubjects.includes(extra) ? [...baseSubjects, extra] : baseSubjects;
   const [subject, setSubject] = useState(subjects[0] ?? "");
   const [painting, setPainting] = useState("");
 
@@ -19,19 +22,20 @@ export default function InquiryForm({ subjects, email }: { subjects: string[]; e
       const q = new URLSearchParams(window.location.search);
       const t = q.get("temat");
       const o = q.get("obraz");
-      if (t && subjects.includes(t)) setSubject(t);
-      if (o) { setPainting(o.slice(0, 200)); if (!t) setSubject(subjects[0] ?? ""); }
+      if (t) { const v = t.slice(0, 100); setExtra(v); setSubject(v); }
+      if (o) setPainting(o.slice(0, 200));
     };
     read();
     window.addEventListener("popstate", read);
     return () => window.removeEventListener("popstate", read);
-  }, [subjects]);
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     setStatus("sending");
     setError("");
+    setFallback("");
     try {
       const res = await fetch("/api/zapytanie", {
         method: "POST",
@@ -39,12 +43,15 @@ export default function InquiryForm({ subjects, email }: { subjects: string[]; e
         body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || "Nie udało się wysłać wiadomości.");
+      if (!res.ok) {
+        if (data.fallback) setFallback(data.fallback);
+        throw new Error(data.error || "Nie udało się wysłać wiadomości.");
+      }
       form.reset();
       setPainting("");
       setStatus("sent");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Nie udało się wysłać wiadomości.");
+      setError(err instanceof TypeError ? "Nie udało się połączyć. Sprawdź internet i spróbuj ponownie." : err instanceof Error ? err.message : "Nie udało się wysłać wiadomości.");
       setStatus("error");
     }
   }
@@ -100,7 +107,8 @@ export default function InquiryForm({ subjects, email }: { subjects: string[]; e
         </button>
         {status === "error" && (
           <p className="inquiry-error" role="alert">
-            {error} Możesz też napisać na <a href={`mailto:${email}`}>{email}</a>.
+            {error}
+            {fallback && <> Możesz też napisać bezpośrednio na <a href={`mailto:${fallback}`}>{fallback}</a>.</>}
           </p>
         )}
       </div>

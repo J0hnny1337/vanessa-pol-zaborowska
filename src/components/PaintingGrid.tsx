@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Img } from "@/lib/types";
 import Art from "./Art";
+import { inquiryHref } from "@/lib/inquiry";
 
 export type GridItem = { id: string; image?: Img; placeholder: string; ratio: string; title?: string; meta?: string };
 
@@ -70,7 +71,7 @@ export default function PaintingGrid({ items, visible = items.length, label, ask
               <p>{item.title && <strong>{item.title}</strong>} {item.meta && <span>{item.meta}</span>}</p>
               <div className="lightbox-nav">
                 {ask && item.title && (
-                  <a className="text-link lightbox-ask" href={`/kontakt?temat=${encodeURIComponent("Kupno obrazu")}&obraz=${encodeURIComponent(item.title)}#formularz`}>
+                  <a className="text-link lightbox-ask" href={inquiryHref("Kupno obrazu", item.title)}>
                     Zapytaj o ten obraz
                   </a>
                 )}
