@@ -10,6 +10,10 @@ const securityHeaders = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
+  // Dawna zakładka „Portrety” jest teraz „Obrazy na zamówienie”.
+  async redirects() {
+    return [{ source: "/portrety-energetyczne", destination: "/obrazy-na-zamowienie", permanent: true }];
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

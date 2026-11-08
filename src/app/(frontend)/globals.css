@@ -243,13 +243,17 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .lightbox-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.5rem; }
 .lightbox-bar p { margin: 0; }
 .lightbox-bar strong { color: var(--ink); font-weight: 400; }
-.lightbox-nav { display: flex; gap: .6rem; }
+.lightbox-nav { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.lightbox-nav .lightbox-ask { margin-right: .8rem; }
 .lightbox-nav button { background: none; border: 1px solid var(--ink); color: var(--ink); font: inherit; font-weight: 400; min-width: 46px; height: 46px; padding: 0 1rem; cursor: pointer; }
 .lightbox-nav button:hover { background: var(--ink); color: var(--bg); }
 
-/* ===== Portrety ===== */
+/* ===== Obrazy na zamówienie ===== */
 .pt-about { padding: 0 0 var(--section); }
 .needs { background: var(--band); padding: 2.5rem; }
+.options { display: grid; gap: 1.8rem; margin: 2.2rem 0 2rem; }
+.options h3 { font-size: var(--t-lead); line-height: 1.3; margin-bottom: .5rem; }
+.options p { margin: 0; }
 .needs ul { margin: 0; padding-left: 1.2rem; }
 .needs li + li { margin-top: .7rem; }
 .steps { background: var(--dark); color: var(--on-dark); padding: var(--section) 0; }
@@ -290,6 +294,26 @@ figcaption strong { color: var(--ink); font-weight: 400; }
 .contact-big { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; }
 .contact-big span { display: block; font-size: var(--t-small); }
 .contact-big a { font-size: var(--t-lead); color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 6px; }
+/* Formularz „Zapytaj o obraz” */
+.inquiry-sec { padding: var(--section) 0; scroll-margin-top: 5rem; }
+.inquiry-in { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.inquiry-in .soft { max-width: 32ch; margin-top: 1rem; }
+.inquiry { display: grid; gap: 1.4rem; }
+.inquiry-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.inquiry label { display: grid; gap: .4rem; font-size: var(--t-small); color: var(--soft); }
+.inquiry input, .inquiry select, .inquiry textarea { font: inherit; font-size: var(--t-body); color: var(--ink); background: var(--bg); border: 1px solid var(--soft); border-radius: 0; padding: .8rem 1rem; width: 100%; }
+.inquiry textarea { resize: vertical; min-height: 10rem; }
+.inquiry input:focus-visible, .inquiry select:focus-visible, .inquiry textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; border-color: var(--ink); }
+.inquiry .btn { border: 0; cursor: pointer; font-family: inherit; }
+.inquiry .btn:disabled { opacity: .6; cursor: wait; }
+.inquiry-note { font-size: var(--t-small); margin: 0; }
+.inquiry-note a, .inquiry-error a { color: inherit; }
+.inquiry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+.inquiry-error { margin: 0; color: #b3261e; }
+:root[data-theme="dark"] .inquiry-error { color: #f2b8b5; }
+.inquiry-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.inquiry-done { display: grid; gap: 1rem; justify-items: start; }
+.lightbox-ask { color: var(--ink); white-space: nowrap; }
 /* Polityka prywatności: spis treści po lewej, tekst po prawej */
 .policy { padding: 0 0 var(--section); }
 .policy-in { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
@@ -404,6 +428,7 @@ figcaption strong { color: var(--ink); font-weight: 400; }
   .news-sec .wide { grid-template-columns: 1fr; }
   .policy-in { grid-template-columns: 1fr; }
   .policy-toc { position: static; }
+  .inquiry-in, .inquiry-row { grid-template-columns: 1fr; }
   .topic-list.with-pics li { grid-template-columns: 80px 1fr; }
   .topic-list.with-pics li > :not(.topic-thumb) { grid-column: 2; }
   .topic-thumb { width: 80px; grid-row: span 3; align-self: start; }

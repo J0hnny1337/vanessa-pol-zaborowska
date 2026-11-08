@@ -116,7 +116,7 @@ export async function getContentPage(slug: string): Promise<ContentPage | null> 
 }
 
 export async function getServicePage(slug: string): Promise<ServicePage | null> {
-  const p = src.portraitsPage;
+  const p = src.commissionsPage;
   if (slug !== p.slug) return null;
   return { ...p, painting: p.paintingId ? paintingById(p.paintingId) : undefined, body: para(p.body) };
 }

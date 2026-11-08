@@ -36,7 +36,7 @@ export default async function HomePage() {
             <p className="intro-lead">{home.lead.pl}</p>
             <p className="actions">
               <Link className="btn" href="/portfolio">Zobacz obrazy</Link>
-              <Link className="text-link" href="/portrety-energetyczne">Portret na zamówienie</Link>
+              <Link className="text-link" href="/obrazy-na-zamowienie">Obraz na zamówienie</Link>
             </p>
           </div>
         }

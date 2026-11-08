@@ -2,7 +2,7 @@ import type { ContactPrompt, Photo, SiteSettings } from "@/lib/types";
 import Art from "./Art";
 
 const fallback: ContactPrompt = {
-  sentence: { pl: "Chcesz kupić obraz, zamówić portret albo zaprosić artystkę na spotkanie? Napisz wiadomość.", en: "" },
+  sentence: { pl: "Chcesz kupić obraz, zamówić obraz według własnego pomysłu albo zaprosić artystkę na spotkanie? Napisz wiadomość.", en: "" },
   question: { pl: "Masz pytanie?", en: "Any questions?" },
   subject: "Pytanie o obraz",
 };

@@ -21,8 +21,8 @@ export const site: SiteSettings = {
       "She has been painting for over 30 years. People call her a colourist with a fine line. In her paintings she brings together impression, the record of a fleeting sensation, and realism. She works in watercolour, pen and ink, acrylic and mixed media. She doesn't like standing still: she keeps searching, discovering and starting anew."),
     t("Inspirują ją podróże, spotkania z ciekawymi ludźmi, architektura i muzyka. Szkicuje i fotografuje. Słucha muzyki klasycznej, jazzu i bluesa. Pisze też liryki, scenariusze i poezję. Obraz, jak każdy proces twórczy, potrzebuje czasu, refleksji i spokoju. Zanim powstanie, artystka zbiera wrażenia i układa z nich projekt, który dopiero potem przenosi na płótno.",
       "She is inspired by travel, by meeting interesting people, by architecture and by music. She sketches and takes photographs. She listens to classical music, jazz and blues, and also writes lyrics, screenplays and poetry. Like any creative process, a painting needs time, reflection and calm. Before it exists, she gathers impressions and shapes them into an idea, which only later goes onto the canvas."),
-    t("Bierze udział w plenerach i wystawach zbiorowych w całej Polsce, m.in. w Poznaniu, Pile, Koszalinie, Warszawie i Kołobrzegu, i pokazuje swoje prace na wystawach indywidualnych. Za portret Fryderyka Chopina otrzymała drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie. Jej obrazy trafiły do zbiorów prywatnych w Polsce i za granicą. Jej sylwetkę zamieszczono w XII i XIII wydaniu encyklopedii „Who is Who”.",
-      "She takes part in plein-air workshops and group exhibitions across Poland, including Poznań, Piła, Koszalin, Warsaw and Kołobrzeg, and shows her work in solo exhibitions. Her portrait of Fryderyk Chopin won second prize in an international competition held by the Eclusier Gallery in London. Her paintings are in private collections in Poland and abroad. Her profile appears in the 12th and 13th editions of the \"Who is Who\" encyclopaedia."),
+    t("Bierze udział w plenerach i wystawach zbiorowych w całej Polsce, m.in. w Poznaniu, Pile, Koszalinie, Warszawie i Kołobrzegu, i pokazuje swoje prace na wystawach indywidualnych. Za portret Fryderyka Chopina otrzymała drugą nagrodę w międzynarodowym konkursie Galerii Eclusier w Londynie. Wyróżnienie przyniósł jej też obraz „Ekspresja. Szare jest ok” (akryl na płycie, 70 × 50 cm) na X Poznańskim Salonie ZNP „Robinsonada”. Jej obrazy trafiły do zbiorów prywatnych w Polsce i za granicą. Jej sylwetkę zamieszczono w XII i XIII wydaniu encyklopedii „Who is Who”.",
+      "She takes part in plein-air workshops and group exhibitions across Poland, including Poznań, Piła, Koszalin, Warsaw and Kołobrzeg, and shows her work in solo exhibitions. Her portrait of Fryderyk Chopin won second prize in an international competition held by the Eclusier Gallery in London. Her painting \"Ekspresja. Szare jest ok\" (acrylic on board, 70 × 50 cm) received a distinction at the 10th Poznań Salon of the Polish Teachers' Union (ZNP), \"Robinsonada\". Her paintings are in private collections in Poland and abroad. Her profile appears in the 12th and 13th editions of the \"Who is Who\" encyclopaedia."),
   ],
   // Cytaty artystki, zmieniają się po kolei na stronie głównej i na stronie O Autorce.
   quotes: [
@@ -86,8 +86,8 @@ export const site: SiteSettings = {
     { label: t("Polityka prywatności", "Privacy policy"), href: "/polityka-prywatnosci" },
   ],
   cta: {
-    title: t("Zamów portret", "Commission a portrait"),
-    buttonLabel: t("Zamów portret", "Order a portrait"),
+    title: t("Zamów obraz", "Commission a painting"),
+    buttonLabel: t("Zamów obraz", "Commission a painting"),
     href: "mailto:vanessapol.art102@gmail.com",
   },
 };
@@ -225,8 +225,8 @@ export const home: HomePage = {
       "To me, art matters when it changes the way we think, both the artist's and the viewer's."),
   ],
   offers: [
-    { title: t("Portret na zamówienie", "Commissioned portrait"), href: "/portrety-energetyczne", linkLabel: t("Jak zamówić portret", "How to commission"),
-      text: t("Vanessa namaluje portret bliskiej Ci osoby na podstawie zdjęć i rozmowy o niej.", "Vanessa paints a portrait of someone close to you from photographs and a conversation about them.") },
+    { title: t("Obraz na zamówienie", "Commissioned painting"), href: "/obrazy-na-zamowienie", linkLabel: t("Jak zamówić obraz", "How to commission"),
+      text: t("Obraz namalowany specjalnie dla Ciebie: na wybrany temat albo jako nowa wersja pracy z portfolio.", "A painting made especially for you: on a subject you choose, or as a new version of a portfolio work.") },
     { title: t("Zajęcia z rysunku i malarstwa", "Drawing and painting classes"), href: "/edukacja", linkLabel: t("O zajęciach", "About the classes"),
       text: t("Nauczysz się rysunku, kompozycji i pracy z kolorem. Przygotujesz się do egzaminów do szkół artystycznych.", "You will learn drawing, composition and colour, and prepare for art school exams.") },
     { title: t("Spotkanie autorskie", "Artist talk"), href: "/spotkania-autorskie", linkLabel: t("O spotkaniach", "About the talks"),
@@ -237,7 +237,7 @@ export const home: HomePage = {
 // Menu główne. Nowa zakładka = nowy wpis tutaj + folder w src/app/<slug>/page.tsx.
 export const navigation: NavItem[] = [
   { label: t("Portfolio", "Portfolio"), href: "/portfolio" },
-  { label: t("Portrety", "Portraits"), href: "/portrety-energetyczne" },
+  { label: t("Na zamówienie", "Commissions"), href: "/obrazy-na-zamowienie" },
   { label: t("O Autorce", "About the artist"), href: "/o-autorce" },
   { label: t("Aktualności", "News"), href: "/aktualnosci" },
   { label: t("Spotkania autorskie", "Artist talks"), href: "/spotkania-autorskie" },
@@ -258,7 +258,7 @@ export const pageHeaders: Record<string, PageHeader> = {
   edukacja: { title: t("Edukacja", "Education"),
     lead: t("Zajęcia z rysunku i malarstwa z zastosowaniem wszystkich technik oraz przygotowanie do egzaminów do szkół artystycznych.", "Drawing and painting classes in every technique and art school exam preparation.") },
   kontakt: { title: t("Kontakt", "Contact"),
-    lead: t("Napisz w sprawie obrazów, portretów, spotkań autorskich i zajęć. Na każdą wiadomość dostaniesz odpowiedź.", "Get in touch about paintings, portraits, artist talks or classes. Every message gets an answer.") },
+    lead: t("Napisz w sprawie zakupu obrazu, obrazu na zamówienie, spotkań autorskich i zajęć. Na każdą wiadomość dostaniesz odpowiedź.", "Get in touch about buying or commissioning a painting, artist talks or classes. Every message gets an answer.") },
 };
 
 // Treść prostych podstron (klucz = slug w adresie).
@@ -348,32 +348,33 @@ export const contentPages: Record<string, ContentPage> = {
 // Polityka prywatności (tylko PL). Sekcja = nagłówek, akapity i opcjonalna lista punktów.
 // Dane administratora: jeśli „Vanessa Pol-Zaborowska” to pseudonim, wpisz tu imię i nazwisko lub firmę (z adresem i NIP-em).
 export const privacyPolicy: PrivacyPolicy = {
-  updated: "27 października 2026",
-  intro: "Ta strona to wizytówka artystki. Nie ma formularzy, kont ani sklepu i nie śledzi odwiedzających. Poniżej znajdziesz informację, jakie dane mogą trafić do artystki i co się z nimi dzieje.",
+  updated: "8 listopada 2026",
+  intro: "Ta strona to wizytówka artystki. Ma formularz kontaktowy, ale nie ma kont ani sklepu i nie śledzi odwiedzających. Poniżej znajdziesz informację, jakie dane mogą trafić do artystki i co się z nimi dzieje.",
   sections: [
     { id: "administrator", title: "Kto jest administratorem danych", body: [
       "Administratorem Twoich danych jest Vanessa Pol-Zaborowska.",
       "Kontakt w sprawie danych: przez e-mail, link „Kontakt mailowy” w stopce i w zakładce Kontakt.",
     ] },
     { id: "dane", title: "Jakie dane i skąd", items: [
-      "Gdy piszesz do artystki: Twój adres e-mail, imię i nazwisko (jeśli je podasz) oraz treść wiadomości. Przy zamówieniu portretu także zdjęcia i informacje o portretowanej osobie, które przekażesz.",
+      "Gdy piszesz do artystki e-mailem lub przez formularz „Zapytaj o obraz”: Twój adres e-mail, imię i nazwisko oraz treść wiadomości (w formularzu także wybrana sprawa i tytuł obrazu). Przy obrazie na zamówienie także zdjęcia i informacje, które przekażesz, na przykład zdjęcia miejsca, które ma się znaleźć na obrazie.",
       "Gdy oglądasz stronę: serwer hostingu zapisuje techniczne dane o wizycie, takie jak adres IP, typ przeglądarki, czas wejścia i adres podstrony. Artystka z nich nie korzysta. Służą one dostawcy hostingu do działania i ochrony strony.",
     ] },
     { id: "cel", title: "Po co i na jakiej podstawie", items: [
-      "Odpowiedź na wiadomość i rozmowa o obrazie, portrecie, zajęciach lub spotkaniu: żeby odpowiedzieć na Twoje zapytanie i, jeśli się umówimy, wykonać zamówienie (art. 6 ust. 1 lit. b RODO) albo w uzasadnionym interesie administratora prowadzenia korespondencji (art. 6 ust. 1 lit. f RODO).",
+      "Odpowiedź na wiadomość i rozmowa o obrazie, zamówieniu, zajęciach lub spotkaniu: żeby odpowiedzieć na Twoje zapytanie i, jeśli się umówimy, wykonać zamówienie (art. 6 ust. 1 lit. b RODO) albo w uzasadnionym interesie administratora prowadzenia korespondencji (art. 6 ust. 1 lit. f RODO).",
       "Rozliczenia, jeśli dojdzie do sprzedaży lub zamówienia: ze względu na obowiązki wynikające z przepisów podatkowych i rachunkowych (art. 6 ust. 1 lit. c RODO).",
       "Logi serwera: w uzasadnionym interesie zapewnienia działania i bezpieczeństwa strony (art. 6 ust. 1 lit. f RODO).",
     ] },
     { id: "jak-dlugo", title: "Jak długo", items: [
       "Korespondencja jest przechowywana do czasu zakończenia sprawy. Jeśli doszło do zamówienia, jest przechowywana do upływu terminów przedawnienia roszczeń i okresów wymaganych przez przepisy podatkowe.",
-      "Zdjęcia przesłane do portretu są usuwane po jego wykonaniu, chyba że umówicie się inaczej.",
+      "Zdjęcia przesłane do obrazu na zamówienie są usuwane po jego wykonaniu, chyba że umówicie się inaczej.",
       "Logi serwera są przechowywane przez krótki czas określony przez dostawcę hostingu.",
     ] },
     { id: "odbiorcy", title: "Komu dane są przekazywane", items: [
       "Vercel Inc.: hosting strony (logi serwera).",
       "Google: dostawca poczty e-mail artystki (Gmail).",
+      "Resend (Plus Five Five Inc.): usługa, która dostarcza wiadomości z formularza na skrzynkę artystki. Formularz nie zapisuje wiadomości na stronie.",
     ], after: [
-      "Obie firmy mają siedziby w USA. Przekazanie danych odbywa się z zabezpieczeniami wymaganymi przez RODO, np. na podstawie standardowych klauzul umownych lub programu EU-US Data Privacy Framework. Twoje dane nie są sprzedawane ani udostępniane nikomu innemu.",
+      "Wszystkie te firmy mają siedziby w USA. Przekazanie danych odbywa się z zabezpieczeniami wymaganymi przez RODO, np. na podstawie standardowych klauzul umownych lub programu EU-US Data Privacy Framework. Twoje dane nie są sprzedawane ani udostępniane nikomu innemu.",
     ] },
     { id: "cookies", title: "Pliki cookies", body: [
       "Strona nie używa plików cookies ani narzędzi analitycznych. Jedyna informacja zapisywana w Twojej przeglądarce to wybór jasnego lub ciemnego wyglądu strony, jeśli go zmienisz. Zostaje ona tylko na Twoim urządzeniu.",
@@ -392,38 +393,48 @@ export const privacyPolicy: PrivacyPolicy = {
       "Podanie danych jest dobrowolne, ale bez adresu e-mail artystka nie będzie mogła Ci odpowiedzieć.",
     ] },
     { id: "zmiany", title: "Zmiany", body: [
-      "Jeśli coś się zmieni, na przykład dojdzie formularz lub sklep, ta polityka zostanie zaktualizowana.",
+      "Jeśli coś się zmieni, na przykład dojdzie sklep, ta polityka zostanie zaktualizowana.",
     ] },
   ],
 };
 
 // TEKST PRZYKŁADOWY (do potwierdzenia przez autorkę): opis, kroki i czas realizacji.
-export const portraitsPage: ServicePage = {
-  slug: "portrety-energetyczne",
-  title: t("Portrety na zamówienie", "Commissioned portraits"),
-  lead: t("Vanessa namaluje portret bliskiej Ci osoby na podstawie zdjęć i rozmowy o niej. To dobry pomysł na prezent i pamiątkę na lata.",
-    "Vanessa paints a portrait of someone close to you from photographs and a conversation about them."),
-  paintingId: "drzewo-zycia",
+export const commissionsPage: ServicePage = {
+  slug: "obrazy-na-zamowienie",
+  title: t("Obrazy na zamówienie", "Commissioned paintings"),
+  lead: t("Obraz namalowany specjalnie dla Ciebie: na wybrany przez Ciebie temat albo jako nowa wersja pracy z portfolio, która szczególnie Cię poruszyła.",
+    "A painting made especially for you: on a subject you choose, or as a new version of a portfolio work that moved you."),
+  paintingId: "grecja",
   body: [
-    t("Maluje portrety w technice akwareli.", "She paints portraits in watercolour."),
+    t("Obraz na zamówienie powstaje z myślą o konkretnym miejscu i konkretnej osobie. Może zawisnąć w domu, w biurze albo trafić do kogoś bliskiego jako prezent i pamiątka na lata.",
+      "A commissioned painting is made with a particular place and person in mind. It can hang at home or in the office, or go to someone close as a gift to keep for years."),
+  ],
+  options: [
+    { title: t("Obraz według Twojego pomysłu", "A painting from your idea"),
+      text: t("Morze, miejsce z podróży, dom rodzinny, ukochane kwiaty albo pole golfowe. Opowiedz, co ma się znaleźć na obrazie, a artystka zaproponuje kompozycję, technikę i format.",
+        "The sea, a place from your travels, a family home, favourite flowers or a golf course. Tell her what the painting should show and she will suggest the composition, technique and size.") },
+    { title: t("Nowa wersja obrazu z portfolio", "A new version of a portfolio painting"),
+      text: t("Jeśli obraz, który Ci się spodobał, jest już sprzedany albo chcesz go w innym rozmiarze, może powstać jego nowa wersja. Każdy obraz powstaje od nowa, więc zachowa charakter oryginału, a zarazem będzie osobną, niepowtarzalną pracą.",
+        "If a painting you like has already been sold, or you would like it in a different size, a new version can be painted. Every picture is painted afresh, so it keeps the character of the original while being a separate, one-of-a-kind work.") },
   ],
   steps: [
     { title: t("Napisz", "Get in touch"),
-      text: t("Opowiedz, kogo chcesz sportretować i na jaką okazję. Razem ustalicie format i technikę.", "Say who the portrait is of and for what occasion. Together you agree the size and technique.") },
-    { title: t("Prześlij zdjęcia i kilka słów", "Send photos and a few words"),
-      text: t("Kilka zdjęć portretowanej osoby i parę zdań o niej: co lubi, czym się zajmuje.", "A few photographs and a few sentences about the person.") },
-    { title: t("Powstaje portret", "The portrait is painted"),
+      text: t("Opisz swój pomysł albo wskaż obraz z portfolio. Razem ustalicie temat, technikę, format i termin.", "Describe your idea or point to a painting from the portfolio. Together you agree the subject, technique, size and date.") },
+    { title: t("Projekt", "The design"),
+      text: t("Zanim zacznie malować, artystka zbiera wrażenia i układa z nich projekt obrazu.", "Before she starts painting, the artist gathers impressions and shapes them into a design.") },
+    { title: t("Gotowy obraz", "The finished painting"),
       text: t("Gotowy obraz artystka sygnuje i opisuje tytułem oraz datą. Umówicie się na odbiór lub wysyłkę.", "The finished painting is signed, titled and dated. You arrange collection or delivery.") },
   ],
   needs: {
-    title: t("Co przygotować", "What to prepare"),
+    title: t("Co warto przygotować", "What to prepare"),
     items: [
-      t("Kilka zdjęć portretowanej osoby", "A few photographs of the person"),
-      t("Kilka słów o tej osobie", "A few words about the person"),
-      t("Jej zainteresowania i pasje", "Interests, passions"),
-      t("Ulubione miejsca i kolory", "Favourite places, colours"),
+      t("Temat obrazu albo tytuł pracy z portfolio", "The subject, or the title of a portfolio painting"),
+      t("Przybliżony rozmiar albo miejsce, w którym obraz zawiśnie", "A rough size, or where the painting will hang"),
+      t("Zdjęcia, jeśli obraz ma przedstawiać konkretne miejsce", "Photographs, if it should show a particular place"),
+      t("Ulubione kolory i nastrój", "Favourite colours and mood"),
+      t("Termin, jeśli obraz ma być prezentem na okazję", "A date, if the painting is a gift for an occasion"),
     ],
   },
-  galleryTitle: t("Wybrane portrety", "Selected portraits"),
-  galleryPaintingIds: ["chopin", "chopin-2", "drzewo-zycia", "muzycy", "postac-fb", "postac-wa19", "postac-wa25"],
+  galleryTitle: t("Tematy, które mogą powstać dla Ciebie", "Subjects she can paint for you"),
+  galleryPaintingIds: ["zagle", "italia", "szkocja-pejzaz", "lilie-wodne", "chopin", "euforia"],
 };

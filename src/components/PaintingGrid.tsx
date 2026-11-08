@@ -9,8 +9,9 @@ export type GridItem = { id: string; image?: Img; placeholder: string; ratio: st
 /**
  * Siatka obrazów: kliknięcie otwiera obraz w powiększeniu (strzałki zmieniają obraz, Esc zamyka).
  * Pokazuje pierwsze `visible` pozycji, resztę rozwija przycisk.
+ * `ask` dodaje w powiększeniu link „Zapytaj o ten obraz” do formularza na stronie Kontakt.
  */
-export default function PaintingGrid({ items, visible = items.length, label }: { items: GridItem[]; visible?: number; label: string }) {
+export default function PaintingGrid({ items, visible = items.length, label, ask = false }: { items: GridItem[]; visible?: number; label: string; ask?: boolean }) {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -68,6 +69,11 @@ export default function PaintingGrid({ items, visible = items.length, label }: {
             <div className="lightbox-bar">
               <p>{item.title && <strong>{item.title}</strong>} {item.meta && <span>{item.meta}</span>}</p>
               <div className="lightbox-nav">
+                {ask && item.title && (
+                  <a className="text-link lightbox-ask" href={`/kontakt?temat=${encodeURIComponent("Kupno obrazu")}&obraz=${encodeURIComponent(item.title)}#formularz`}>
+                    Zapytaj o ten obraz
+                  </a>
+                )}
                 {items.length > 1 && (
                   <>
                     <button type="button" onClick={() => step(-1)} aria-label="Poprzedni obraz">←</button>

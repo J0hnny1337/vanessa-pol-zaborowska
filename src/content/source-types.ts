@@ -32,7 +32,7 @@ export type Exhibition = { year: number; title: string; place?: string };
 
 export type SiteSettings = {
   artistName: string;
-  tagline: L10n; // np. "Malarstwo · Portrety energetyczne"
+  tagline: L10n; // np. "Malarstwo · Akwarela · Marynistyka"
   logo?: Img; // logo graficzne (podpis); bez niego pokazuje się nazwa tekstem
   portraitPhotoId?: string; // zdjęcie artystki w sekcji bio
   exhibitionPhotoIds?: string[]; // karuzela obok listy wystaw
@@ -71,13 +71,14 @@ export type HomePage = {
 /** Zaproszenie do kontaktu na końcu podstrony; temat trafia do wiadomości e-mail. */
 export type ContactPrompt = { sentence: L10n; question: L10n; subject: string };
 
-/** Podstrona z opisem usługi (Portrety na zamówienie). */
+/** Podstrona z opisem usługi (Obrazy na zamówienie). */
 export type ServicePage = {
   slug: string;
   title: L10n;
   lead: L10n;
   paintingId?: string; // obraz obok tytułu
   body: L10n[];
+  options: { title: L10n; text: L10n }[]; // co można zamówić
   steps: { title: L10n; text: L10n }[];
   needs: { title: L10n; items: L10n[] };
   galleryTitle: L10n;

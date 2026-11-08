@@ -55,6 +55,7 @@ export default async function PortfolioPage() {
             <PaintingGrid
               label={g.series.name.pl}
               visible={VISIBLE}
+              ask
               items={g.items.map((p) => ({ id: p.id, image: p.image, placeholder: p.placeholder, ratio: p.ratio, title: p.title, meta: paintingMeta(p) }))}
             />
           </div>

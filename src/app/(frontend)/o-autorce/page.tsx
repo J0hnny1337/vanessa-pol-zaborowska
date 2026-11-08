@@ -131,7 +131,7 @@ export default async function AboutPage() {
               <Art image={chopin.image} placeholder={chopin.placeholder} ratio={chopin.ratio} sizes="(min-width: 900px) 55vw, 100vw" />
             </figure>
             <div data-reveal>
-              <h2 className="h2">Nagrodzony portret Chopina</h2>
+              <h2 className="h2">Nagrody i wyróżnienia</h2>
               <p>{exhibitionsBio}</p>
               <Link className="text-link" href="/portfolio#portret">Zobacz portrety</Link>
             </div>
@@ -172,7 +172,7 @@ export default async function AboutPage() {
       </section>
 
       <ContactBand site={site} photo={photos[1]} prompt={{
-        sentence: { pl: "Obraz z portfolio albo portret na zamówienie? Artystka chętnie opowie o swojej pracy.", en: "" },
+        sentence: { pl: "Obraz z portfolio albo obraz na zamówienie? Artystka chętnie opowie o swojej pracy.", en: "" },
         question: { pl: "Napisz wiadomość", en: "" },
         subject: "Pytanie o obraz",
       }} />
