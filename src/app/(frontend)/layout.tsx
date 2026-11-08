@@ -6,6 +6,7 @@ import { getNavigation, getSite } from "@/content/data";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import ConsentBanner from "@/components/ConsentBanner";
 
 // Ustawia zapisany motyw przed pierwszym malowaniem, żeby uniknąć błysku. Klasa "js" włącza animacje wejścia (bez skryptu treść jest od razu widoczna).
 const THEME_INIT = `document.documentElement.classList.add("js");try{if(localStorage.getItem("theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
@@ -33,6 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main id="content">{children}</main>
         <Footer site={site} nav={nav} />
         <Reveal />
+        <ConsentBanner />
       </body>
     </html>
   );

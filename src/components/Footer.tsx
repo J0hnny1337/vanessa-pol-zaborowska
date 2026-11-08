@@ -4,6 +4,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import type { NavItem, SiteSettings } from "@/lib/types";
 import { getPaintings } from "@/content/data";
 import Art from "./Art";
+import ConsentSettingsButton from "./ConsentSettingsButton";
 
 const socialIcons: Record<string, React.ReactNode> = {
   Instagram: <FaInstagram size={18} aria-hidden="true" />,
@@ -64,6 +65,7 @@ export default async function Footer({ site, nav }: { site: SiteSettings; nav: N
             {site.legalLinks.map((l) => (
               <li key={l.label.pl}><a href={l.href}>{l.label.pl}</a></li>
             ))}
+            <li><ConsentSettingsButton /></li>
           </ul>
         </div>
       </div>

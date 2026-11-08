@@ -4,6 +4,8 @@
 //   CONTACT_TO      – adres, na który mają przychodzić wiadomości
 //   CONTACT_FROM    – nadawca, np. "Strona <formularz@twoja-domena.pl>" (domena zweryfikowana w Resend);
 //                     bez niej używany jest testowy nadawca Resend (działa tylko na adres konta Resend).
+//   RECAPTCHA_SECRET_KEY – sekret reCAPTCHA v3 (tylko serwer). Bez niego weryfikacja jest pomijana (np. lokalnie).
+//   NEXT_PUBLIC_RECAPTCHA_SITE_KEY – klucz witryny reCAPTCHA (używa go formularz w przeglądarce).
 
 import { site } from "@/content/source";
 
@@ -11,9 +13,31 @@ import { site } from "@/content/source";
 const FALLBACK = site.email;
 
 const LIMITS = { name: 100, email: 200, subject: 200, painting: 200, message: 5000 };
+const RECAPTCHA_ACTION = "zapytanie";
+const RECAPTCHA_MIN_SCORE = 0.5;
+const RECAPTCHA_HOSTS = new Set(["vanessapol-zaborowska.pl", "www.vanessapol-zaborowska.pl", "localhost"]);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const clean = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
+/** Sprawdza token reCAPTCHA w Google. Zwraca true, gdy wiadomość można wysłać. */
+async function verifyRecaptcha(token: string, secret: string): Promise<boolean> {
+  if (!token) return false;
+  try {
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token }),
+    });
+    const r = (await res.json()) as { success?: boolean; action?: string; score?: number; hostname?: string; "error-codes"?: string[] };
+    const ok = r.success === true && r.action === RECAPTCHA_ACTION && typeof r.score === "number" && r.score >= RECAPTCHA_MIN_SCORE && RECAPTCHA_HOSTS.has(r.hostname ?? "");
+    if (!ok) console.warn("[zapytanie] reCAPTCHA odrzuciła:", { success: r.success, action: r.action, score: r.score, hostname: r.hostname, errors: r["error-codes"] });
+    return ok;
+  } catch (err) {
+    console.error("[zapytanie] reCAPTCHA niedostępna:", err);
+    return false;
+  }
+}
+
 const escapeHtml = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export async function POST(request: Request) {
@@ -35,6 +59,16 @@ export async function POST(request: Request) {
 
   if (!name || !EMAIL_RE.test(email) || message.length < 5) {
     return Response.json({ error: "Uzupełnij imię, poprawny e-mail i treść wiadomości." }, { status: 400 });
+  }
+
+  const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!recaptchaSecret) {
+    console.warn("[zapytanie] Brak RECAPTCHA_SECRET_KEY, pomijam weryfikację reCAPTCHA");
+  } else if (!(await verifyRecaptcha(clean(body.recaptchaToken, 4000), recaptchaSecret))) {
+    return Response.json(
+      { error: "Nie udało się potwierdzić, że wiadomość wysyła człowiek. Odśwież stronę i spróbuj ponownie.", fallback: FALLBACK },
+      { status: 403 },
+    );
   }
 
   const apiKey = process.env.RESEND_API_KEY;

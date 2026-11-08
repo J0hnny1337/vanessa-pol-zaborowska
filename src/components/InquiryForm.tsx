@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CONSENT_CHANGE, readConsent, saveConsent, type Consent } from "@/lib/consent";
+import { getRecaptchaToken, loadRecaptcha } from "@/lib/recaptcha";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -16,6 +18,19 @@ export default function InquiryForm({ subjects: baseSubjects }: { subjects: stri
   const subjects = extra && !baseSubjects.includes(extra) ? [...baseSubjects, extra] : baseSubjects;
   const [subject, setSubject] = useState(subjects[0] ?? "");
   const [painting, setPainting] = useState("");
+  // Zgoda na reCAPTCHA. Bez niej skrypt Google się nie ładuje, a formularz nie wysyła wiadomości.
+  const [consent, setConsent] = useState<Consent | null>(null);
+
+  useEffect(() => {
+    const apply = (c: Consent | null) => {
+      setConsent(c);
+      if (c === "granted") loadRecaptcha()?.catch(() => {});
+    };
+    apply(readConsent());
+    const onChange = (e: Event) => apply((e as CustomEvent<Consent>).detail);
+    window.addEventListener(CONSENT_CHANGE, onChange);
+    return () => window.removeEventListener(CONSENT_CHANGE, onChange);
+  }, []);
 
   useEffect(() => {
     const read = () => {
@@ -33,14 +48,21 @@ export default function InquiryForm({ subjects: baseSubjects }: { subjects: stri
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    if (consent !== "granted" && readConsent() !== "granted") return;
     setStatus("sending");
     setError("");
     setFallback("");
     try {
+      let token: string;
+      try {
+        token = await getRecaptchaToken();
+      } catch {
+        throw new Error("Nie udało się wczytać zabezpieczenia reCAPTCHA. Odśwież stronę i spróbuj ponownie.");
+      }
       const res = await fetch("/api/zapytanie", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        body: JSON.stringify({ ...Object.fromEntries(new FormData(form)), recaptchaToken: token }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -98,13 +120,41 @@ export default function InquiryForm({ subjects: baseSubjects }: { subjects: stri
       <label className="inquiry-hp" aria-hidden="true">
         Strona www <input name="website" tabIndex={-1} autoComplete="off" />
       </label>
-      <p className="soft inquiry-note">
-        Wysyłając wiadomość, przekazujesz dane podane w formularzu, żeby artystka mogła odpowiedzieć. Więcej w <a href="/polityka-prywatnosci">polityce prywatności</a>.
-      </p>
+      <div className="inquiry-notes">
+        <p className="soft inquiry-note">
+          Wysyłając wiadomość, przekazujesz dane podane w formularzu, żeby artystka mogła odpowiedzieć. Więcej w <a href="/polityka-prywatnosci">polityce prywatności</a>.
+        </p>
+        <p className="soft inquiry-note">
+          Ta strona jest chroniona przez reCAPTCHA. Obowiązują <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Polityka prywatności</a> i <a href="https://policies.google.com/terms" rel="noopener noreferrer">Warunki korzystania z usług</a> Google.
+        </p>
+      </div>
+      {consent !== "granted" && (
+        <p className="inquiry-consent" id="inquiry-consent">
+          Wysyłka wiadomości wymaga zgody na Google reCAPTCHA, która chroni formularz przed spamem i zapisuje cookies. Szczegóły w <a href="/polityka-prywatnosci#cookies">polityce prywatności</a>.
+        </p>
+      )}
       <div className="inquiry-actions">
-        <button type="submit" className="btn" disabled={status === "sending"}>
-          {status === "sending" ? "Wysyłanie…" : "Wyślij wiadomość"}
-        </button>
+        {consent === "granted" ? (
+          <button type="submit" className="btn" disabled={status === "sending"}>
+            {status === "sending" ? "Wysyłanie…" : "Wyślij wiadomość"}
+          </button>
+        ) : (
+          // Zapisuje zgodę i od razu wysyła (requestSubmit uruchamia też walidację pól).
+          <button
+            type="button"
+            className="btn"
+            aria-describedby="inquiry-consent"
+            onClick={(e) => {
+              const form = e.currentTarget.form;
+              saveConsent("granted");
+              setConsent("granted");
+              loadRecaptcha()?.catch(() => {});
+              setTimeout(() => form?.requestSubmit(), 0);
+            }}
+          >
+            Zgadzam się i chcę wysłać
+          </button>
+        )}
         {status === "error" && (
           <p className="inquiry-error" role="alert">
             {error}

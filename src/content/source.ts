@@ -349,35 +349,46 @@ export const contentPages: Record<string, ContentPage> = {
 // Dane administratora: jeśli „Vanessa Pol-Zaborowska” to pseudonim, wpisz tu imię i nazwisko lub firmę (z adresem i NIP-em).
 export const privacyPolicy: PrivacyPolicy = {
   updated: "8 listopada 2026",
-  intro: "Ta strona to wizytówka artystki. Ma formularz kontaktowy, ale nie ma kont ani sklepu i nie śledzi odwiedzających. Poniżej znajdziesz informację, jakie dane mogą trafić do artystki i co się z nimi dzieje.",
+  intro: "Ta strona to wizytówka artystki. Ma formularz kontaktowy, ale nie ma kont ani sklepu i nie śledzi odwiedzających. Jedyne cookies pojawiają się przy formularzu, i to tylko za Twoją zgodą. Poniżej znajdziesz informację, jakie dane mogą trafić do artystki i co się z nimi dzieje.",
   sections: [
     { id: "administrator", title: "Kto jest administratorem danych", body: [
       "Administratorem Twoich danych jest Vanessa Pol-Zaborowska.",
-      "Kontakt w sprawie danych: przez formularz w zakładce Kontakt.",
+      "Kontakt w sprawie danych: przez formularz w zakładce Kontakt albo wiadomością na profilu artystki na Instagramie lub Facebooku (linki na dole każdej strony). Do wysłania formularza potrzebna jest zgoda na Google reCAPTCHA, a wiadomość przez Instagram lub Facebook jej nie wymaga.",
     ] },
     { id: "dane", title: "Jakie dane i skąd", items: [
       "Gdy piszesz do artystki przez formularz kontaktowy: Twój adres e-mail, imię i nazwisko oraz treść wiadomości (w formularzu także wybrana sprawa i tytuł obrazu). Przy obrazie na zamówienie także zdjęcia i informacje, które przekażesz, na przykład zdjęcia miejsca, które ma się znaleźć na obrazie.",
+      "Gdy zgodzisz się na Google reCAPTCHA i wysyłasz wiadomość przez formularz: dane techniczne o Twojej przeglądarce i urządzeniu (m.in. adres IP, ustawienia przeglądarki, sposób korzystania ze strony) oraz cookies Google. Zbiera je Google, żeby ocenić, czy wiadomość wysyła człowiek, a nie automat.",
       "Gdy oglądasz stronę: serwer hostingu zapisuje techniczne dane o wizycie, takie jak adres IP, typ przeglądarki, czas wejścia i adres podstrony. Artystka z nich nie korzysta. Służą one dostawcy hostingu do działania i ochrony strony.",
     ] },
     { id: "cel", title: "Po co i na jakiej podstawie", items: [
       "Odpowiedź na wiadomość i rozmowa o obrazie, zamówieniu, zajęciach lub spotkaniu: żeby odpowiedzieć na Twoje zapytanie i, jeśli się umówimy, wykonać zamówienie (art. 6 ust. 1 lit. b RODO) albo w uzasadnionym interesie administratora prowadzenia korespondencji (art. 6 ust. 1 lit. f RODO).",
       "Rozliczenia, jeśli dojdzie do sprzedaży lub zamówienia: ze względu na obowiązki wynikające z przepisów podatkowych i rachunkowych (art. 6 ust. 1 lit. c RODO).",
       "Logi serwera: w uzasadnionym interesie zapewnienia działania i bezpieczeństwa strony (art. 6 ust. 1 lit. f RODO).",
+      "Google reCAPTCHA: ochrona formularza przed spamem i nadużyciami. Skrypt Google i jego cookies włączają się wyłącznie po Twojej zgodzie (art. 6 ust. 1 lit. a RODO oraz art. 399 ustawy Prawo komunikacji elektronicznej). Zgodę możesz w każdej chwili wycofać, co nie wpływa na zgodność z prawem wcześniejszego przetwarzania.",
     ] },
     { id: "jak-dlugo", title: "Jak długo", items: [
       "Korespondencja jest przechowywana do czasu zakończenia sprawy. Jeśli doszło do zamówienia, jest przechowywana do upływu terminów przedawnienia roszczeń i okresów wymaganych przez przepisy podatkowe.",
       "Zdjęcia przesłane do obrazu na zamówienie są usuwane po jego wykonaniu, chyba że umówicie się inaczej.",
       "Logi serwera są przechowywane przez krótki czas określony przez dostawcę hostingu.",
+      "Dane zebrane przez reCAPTCHA i cookies Google są przechowywane przez okres określony przez Google. Cookies możesz usunąć w ustawieniach przeglądarki.",
+      "Twój wybór w sprawie zgody na reCAPTCHA (wraz z datą) zostaje w pamięci Twojej przeglądarki, dopóki go nie zmienisz albo nie wyczyścisz danych strony.",
     ] },
     { id: "odbiorcy", title: "Komu dane są przekazywane", items: [
       "Vercel Inc.: hosting strony (logi serwera).",
       "Google: dostawca poczty e-mail artystki (Gmail).",
+      "Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irlandia), a za jej pośrednictwem Google LLC: usługa reCAPTCHA, tylko jeśli się na nią zgodzisz. Zasady Google: policies.google.com/privacy i policies.google.com/terms.",
       "Resend (Plus Five Five Inc.): usługa, która dostarcza wiadomości z formularza na skrzynkę artystki. Formularz nie zapisuje wiadomości na stronie.",
     ], after: [
-      "Wszystkie te firmy mają siedziby w USA. Przekazanie danych odbywa się z zabezpieczeniami wymaganymi przez RODO, np. na podstawie standardowych klauzul umownych lub programu EU-US Data Privacy Framework. Twoje dane nie są sprzedawane ani udostępniane nikomu innemu.",
+      "Wszystkie te firmy mają siedziby w USA albo przekazują dane do spółek w USA. Przekazanie danych odbywa się z zabezpieczeniami wymaganymi przez RODO, np. na podstawie standardowych klauzul umownych lub programu EU-US Data Privacy Framework. Twoje dane nie są sprzedawane ani udostępniane nikomu innemu.",
     ] },
     { id: "cookies", title: "Pliki cookies", body: [
-      "Strona nie używa plików cookies ani narzędzi analitycznych. Jedyna informacja zapisywana w Twojej przeglądarce to wybór jasnego lub ciemnego wyglądu strony, jeśli go zmienisz. Zostaje ona tylko na Twoim urządzeniu.",
+      "Strona nie używa narzędzi analitycznych ani reklamowych. Jedyne cookies to cookies usługi Google reCAPTCHA, która chroni formularz kontaktowy przed spamem. Ładuje się ona tylko na stronie z formularzem i tylko po Twojej zgodzie. Do tego czasu przeglądarka nie łączy się z serwerami Google.",
+      "O zgodę pyta baner na stronie Kontakt. Możesz ją przyjąć albo odrzucić, oba wybory są równie proste. Bez zgody strona działa normalnie, ale wiadomości nie wyślesz przez formularz. Możesz wtedy napisać do artystki przez jej profil na Instagramie lub Facebooku.",
+      "Swoją decyzję zmienisz lub wycofasz w każdej chwili przyciskiem „Ustawienia cookies” na dole każdej strony. Po wycofaniu zgody strona przeładuje się bez skryptu Google. Cookies, które Google zapisało wcześniej, usuniesz w ustawieniach przeglądarki.",
+    ], items: [
+      "Cookies Google reCAPTCHA (np. _GRECAPTCHA): ochrona formularza przed automatami, ustawiane przez Google, tylko po zgodzie.",
+      "Zapis wyboru zgody (consent-recaptcha) w pamięci przeglądarki: żeby nie pytać ponownie. To nie jest cookie i nie trafia do nikogo.",
+      "Zapis wyglądu strony (theme) w pamięci przeglądarki: jasny lub ciemny motyw, jeśli go zmienisz. Zostaje tylko na Twoim urządzeniu.",
     ] },
     { id: "linki", title: "Linki do innych serwisów", body: [
       "Na stronie są linki do profili artystki na Instagramie i Facebooku. Po kliknięciu przechodzisz do tych serwisów i obowiązują Cię ich zasady prywatności.",
@@ -389,11 +400,11 @@ export const privacyPolicy: PrivacyPolicy = {
       "do sprzeciwu wobec przetwarzania,",
       "do przeniesienia danych.",
     ], after: [
-      "Wystarczy napisać przez formularz kontaktowy. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).",
+      "Wystarczy napisać przez formularz kontaktowy albo przez profil artystki na Instagramie lub Facebooku. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa, uodo.gov.pl).",
       "Podanie danych jest dobrowolne, ale bez adresu e-mail artystka nie będzie mogła Ci odpowiedzieć.",
     ] },
     { id: "zmiany", title: "Zmiany", body: [
-      "Jeśli coś się zmieni, na przykład dojdzie sklep, ta polityka zostanie zaktualizowana.",
+      "Jeśli coś się zmieni, na przykład dojdzie sklep, ta polityka zostanie zaktualizowana. Ostatnia zmiana: dodanie Google reCAPTCHA w formularzu kontaktowym.",
     ] },
   ],
 };
